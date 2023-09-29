@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://co7830btl7ju4"]
+[gd_scene load_steps=2 format=3 uid="uid://co7830btl7ju4"]
+
+[ext_resource type="PackedScene" uid="uid://kv32663idxo7" path="res://Models/spaceship.glb" id="1_ntri4"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="spaceship" parent="." instance=ExtResource("1_ntri4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37895, 0, 2.65701)
