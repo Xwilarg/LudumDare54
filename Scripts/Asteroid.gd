@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name Asteroid
+
 var hp: int = 100
 var target: Node3D
 var move_speed: float = 100
@@ -11,7 +13,14 @@ func _process(delta):
 
 func explode():
 	print("boom")
+	get_node("/root/Root/AsteroidManager")._asteroids.erase(self)
 	self.queue_free()
+
+func take_damage(value: int):
+	hp -= value
+	print("Asteroid take damage, hp left: " + str(hp))
+	if hp <= 0:
+		explode()
 
 func set_target(value: Node3D):
 	target = value
