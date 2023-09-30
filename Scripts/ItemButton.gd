@@ -9,3 +9,7 @@ func _ready():
 
 func _on_pressed():
 	get_node("/root/GameManager").load_item(_curr_card)
+
+func set_card(c: Card):
+	_curr_card = c
+	text = c.name

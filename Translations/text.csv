@@ -2,4 +2,4 @@
 FLAK_NAME;Flak;Canon Antiaérien
 FLAG_DESC;Your usual AA gun;Votre anti-air habituel
 
-EFF_ATK;Damage asteroids;Fait des dégats aux astéroides
+EFF_ATK;Damage asteroids by %1 HP per seconds;Inflige des dégats aux astéroides de %1 PV par secondes

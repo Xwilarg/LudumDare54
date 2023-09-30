@@ -19,9 +19,15 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scenes/GameManager.tscn"
 
+[importer_defaults]
+
+csv_translation={
+"delimiter": 1
+}
+
 [internationalization]
 
-locale/translations=PackedStringArray("res://Translations/data.csv")
+locale/translations=PackedStringArray("res://Translations/text.en.translation", "res://Translations/text.fr.translation")
 
 [rendering]
 
