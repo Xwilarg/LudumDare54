@@ -3,6 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_4yge1"]
 [ext_resource type="JSON" path="res://Cards/MainDeck.json" id="2_wb7kf"]
 
-[node name="GameManager" type="Node"]
+[node name="GameManager" type="Node3D"]
 script = ExtResource("1_4yge1")
 _deck = ExtResource("2_wb7kf")
