@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv47ub7wey2jk"]
+[gd_scene load_steps=4 format=3 uid="uid://dv47ub7wey2jk"]
 
 [ext_resource type="Script" path="res://Scripts/Asteroid.gd" id="1_25mkp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_53jop"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4i1wr"]
 
 [node name="Asteroid" type="Node3D"]
 script = ExtResource("1_25mkp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_53jop")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
 mesh = SubResource("BoxMesh_4i1wr")
+skeleton = NodePath("../../..")

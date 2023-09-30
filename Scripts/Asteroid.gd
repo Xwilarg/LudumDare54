@@ -1,12 +1,16 @@
 extends Node3D
 
+var hp: int = 100
 var target: Node3D
-var move_speed: int = 1.3
-var direction: Vector3
+var move_speed: float = 1.3
+var rotation_speed: float = 30
+var rotation_vec: Vector3
+var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	rotation_vec = Vector3(rng.randf_range(0.1, 1.3), rng.randf_range(0.1, 1.3), rng.randf_range(0.1, 1.3))
+	$RigidBody3D.angular_velocity = rotation_vec*1000
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -14,6 +18,9 @@ func _process(delta):
 	
 	if global_position.is_equal_approx(target.global_position):
 		explode()
+
+func _physic_process(delta):
+	pass
 
 func explode():
 	print("boom")

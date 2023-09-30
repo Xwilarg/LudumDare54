@@ -22,11 +22,13 @@ func _process(delta):
 
 func _on_spawn_timer_timeout():
 	pass # Replace with function body.
-	$SpawnTimer.wait_time = rng.randf_range(2, 5)
+	$SpawnTimer.wait_time = rng.randi_range(2, 5)
 	new_asteroid()
 	
 func new_asteroid():
 	var asteroid = _prefab_Asteroid.instantiate()
-	asteroid.position = spaceship.position + Vector3(-10, 0, 10)
+	var start_position = Vector3(rng.randf_range(-10, 10), rng.randf_range(-10, 10), rng.randf_range(-10, 10))
+	
+	asteroid.position = spaceship.position + start_position
 	asteroid.set_target(spaceship)
 	add_child(asteroid)
