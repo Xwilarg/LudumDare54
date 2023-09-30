@@ -6,3 +6,4 @@
 [node name="Asteroid" instance=ExtResource("1_cyt7o")]
 
 [node name="Asteroid_model" parent="RigidBody3D/CollisionShape3D" index="1" instance=ExtResource("2_nhhgg")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
