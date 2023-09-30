@@ -18,7 +18,6 @@ func explode():
 
 func take_damage(value: int):
 	hp -= value
-	print("Asteroid take damage, hp left: " + str(hp))
 	if hp <= 0:
 		explode()
 

@@ -1,7 +1,10 @@
-[{
-	"name": "flak",
-	"model": "size2Guns",
-	"effects": {
-		"ATK": 1
+[
+	{
+		"name": "flak",
+		"model": "size2Guns",
+		"size": "S2",
+		"effects": {
+			"ATK": 1
+		}
 	}
-}]
+]

@@ -8,6 +8,8 @@ var shape: PackedStringArray
 var tile_map: Array
 var tile_size: int
 
+var card: Card
+
 func _ready():
 	for line in shape:
 		var row = []
