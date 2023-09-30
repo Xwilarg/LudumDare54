@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kv32663idxo7" path="res://Models/spaceship.glb" id="1_ntri4"]
 [ext_resource type="Script" path="res://Scripts/Spaceship.gd" id="2_fnlbh"]
-[ext_resource type="PackedScene" uid="uid://bm4ftyrcxcc58" path="res://Scenes/GridManager.tscn" id="2_obdl2"]
+[ext_resource type="PackedScene" uid="uid://b4fjvv8fuc723" path="res://Scenes/GridManager.tscn" id="2_obdl2"]
 [ext_resource type="Script" path="res://Scripts/AItem.gd" id="2_yq2f1"]
 [ext_resource type="Script" path="res://Scripts/ItemButton.gd" id="3_h2t67"]
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="3_u2myk"]
@@ -25,6 +25,7 @@ XXXXX
 .XXX."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spaceship"]
+
 [node name="Grid2" type="Node3D" parent="spaceship"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
 script = ExtResource("3_u2myk")

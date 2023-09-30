@@ -44,7 +44,7 @@ func is_shape_placable(shape: PackedStringArray, shape_position_index: Vector2i,
 	return false
 
 # TODO
-func item_has_element_at_position(pos: Vector2i, position_index: Vector2i):
+func item_has_element_at_position(pos: Vector2i, position_index: Vector2i) -> bool:
 	var placed_item: AItem = placed_items[pos]
 	
 	return false
