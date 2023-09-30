@@ -32,4 +32,5 @@ func _input(event):
 		var query = PhysicsRayQueryParameters3D.create(from, to)
 
 		var result = space_state.intersect_ray(query)
+
 		print(result)
