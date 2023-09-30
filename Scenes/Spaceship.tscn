@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci5aldt6ohxr5"]
+
+[ext_resource type="PackedScene" uid="uid://kv32663idxo7" path="res://Models/spaceship.glb" id="1_pfcka"]
+
+[node name="spaceship" type="Node3D"]
+
+[node name="spaceshipModel" parent="." instance=ExtResource("1_pfcka")]
