@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://gneiifi7va21"]
+
+[ext_resource type="PackedScene" uid="uid://c43dkw32vf6jb" path="res://Models/asteroid.glb" id="1_6iiu1"]
+
+[node name="Asteroid_model1" type="Node3D"]
+
+[node name="asteroid" parent="." instance=ExtResource("1_6iiu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.23837, 0)
