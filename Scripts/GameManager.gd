@@ -1,10 +1,11 @@
 extends Node
 
-@export var buttons: Array[ItemButton]
+var buttons: Array[ItemButton]
 @export var deck: JSON
 
 func _ready():
 	var card = Card.new(deck.data[0])
+	buttons[0]._curr_card = card
 
-func load_item(item: AItem):
-	print("hi")
+func load_item(item: Card):
+	print(item.name)
