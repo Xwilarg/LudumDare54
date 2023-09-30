@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://co7830btl7ju4"]
+[gd_scene load_steps=6 format=3 uid="uid://co7830btl7ju4"]
 
 [ext_resource type="PackedScene" uid="uid://kv32663idxo7" path="res://Models/spaceship.glb" id="1_ntri4"]
 [ext_resource type="PackedScene" uid="uid://bm4ftyrcxcc58" path="res://Scenes/GridManager.tscn" id="2_obdl2"]
 [ext_resource type="Script" path="res://Scripts/ItemButton.gd" id="3_h2t67"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="3_kij4o"]
+[ext_resource type="JSON" path="res://Cards/MainDeck.json" id="5_5tq6t"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -31,5 +33,10 @@ offset_right = 25.0
 offset_bottom = 25.0
 text = "Test"
 script = ExtResource("3_h2t67")
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("buttons")]
+script = ExtResource("3_kij4o")
+buttons = [NodePath("../UI/ItemButton")]
+deck = ExtResource("5_5tq6t")
 
 [connection signal="pressed" from="UI/ItemButton" to="UI/ItemButton" method="_on_pressed"]
