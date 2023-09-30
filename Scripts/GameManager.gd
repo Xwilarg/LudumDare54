@@ -35,7 +35,8 @@ func _process(delta):
 		var from = camera3d.project_ray_origin(m_pos)
 		var to = from + camera3d.project_ray_normal(m_pos) * 100000.0
 		var query = PhysicsRayQueryParameters3D.create(from, to)
-		query.collision_mask = 2
+		query.collision_mask |= (1 << 1)
+		query.collision_mask |= (1 << 2)
 
 		var result = space_state.intersect_ray(query)
 		if len(result) > 0:
