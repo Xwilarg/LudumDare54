@@ -31,13 +31,16 @@ func map(callable: Callable):
 
 
 func get_grid_center_global_position(slot_size: Vector3, inter_space: float) -> Vector3:
-	return self.global_position + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(ncols/2, 0, nrows/2)
+	return self.global_position # + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(ncols/2, 0, nrows/2)
 
 
 func world_position_to_grid_position(world_position: Vector3, slot_size: Vector3, inter_space: float) -> Vector2i:
-	var world_relative_coordinate = world_position - self.global_position
+	var origin = self.global_position - (Vector3(inter_space, 0, inter_space) * Vector3(ncols - 1, 0, nrows - 1) + Vector3(ncols , 0, nrows ) * slot_size) / 2
+	var world_relative_coordinate = world_position - origin
+	
 	var xdim = world_relative_coordinate[2] / (slot_size[2] + inter_space)
 	var ydim = world_relative_coordinate[0] / (slot_size[0] + inter_space)
+	
 	if xdim >= nrows:
 		return Vector2i(-1, -1)
 	if ydim >= ncols:

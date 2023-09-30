@@ -15,8 +15,8 @@ func _ready():
 func instanciate_slots(x: float, z: float, xLen: int, zLen: int, grid_local_position: Vector3):
 	var elem = _prefab.instantiate()
 	elem.global_position = Vector3(
-		grid_local_position.x + x + (_space * x) - xLen / 2.0,
+		grid_local_position.x - (xLen + (xLen - 1) * _space) / 2.0 + x + (_space * x),
 		grid_local_position.y,
-		grid_local_position.z + z + (_space * z) - zLen / 2.0
+		grid_local_position.z - (zLen + (zLen - 1) * _space) / 2.0 + z + (_space * z) 
 	)
 	add_child(elem)
