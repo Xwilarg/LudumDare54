@@ -1,11 +1,18 @@
 extends Node
 
-var buttons: Array[ItemButton]
-@export var deck: JSON
+var _buttons: Array[ItemButton]
+@export var _deck: JSON
 
-func _ready():
-	var card = Card.new(deck.data[0])
-	buttons[0]._curr_card = card
+var _cards: Array[Card]
 
-func load_item(item: Card):
-	print(item.name)
+func _init_cards():
+	_cards.append(Card.new(_deck.data[0]))
+
+func subscribe_button(b: ItemButton) -> void:
+	if len(_cards) == 0:
+		_init_cards()
+	b._curr_card = _cards[0]
+	_buttons.append(b)
+
+func load_item(item: Card) -> void:
+	pass

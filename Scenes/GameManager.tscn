@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqyxu7otnpghp"]
+[gd_scene load_steps=3 format=3 uid="uid://4m1pbgboi1jb"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_4yge1"]
 [ext_resource type="JSON" path="res://Cards/MainDeck.json" id="2_wb7kf"]
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("buttons")]
+[node name="GameManager" type="Node"]
 script = ExtResource("1_4yge1")
-buttons = [NodePath("")]
-deck = ExtResource("2_wb7kf")
+_deck = ExtResource("2_wb7kf")
