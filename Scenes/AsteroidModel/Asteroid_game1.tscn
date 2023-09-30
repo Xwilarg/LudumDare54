@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://crf586nrf2q3i"]
+
+[ext_resource type="PackedScene" uid="uid://dv47ub7wey2jk" path="res://Scenes/Asteroid.tscn" id="1_yclce"]
+[ext_resource type="PackedScene" uid="uid://gneiifi7va21" path="res://Scenes/AsteroidModel/Asteroid_model1.tscn" id="2_b3sih"]
+
+[node name="Asteroid" instance=ExtResource("1_yclce")]
+
+[node name="Asteroid_model" parent="RigidBody3D/CollisionShape3D" index="1" instance=ExtResource("2_b3sih")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

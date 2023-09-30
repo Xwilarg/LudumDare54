@@ -37,6 +37,7 @@ func _input(event):
 #		print(result.collider.global_position)
 		
 		if len(result) > 0:
+			print(result)
 			for gm in _gridManager:
 				for grid in gm.grid_ref:
 					if grid.on_grid(result.collider.global_position, Vector3.ONE, gm._space):

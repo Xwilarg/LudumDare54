@@ -7,7 +7,7 @@ var rotation_speed: float = PI
 
 func _process(delta):
 	$RigidBody3D.linear_velocity = (target.global_position - global_position).normalized() * move_speed * delta
-	$RigidBody3D/CollisionShape3D/MeshInstance3D.rotate_x(rotation_speed * delta)
+	$RigidBody3D/CollisionShape3D/Asteroid_model.rotate_x(rotation_speed * delta)
 
 func explode():
 	print("boom")
