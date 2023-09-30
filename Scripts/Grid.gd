@@ -30,18 +30,20 @@ func map(callable: Callable):
 				callable.call(x, y, ncols, nrows, self.position)
 
 
-func get_grid_center_global_position(item_size: Vector3) -> Vector3:
-	return self.global_position + item_size * Vector3(ncols/2, 0, nrows/2)
+func get_grid_center_global_position(item_size: Vector3, inter_space: float) -> Vector3:
+	return self.global_position + (item_size + Vector3(inter_space, 0, inter_space)) * Vector3(ncols/2, 0, nrows/2)
 
 
 # TODO
-func world_position_to_grid_position(pos: Vector3) -> Vector2i:
+func world_position_to_grid_position(pos: Vector3, slot_size: Vector3, inter_space: float) -> Vector2i:
 	# return back the grid (x, y) index position
 	return Vector2i(-1, -1)
+
 
 # TODO
 func is_shape_placable(shape: PackedStringArray, shape_position_index: Vector2i, position_index: Vector2i) -> bool:
 	return false
+
 
 # TODO
 func item_has_element_at_position(pos: Vector2i, position_index: Vector2i) -> bool:
@@ -58,8 +60,8 @@ func add_item_at_position(new_item: AItem, shape_position_index: Vector2i, posit
 	placed_items[position_index] = new_item
 
 
-func try_place_item(item: AItem, shape_position_index: Vector2i, mouse_position: Vector3) -> bool:
-	var grid_position: Vector2i = world_position_to_grid_position(mouse_position)
+func try_place_item(item: AItem, shape_position_index: Vector2i, world_position: Vector3, slot_size: Vector3, inter_space: float) -> bool:
+	var grid_position: Vector2i = world_position_to_grid_position(world_position, slot_size, inter_space)
 	# check if item is placable:
 	if not is_shape_placable(item.shape, shape_position_index, grid_position):
 		return false
