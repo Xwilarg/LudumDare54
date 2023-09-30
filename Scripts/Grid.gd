@@ -30,14 +30,18 @@ func map(callable: Callable):
 				callable.call(x, y, ncols, nrows, self.position)
 
 
-func get_grid_center_global_position(item_size: Vector3, inter_space: float) -> Vector3:
-	return self.global_position + (item_size + Vector3(inter_space, 0, inter_space)) * Vector3(ncols/2, 0, nrows/2)
+func get_grid_center_global_position(slot_size: Vector3, inter_space: float) -> Vector3:
+	return self.global_position + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(ncols/2, 0, nrows/2)
 
 
 # TODO
-func world_position_to_grid_position(pos: Vector3, slot_size: Vector3, inter_space: float) -> Vector2i:
+func world_position_to_grid_position(world_position: Vector3, slot_size: Vector3, inter_space: float) -> Vector2i:
 	# return back the grid (x, y) index position
 	return Vector2i(-1, -1)
+
+
+func grid_position_to_world_position(index_position: Vector2i, slot_size: Vector3, inter_space: float) -> Vector3:
+	return self.global_position + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(index_position[1], 0, index_position[0])
 
 
 # TODO
