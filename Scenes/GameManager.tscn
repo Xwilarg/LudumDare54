@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvcrpa78evb0a"]
+[gd_scene load_steps=3 format=3 uid="uid://4m1pbgboi1jb"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_4yge1"]
 [ext_resource type="JSON" path="res://Cards/MainDeck.json" id="2_wb7kf"]
