@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://co7830btl7ju4"]
+[gd_scene load_steps=7 format=3 uid="uid://co7830btl7ju4"]
 
 [ext_resource type="PackedScene" uid="uid://kv32663idxo7" path="res://Models/spaceship.glb" id="1_ntri4"]
 [ext_resource type="PackedScene" uid="uid://bm4ftyrcxcc58" path="res://Scenes/GridManager.tscn" id="2_obdl2"]
 [ext_resource type="Script" path="res://Scripts/AItem.gd" id="2_yq2f1"]
 [ext_resource type="Script" path="res://Scripts/ItemButton.gd" id="3_h2t67"]
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="3_u2myk"]
+[ext_resource type="Script" path="res://Scripts/AsteroidManager.gd" id="6_r6njy"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -45,4 +46,12 @@ offset_bottom = 25.0
 text = "Test"
 script = ExtResource("3_h2t67")
 
+[node name="AsteroidManager" type="Node" parent="." node_paths=PackedStringArray("spaceship")]
+script = ExtResource("6_r6njy")
+spaceship = NodePath("../spaceship")
+
+[node name="SpawnTimer" type="Timer" parent="AsteroidManager"]
+wait_time = 5.0
+
 [connection signal="pressed" from="UI/ItemButton" to="UI/ItemButton" method="_on_pressed"]
+[connection signal="timeout" from="AsteroidManager/SpawnTimer" to="AsteroidManager" method="_on_spawn_timer_timeout"]

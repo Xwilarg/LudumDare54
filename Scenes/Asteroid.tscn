@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv47ub7wey2jk"]
+
+[ext_resource type="Script" path="res://Scripts/Asteroid.gd" id="1_25mkp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4i1wr"]
+
+[node name="Asteroid" type="Node3D"]
+script = ExtResource("1_25mkp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4i1wr")
