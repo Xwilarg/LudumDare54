@@ -12,8 +12,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.657)
 
 [node name="AItem_test" type="Node3D" parent="spaceship"]
 script = ExtResource("2_yq2f1")
-shape = "XXX.
-.XXX"
 
 [node name="Grid" type="Node3D" parent="spaceship"]
 script = ExtResource("3_u2myk")

@@ -1,7 +1,6 @@
 extends Node3D
 
 const _prefab = preload("res://Scenes/Slot.tscn")
-@export_multiline var _data: String
 const _space = .1
 
 @export var grid_ref: Node
