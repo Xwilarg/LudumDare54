@@ -2,22 +2,12 @@ extends Node3D
 
 var hp: int = 100
 var target: Node3D
-var move_speed: float = 1.3
-var rotation_speed: float = PI/250
-var rotation_vec: Vector3
+var move_speed: float = 100
+var rotation_speed: float = PI
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var rng = get_node("/root/GameManager").rng
-	rotation_vec = Vector3(rng.randf_range(0.1, 1.3), rng.randf_range(0.1, 1.3), rng.randf_range(0.1, 1.3)) * 1000
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position = position.move_toward(target.position, delta*move_speed)
-	rotate_x(rotation_speed)
-	
-	if global_position.is_equal_approx(target.global_position):
-		explode()
+	$RigidBody3D.linear_velocity = (target.global_position - global_position).normalized() * move_speed * delta
+	$RigidBody3D/CollisionShape3D/MeshInstance3D.rotate_x(rotation_speed * delta)
 
 func explode():
 	print("boom")
@@ -25,3 +15,7 @@ func explode():
 
 func set_target(value: Node3D):
 	target = value
+
+
+func _on_rigid_body_3d_body_entered(body):
+	print(body)

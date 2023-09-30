@@ -30,6 +30,8 @@ func _input(event):
 		var from = camera3d.project_ray_origin(m_pos)
 		var to = from + camera3d.project_ray_normal(m_pos) * 100000.0
 		var query = PhysicsRayQueryParameters3D.create(from, to)
+		query.collision_mask = 2
 
 		var result = space_state.intersect_ray(query)
+
 		print(result)
