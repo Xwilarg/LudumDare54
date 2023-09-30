@@ -1,11 +1,9 @@
 extends Node3D
 
-#var buttons: Array[ItemButton]
-@export var deck: JSON
+var _buttons: Array[ItemButton]
+@export var _deck: JSON
 
-func _ready():
-	var card = Card.new(deck.data[0])
-	#buttons[0]._curr_card = card
+var _cards: Array[Card]
 
 var _selected_item: Card
 
