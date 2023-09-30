@@ -17,5 +17,3 @@ shape = SubResource("SphereShape3D_53jop")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
 mesh = SubResource("BoxMesh_4i1wr")
 skeleton = NodePath("../../..")
-
-[connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]

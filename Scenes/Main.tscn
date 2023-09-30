@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://co7830btl7ju4"]
 
-[ext_resource type="PackedScene" uid="uid://ci5aldt6ohxr5" path="res://Scenes/Spaceship.tscn" id="1_em1mt"]
+[ext_resource type="PackedScene" path="res://Scenes/Spaceship.tscn" id="1_em1mt"]
 [ext_resource type="Script" path="res://Scripts/ItemButton.gd" id="3_h2t67"]
 [ext_resource type="Script" path="res://Scripts/AsteroidManager.gd" id="6_r6njy"]
 
