@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://co7830btl7ju4"]
+[gd_scene load_steps=8 format=3 uid="uid://co7830btl7ju4"]
 
 [ext_resource type="PackedScene" uid="uid://ci5aldt6ohxr5" path="res://Scenes/Spaceship.tscn" id="1_em1mt"]
 [ext_resource type="Script" path="res://Scripts/ItemButton.gd" id="3_h2t67"]
+[ext_resource type="Texture2D" uid="uid://dkuhgv0ht7mpx" path="res://skybox.png" id="4_t2iu0"]
 [ext_resource type="Script" path="res://Scripts/AsteroidManager.gd" id="6_r6njy"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mkgcy"]
+panorama = ExtResource("4_t2iu0")
+
+[sub_resource type="Sky" id="Sky_53rbq"]
+sky_material = SubResource("PanoramaSkyMaterial_mkgcy")
+
+[sub_resource type="Environment" id="Environment_jm20i"]
+background_mode = 2
+sky = SubResource("Sky_53rbq")
 
 [node name="Root" type="Node3D"]
 
@@ -37,6 +48,9 @@ spaceship = NodePath("../spaceship")
 
 [node name="SpawnTimer" type="Timer" parent="AsteroidManager"]
 wait_time = 5.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jm20i")
 
 [connection signal="pressed" from="UI/ItemButton" to="UI/ItemButton" method="_on_pressed"]
 [connection signal="timeout" from="AsteroidManager/SpawnTimer" to="AsteroidManager" method="_on_spawn_timer_timeout"]
