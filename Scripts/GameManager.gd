@@ -6,14 +6,16 @@ var _buttons: Array[ItemButton]
 var _cards: Array[Card]
 
 var _selected_item: Card
+var rng = RandomNumberGenerator.new()
 
 func _init_cards():
-	_cards.append(Card.new(_deck.data[0]))
+	for card in _deck.data:
+		_cards.append(Card.new(card))
 
 func subscribe_button(b: ItemButton) -> void:
 	if len(_cards) == 0:
 		_init_cards()
-	b._curr_card = _cards[0]
+	b._curr_card = _cards[rng.randi_range(0, len(_cards))]
 	_buttons.append(b)
 
 func load_item(item: Card) -> void:
