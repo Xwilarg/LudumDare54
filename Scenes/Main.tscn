@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="3_u2myk"]
 [ext_resource type="Script" path="res://Scripts/AsteroidManager.gd" id="6_r6njy"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Root" type="Node3D"]
 
 [node name="spaceship" parent="." instance=ExtResource("1_ntri4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.657)
