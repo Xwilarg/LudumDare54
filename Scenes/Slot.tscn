@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs6tx6nupfxay"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gpg7j"]
+
+[node name="Slot" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_gpg7j")
+skeleton = NodePath("../..")
