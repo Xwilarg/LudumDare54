@@ -1,11 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm4ftyrcxcc58"]
+[gd_scene load_steps=2 format=3 uid="uid://b4fjvv8fuc723"]
 
 [ext_resource type="Script" path="res://Scripts/GridManager.gd" id="1_3uxqg"]
 
 [node name="GridManager" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.66194, 1.73878)
 script = ExtResource("1_3uxqg")
-_data = ".XXX.
-XXXXX
-XXXXX
-.XXX."

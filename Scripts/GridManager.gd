@@ -1,20 +1,18 @@
 extends Node3D
 
 const _prefab = preload("res://Scenes/Slot.tscn")
-@export_multiline var _data: String
 const _space = .1
 
+@export var grid_ref: Node
+
 func _ready():
-	var lines = _data.replace("\r", "").split("\n")
-	var zLen = len(lines)
-	for z in range(zLen):
-		var xLen = len(lines[z])
-		for i in range(xLen):
-			if (lines[z][i] == 'X'):
-				var elem = _prefab.instantiate()
-				elem.global_position = Vector3(
-					global_position.x + i + (_space * i) - xLen / 2.0,
-					global_position.y,
-					global_position.z + z + (_space * z) - zLen / 2.0
-				)
-				add_child(elem)
+	grid_ref.map(Callable(self, "instanciate_slots"))
+
+func instanciate_slots(x: float, y: float, xLen: int, yLen: int, grid_position: Vector3):
+	var elem = _prefab.instantiate()
+	elem.global_position = Vector3(
+		grid_position.x + global_position.x + x + (_space * x) - xLen / 2.0,
+		grid_position.y + global_position.y,
+		grid_position.z + global_position.y + y + (_space * y) - yLen / 2.0
+	)
+	add_child(elem)
