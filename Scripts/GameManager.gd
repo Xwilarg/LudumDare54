@@ -15,4 +15,4 @@ func subscribe_button(b: ItemButton) -> void:
 	_buttons.append(b)
 
 func load_item(item: Card) -> void:
-	pass
+	print(item.name)
