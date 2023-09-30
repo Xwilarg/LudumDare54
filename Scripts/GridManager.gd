@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name GridManager
+
 const _prefab = preload("res://Scenes/Slot.tscn")
 const _space = .1
 
@@ -8,6 +10,7 @@ const _space = .1
 func _ready():
 	for grid in grid_ref:
 		grid.map(Callable(self, "instanciate_slots"))
+	get_node("/root/GameManager")._gridManager.append(self)
 
 func instanciate_slots(x: float, z: float, xLen: int, zLen: int, grid_local_position: Vector3):
 	var elem = _prefab.instantiate()

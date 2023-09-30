@@ -34,10 +34,23 @@ func get_grid_center_global_position(slot_size: Vector3, inter_space: float) -> 
 	return self.global_position + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(ncols/2, 0, nrows/2)
 
 
-# TODO
 func world_position_to_grid_position(world_position: Vector3, slot_size: Vector3, inter_space: float) -> Vector2i:
-	# return back the grid (x, y) index position
-	return Vector2i(-1, -1)
+	var world_relative_coordinate = world_position - self.global_position
+	var xdim = world_relative_coordinate[2] / (slot_size[2] + inter_space)
+	var ydim = world_relative_coordinate[0] / (slot_size[0] + inter_space)
+	if xdim >= nrows:
+		return Vector2i(-1, -1)
+	if ydim >= ncols:
+		return Vector2i(-1, -1)
+	if xdim < 0:
+		return Vector2i(-1, -1)
+	if ydim < 0:
+		return Vector2i(-1, -1)
+	return Vector2i(xdim, ydim)
+
+
+func on_grid(world_position: Vector3, slot_size: Vector3, inter_space: float) -> bool:
+	return world_position_to_grid_position(world_position, slot_size, inter_space)[0] > -1
 
 
 func grid_position_to_world_position(index_position: Vector2i, slot_size: Vector3, inter_space: float) -> Vector3:
@@ -46,21 +59,28 @@ func grid_position_to_world_position(index_position: Vector2i, slot_size: Vector
 
 # TODO
 func is_shape_placable(shape: PackedStringArray, shape_position_index: Vector2i, position_index: Vector2i) -> bool:
-	return false
+	# TODO: 
+	# shape will be only ["X"] for now
+	# shape_position_index is then Vector2i(0, 0)
+	# sooooooooooooo => return true if position_index is X ...
+	return self.shape[position_index[0]][position_index[1]] == "X"
 
 
 # TODO
-func item_has_element_at_position(pos: Vector2i, position_index: Vector2i) -> bool:
-	var placed_item: AItem = placed_items[pos]
+func item_has_element_at_position(item_position: Vector2i, position_index: Vector2i) -> bool:
+	# TODO:
+	# items shape will be only ["X"] for now
+	# soooooo => return pos == position_index
+	var placed_item: AItem = placed_items[item_position]
 	
-	return false
+	return item_position == position_index
 
 
 func add_item_at_position(new_item: AItem, shape_position_index: Vector2i, position_index: Vector2i) -> void:
 	# for each items that have at least one element of their shape inside the shape, we remove it
-	for pos in placed_items.duplicate():
-		if item_has_element_at_position(pos, position_index):
-			placed_items.erase(pos)
+	for item_position in placed_items.duplicate():
+		if item_has_element_at_position(item_position, position_index):
+			placed_items.erase(item_position)
 	placed_items[position_index] = new_item
 
 
