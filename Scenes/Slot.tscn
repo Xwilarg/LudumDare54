@@ -1,16 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs6tx6nupfxay"]
+[gd_scene load_steps=2 format=3 uid="uid://bs6tx6nupfxay"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_4hrhs"]
+[sub_resource type="BoxMesh" id="BoxMesh_gpg7j"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_6w6w8"]
-
-[node name="Slot" type="Node3D"]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("SphereShape3D_4hrhs")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
-mesh = SubResource("BoxMesh_6w6w8")
-skeleton = NodePath("../../..")
+[node name="Slot" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_gpg7j")
+skeleton = NodePath("../..")
