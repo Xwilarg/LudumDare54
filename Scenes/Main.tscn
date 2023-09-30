@@ -1,12 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://co7830btl7ju4"]
+[gd_scene load_steps=5 format=3 uid="uid://co7830btl7ju4"]
 
 [ext_resource type="PackedScene" uid="uid://kv32663idxo7" path="res://Models/spaceship.glb" id="1_ntri4"]
-[ext_resource type="PackedScene" uid="uid://bm4ftyrcxcc58" path="res://Scenes/GridManager.tscn" id="2_obdl2"]
+[ext_resource type="PackedScene" path="res://Scenes/GridManager.tscn" id="2_obdl2"]
+[ext_resource type="Script" path="res://Scripts/AItem.gd" id="2_yq2f1"]
+[ext_resource type="Script" path="res://Scripts/Grid.gd" id="3_u2myk"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="spaceship" parent="." instance=ExtResource("1_ntri4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.657)
+
+[node name="AItem_test" type="Node3D" parent="spaceship"]
+script = ExtResource("2_yq2f1")
+shape = "XXX.
+.XXX"
+
+[node name="Grid" type="Node3D" parent="spaceship"]
+script = ExtResource("3_u2myk")
+raw_shape = ".XXX.
+XXXXX
+XXXXX
+.XXX."
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.907668, 0.41969, 0, -0.41969, -0.907668, 0, 46.1794, 0)
@@ -14,4 +28,5 @@ transform = Transform3D(1, 0, 0, 0, -0.907668, 0.41969, 0, -0.41969, -0.907668, 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.84202, 0.539447, 0, -0.539447, 0.84202, 2.08535, 20.1394, 20.5378)
 
-[node name="GridManager" parent="." instance=ExtResource("2_obdl2")]
+[node name="GridManager" parent="." node_paths=PackedStringArray("grid_ref") instance=ExtResource("2_obdl2")]
+grid_ref = NodePath("../spaceship/Grid")
