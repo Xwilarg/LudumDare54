@@ -1,3 +1,7 @@
 [{
-	"name": "Sample Name"
+	"name": "flak",
+	"model": "size2Guns",
+	"effects": {
+		"ATK": 1
+	}
 }]

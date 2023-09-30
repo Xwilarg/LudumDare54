@@ -36,6 +36,7 @@ func _input(event):
 		var result = space_state.intersect_ray(query)
 		
 		if len(result) > 0:
+			print(result)
 			for gm in _gridManager:
 				for grid in gm.grid_ref:
 					if grid.on_grid(result.position, Vector3.ONE, gm._space):
