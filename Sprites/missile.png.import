@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by3g01l0r150w"
-path="res://.godot/imported/skybox.png-eace0dd4ad45fb6d481d45258d1ed7fd.ctex"
+uid="uid://c4j08o1p1bcll"
+path="res://.godot/imported/missile.png-e295b7a0502c50df36da3e52c1255a48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://skybox.png"
-dest_files=["res://.godot/imported/skybox.png-eace0dd4ad45fb6d481d45258d1ed7fd.ctex"]
+source_file="res://Sprites/missile.png"
+dest_files=["res://.godot/imported/missile.png-e295b7a0502c50df36da3e52c1255a48.ctex"]
 
 [params]
 
