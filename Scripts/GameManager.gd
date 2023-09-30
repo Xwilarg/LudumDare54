@@ -1,6 +1,7 @@
 extends Node3D
 
 var _buttons: Array[ItemButton]
+var _gridManager: Array[GridManager]
 @export var _deck: JSON
 
 var _cards: Array[Card]
@@ -33,5 +34,11 @@ func _input(event):
 		query.collision_mask = 2
 
 		var result = space_state.intersect_ray(query)
-
-		print(result)
+		
+		if len(result) > 0:
+			for gm in _gridManager:
+				for grid in gm.grid_ref:
+					if grid.on_grid(result.position, Vector3.ONE, gm._space):
+						print("It's magic time")
+					else:
+						print("Magic is gone booo")
