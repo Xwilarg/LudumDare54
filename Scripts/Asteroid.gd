@@ -15,12 +15,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = position.move_toward(target.position, delta*move_speed)
+	rotate_x(PI/250)
 	
 	if global_position.is_equal_approx(target.global_position):
 		explode()
-
-func _physic_process(delta):
-	pass
 
 func explode():
 	print("boom")
