@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scenes/GameManager.tscn"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Translations/data.csv")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
