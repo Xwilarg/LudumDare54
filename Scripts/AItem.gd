@@ -16,8 +16,6 @@ func _ready():
 			row.append(_char == "X")
 		
 		tile_map.append(row)
-	
-	tile_size = int(max(tile_map.size(), tile_map[0].size()))
 
 func rotate_left():
 	# todo: rotation
