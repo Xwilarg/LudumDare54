@@ -57,7 +57,7 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_card != null:
 		
 		if !CardManager.can_be_placed(_selected_card):
-			print("Not enough energy to place " + _selected_card.name)
+			print("[GM] Not enough energy to place " + _selected_card.name)
 			return
 		
 		# We do a raycast to see where we click
