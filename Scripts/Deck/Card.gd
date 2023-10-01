@@ -13,7 +13,7 @@ func _init(json: Dictionary):
 		shape = ["X"]
 	elif json.size == "S2":
 		previewModel = preload("res://Models/upgradePlaceholderBlock2.glb")
-		shape = ["XX"]
+		shape = ["X", "X"]
 	else: print("Unknown size " + json.size)
 
 var name: String

@@ -12,8 +12,6 @@ const _additional_spawners_timer = 10
 
 @export var _editor_spawns:Array = []
 
-var _aaTimer: float = 1.0
-
 func _ready():
 	_get_spawners();
 	
@@ -22,15 +20,7 @@ func _ready():
 #		new_spawner(pos)
 
 func _process(delta):
-	_aaTimer -= delta
-	
-	if _aaTimer <= 0.0:
-		var asteroids = get_all_asteroids()
-		
-		if len(asteroids) > 0:
-			var ast_index = GameManager.rng.randi_range(0, len(asteroids) - 1)
-			asteroids[ast_index].take_damage(34)
-			_aaTimer = 1.0
+	pass
 
 func get_all_asteroids():
 	var results = []

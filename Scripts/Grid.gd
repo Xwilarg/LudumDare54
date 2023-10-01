@@ -9,6 +9,8 @@ var placed_items: Dictionary # Dict[Variable2i, [AItem, shape, anchor]]
 var nrows: int
 var ncols: int
 
+var slot_size: Vector3
+var inter_space: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,32 +41,38 @@ func get_grid_center_global_position() -> Vector3:
 	return self.global_position 
 
 
-func world_position_to_grid_position(world_position: Vector3, slot_size: Vector3, inter_space: float) -> Vector2i:
-	var origin = self.global_position - (Vector3(inter_space, 0, inter_space) * Vector3(ncols - 1, 0, nrows - 1) + Vector3(ncols , 0, nrows ) * slot_size) / 2
+func world_position_to_grid_position(world_position: Vector3) -> Vector2i:
+	var origin = self.global_position - (Vector3(inter_space, 0, inter_space) * Vector3(ncols - 1, 0, nrows - 1) + Vector3(ncols , 0, nrows) * slot_size) / 2
 	var world_relative_coordinate = world_position - origin
 	
-	var xdim = world_relative_coordinate[2] / (slot_size[2] + inter_space)
-	var ydim = world_relative_coordinate[0] / (slot_size[0] + inter_space)
+	var row = world_relative_coordinate[2] / (slot_size[2] + inter_space)
+	var col = world_relative_coordinate[0] / (slot_size[0] + inter_space)
 	
 	var error_return_value = Vector2i(-1, -1)
 	
-	if xdim >= nrows:
+	if row >= nrows:
 		return error_return_value
-	if ydim >= ncols:
+	if col >= ncols:
 		return error_return_value
-	if xdim < 0:
+	if row < 0:
 		return error_return_value
-	if ydim < 0:
+	if col < 0:
 		return error_return_value
-	return Vector2i(xdim, ydim)
+	return Vector2i(row, col)
 
 
-func on_grid(world_position: Vector3, slot_size: Vector3, inter_space: float) -> bool:
-	return world_position_to_grid_position(world_position, slot_size, inter_space)[0] > -1
+func grid_position_to_world_position(index_position: Vector2i) -> Vector3:
+	# compute (0, 0) position
+	var pos = self.position
+	var gpos = self.global_position
+	var origin = self.global_position - (Vector3(inter_space, 0, inter_space) * Vector3(ncols - 1, 0, nrows - 1) + Vector3(ncols , 0, nrows) * slot_size) / 2
+	return origin + Vector3(index_position[1], 0, index_position[0]) * (slot_size + Vector3(inter_space, 0, inter_space))
 
 
-func grid_position_to_world_position(index_position: Vector2i, slot_size: Vector3, inter_space: float) -> Vector3:
-	return self.global_position + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(index_position[1], 0, index_position[0])
+func on_grid(world_position: Vector3) -> bool:
+	return world_position_to_grid_position(world_position)[0] > -1
+
+
 
 
 func get_enclosing_rectangle(input_shape, input_anchor, input_position) -> Array[Vector2i]:
@@ -75,7 +83,8 @@ func get_enclosing_rectangle(input_shape, input_anchor, input_position) -> Array
 
 func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Vector2i, position_index: Vector2i) -> bool:
 	# first, check if the rectangle is fitting 
-	var shape_size = Vector2i(len(input_shape), len(input_shape[0]))
+	var input_nrows = len(input_shape)
+	var input_ncols = len(input_shape[0])
 	
 	# top left corner in grid position
 	var input_rectangle = get_enclosing_rectangle(input_shape, shape_anchor_position, position_index)
@@ -84,14 +93,16 @@ func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Ve
 		return false
 
 	# bottom right corner in grid position
-	if input_rectangle[1][0] > self.nrows or input_rectangle[1][1] > self.ncols:
+	if input_rectangle[1][0] >= self.nrows or input_rectangle[1][1] >= self.ncols:
 		return false
 	
 	# now, check that each elements have fitting "X"
-	for x in range(shape_size[0]):
-		for y in range(shape_size[1]):
+	for row in range(input_nrows):
+		for col in range(input_ncols):
 			# must all be "X" or "." at the same times
-			if input_shape[x][y] != self.shape[input_rectangle[0][0] + x][input_rectangle[0][1] + y]:
+			var coord_row = input_rectangle[0][0] + row
+			var coord_col =  input_rectangle[0][1] + col
+			if input_shape[row][col] != self.shape[coord_row][coord_col]:
 				return false
 	# if we pass all the checks, we are good to go !
 	return true
@@ -138,9 +149,9 @@ func placed_item_has_element_in_rectangle(
 
 
 # check that you can insert before calling this function
-func add_item_at_grid_position(input_item: Node3D, input_item_shape: PackedStringArray, shape_anchor_position: Vector2i, position_index: Vector2i) -> void:
+func add_item_at_grid_position(input_item: Node3D, input_item_shape: PackedStringArray, input_item_shape_anchor: Vector2i, position_index: Vector2i) -> void:
 	# first, get the top left and bottom right indexes of the inserted shape
-	var input_rectangle = get_enclosing_rectangle(input_item_shape, shape_anchor_position, position_index)
+	var input_rectangle = get_enclosing_rectangle(input_item_shape, input_item_shape_anchor, position_index)
 	
 	# for each items that have at least one element of their shape inside the shape, we remove it
 	for placed_item_grid_position in placed_items.duplicate():
@@ -151,10 +162,14 @@ func add_item_at_grid_position(input_item: Node3D, input_item_shape: PackedStrin
 		if placed_item_has_element_in_rectangle(placed_item_shape, placed_rectangle, input_item_shape, input_rectangle):
 			placed_items.erase(placed_item_grid_position)
 			
-	placed_items[position_index] = [input_item, input_item_shape, shape_anchor_position]
+	placed_items[position_index] = [input_item, input_item_shape, input_item_shape_anchor]
+	# place item at its position:
+	var world_anchor_position = grid_position_to_world_position(position_index)
+	var world_zero_coordinates = world_anchor_position - Vector3(len(input_item_shape)/2.0 , 0, len(input_item_shape[0])/2.0)
+	input_item.global_position = world_anchor_position
+	
 
-
-func add_item_at_world_position(input_item: Node3D, input_item_shape: PackedStringArray, shape_anchor_position: Vector2i, world_position: Vector3, slot_size: Vector3, inter_space: float) -> void:
-	var grid_position: Vector2i = world_position_to_grid_position(world_position, slot_size, inter_space)
-	add_item_at_grid_position(input_item, input_item_shape, shape_anchor_position, grid_position)
+func add_item_at_world_position(input_item: Node3D, input_item_shape: PackedStringArray, input_item_shape_anchor: Vector2i, world_position: Vector3) -> void:
+	var grid_position: Vector2i = world_position_to_grid_position(world_position)
+	add_item_at_grid_position(input_item, input_item_shape, input_item_shape_anchor, grid_position)
 
