@@ -38,8 +38,8 @@ grow_vertical = 2
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI"]
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 500.0
+offset_right = 350.0
+offset_bottom = 300.0
 alignment_horizontal = 0
 alignment_vertical = 0
 
