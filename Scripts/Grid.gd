@@ -4,7 +4,7 @@ extends Node
 
 var shape: PackedStringArray
 
-var placed_items: Dictionary # Dict[Variable2i, AItem]
+var placed_items: Dictionary # Dict[Variable2i, [AItem, anchor]]
 
 var nrows: int
 var ncols: int
@@ -30,8 +30,13 @@ func map(callable: Callable):
 				callable.call(x, y, ncols, nrows, self.position)
 
 
-func get_grid_center_global_position(slot_size: Vector3, inter_space: float) -> Vector3:
-	return self.global_position # + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(ncols/2, 0, nrows/2)
+func map_items(callable: Callable):
+	for item_anchor in placed_items.values():
+		callable.call(item_anchor[0])
+
+
+func get_grid_center_global_position() -> Vector3:
+	return self.global_position 
 
 
 func world_position_to_grid_position(world_position: Vector3, slot_size: Vector3, inter_space: float) -> Vector2i:
@@ -41,14 +46,16 @@ func world_position_to_grid_position(world_position: Vector3, slot_size: Vector3
 	var xdim = world_relative_coordinate[2] / (slot_size[2] + inter_space)
 	var ydim = world_relative_coordinate[0] / (slot_size[0] + inter_space)
 	
+	var error_return_value = Vector2i(-1, -1)
+	
 	if xdim >= nrows:
-		return Vector2i(-1, -1)
+		return error_return_value
 	if ydim >= ncols:
-		return Vector2i(-1, -1)
+		return error_return_value
 	if xdim < 0:
-		return Vector2i(-1, -1)
+		return error_return_value
 	if ydim < 0:
-		return Vector2i(-1, -1)
+		return error_return_value
 	return Vector2i(xdim, ydim)
 
 
@@ -60,38 +67,100 @@ func grid_position_to_world_position(index_position: Vector2i, slot_size: Vector
 	return self.global_position + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(index_position[1], 0, index_position[0])
 
 
-# TODO
-func is_shape_placable(shape: PackedStringArray, shape_position_index: Vector2i, position_index: Vector2i) -> bool:
-	# TODO: 
-	# shape will be only ["X"] for now
-	# shape_position_index is then Vector2i(0, 0)
-	# sooooooooooooo => return true if position_index is X ...
-	return self.shape[position_index[0]][position_index[1]] == "X"
+func get_enclosing_rectangle(shape, anchor, position):
+	var top_left = position - anchor
+	var bottom_right = top_left + Vector2i(len(shape) - 1, len(shape[0]) - 1)
+	return [top_left, bottom_right]
 
 
-# TODO
-func item_has_element_at_position(item_position: Vector2i, position_index: Vector2i) -> bool:
-	# TODO:
-	# items shape will be only ["X"] for now
-	# soooooo => return pos == position_index
-	var placed_item: AItem = placed_items[item_position]
+func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Vector2i, position_index: Vector2i) -> bool:
+	# first, check if the rectangle is fitting 
+	var shape_size = Vector2i(len(input_shape), len(input_shape[0]))
 	
-	return item_position == position_index
+	# top left corner in grid position
+	var input_rectangle = get_enclosing_rectangle(input_shape, shape_anchor_position, position_index)
+	
+	if input_rectangle[0][0] < 0 or input_rectangle[0][1] < 0: 
+		return false
+
+	# bottom right corner in grid position
+	if input_rectangle[1][0] > self.nrows or input_rectangle[1][1] > self.ncols:
+		return false
+	
+	# now, check that each elements have fitting "X"
+	for x in range(shape_size[0]):
+		for y in range(shape_size[1]):
+			# must all be "X" or "." at the same times
+			if input_shape[x][y] != self.shape[input_rectangle[0][0] + x][input_rectangle[0][1] + y]:
+				return false
+	# if we pass all the checks, we are good to go !
+	return true
 
 
-func add_item_at_position(new_item: AItem, shape_position_index: Vector2i, position_index: Vector2i) -> void:
+func placed_item_has_element_in_rectangle(
+	placed_item_shape: PackedStringArray, placed_rectangle: Array[Vector2i], 
+	input_item_shape: PackedStringArray, input_rectangle: Array[Vector2i]
+) -> bool:
+	# rectangles coordinates are relatives to the super enclosing shape that contains the rectangles
+	# first, translate rectangle positions for input_item in the placed_item plane
+	var translation_vector = placed_rectangle[0]
+	placed_rectangle = [placed_rectangle[0] - translation_vector, placed_rectangle[1] - translation_vector]
+	input_rectangle = [input_rectangle[0] - translation_vector, input_rectangle[1] - translation_vector]
+	
+	# check that the input_rectangle as at least one element in the placed_rectangle
+	# input_rectangle too far to the right
+	if input_rectangle[0][0] > placed_rectangle[1][0]:
+		return false
+	# input_rectangle too far to the left
+	if input_rectangle[1][0] < 0:
+		return false
+	# input_rectangle under
+	if input_rectangle[0][1] > placed_rectangle[1][1]:
+		return false
+	# input_rectangle on top
+	if input_rectangle[1][1] < 0:
+		return false
+	
+	# now we have at least one element in common, time to loop
+	
+	for x in range(placed_rectangle[1][0]):
+		for y in range(placed_rectangle[1][1]):
+			# first, check that this coordinate is ok for input_shape
+			var input_x = input_rectangle[0][0] + x
+			var input_y = input_rectangle[0][1] + y
+			if input_x >= 0 and input_x <= input_rectangle[1][0] and input_y >= 0 and input_y <= input_rectangle[1][1]:
+				# then if both equals "X" : it's a match
+				if placed_item_shape[x][y] == "X" and input_item_shape[input_x][input_y] == "X":
+					return true
+	
+	# here the only left solution was that all overlapping positions where "." for one and/or the other
+	return false
+
+
+# check that you can insert before calling this function
+func add_item_at_position(input_item: AItem, shape_anchor_position: Vector2i, position_index: Vector2i) -> void:
+	# first, get the top left and bottom right indexes of the inserted shape
+	var input_rectangle = get_enclosing_rectangle(input_item.shape, shape_anchor_position, position_index)
+	
 	# for each items that have at least one element of their shape inside the shape, we remove it
-	for item_position in placed_items.duplicate():
-		if item_has_element_at_position(item_position, position_index):
-			placed_items.erase(item_position)
-	placed_items[position_index] = new_item
+	for placed_item_grid_position in placed_items.duplicate():
+		var placed_item_shape = placed_items[placed_item_grid_position][0].shape
+		var placed_rectangle = get_enclosing_rectangle(placed_item_shape, placed_items[placed_item_grid_position][1], placed_item_grid_position)
+		
+		if placed_item_has_element_in_rectangle(
+			placed_item_shape, placed_rectangle,
+			input_item.shape, input_rectangle
+		):
+			placed_items.erase(placed_item_grid_position)
+			
+	placed_items[position_index] = [input_item, shape_anchor_position]
 
 
-func try_place_item(item: AItem, shape_position_index: Vector2i, world_position: Vector3, slot_size: Vector3, inter_space: float) -> bool:
+func try_place_item(item: AItem, shape_anchor_position: Vector2i, world_position: Vector3, slot_size: Vector3, inter_space: float) -> bool:
 	var grid_position: Vector2i = world_position_to_grid_position(world_position, slot_size, inter_space)
 	# check if item is placable:
-	if not is_shape_placable(item.shape, shape_position_index, grid_position):
+	if not is_shape_placable(item.shape, shape_anchor_position, grid_position):
 		return false
 	# else:
-	add_item_at_position(item, shape_position_index, grid_position)
+	add_item_at_position(item, shape_anchor_position, grid_position)
 	return true
