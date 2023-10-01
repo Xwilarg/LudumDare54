@@ -8,6 +8,7 @@ func _init(json: Dictionary):
 	effects = json.effects
 	if json.model == "size2Guns": model = preload("res://Models/size2Guns.glb")
 	elif json.model == "batteryPack": model = preload("res://Models/batteryPack.glb")
+	elif json.model == "satelliteDish": model = preload("res://Models/satelliteDish.glb")
 	else: print("Unknown model " + json.model)
 
 	if json.size == "S1":

@@ -1,8 +1,11 @@
 ;en;fr
 FLAK_NAME;Flak;Canon Anti-aérien
-FLAG_DESC;Your usual AA gun;Votre anti-air habituel
+FLAG_DESC;The base defense of your ship, don't forget London treaty!;La défense de base de votre navire, n'oubliez pas le traité de Londres!
 BATTERY_NAME;Battery;Batterie
-BATTERY_DESC;TODO;TODO
+BATTERY_DESC;Give you more power so you can both have thermo-nuclear weapons and a coffee machine;Vous donne plus de puissance pour que vous puissiez à la fois avoir des armes thermo-nucléaire et une machine à café
+ANTENNA_NAME;Antenna;Antenne
+ANTENNA_DESC;To detect long range frequences such as enemy communications, but mostly used to watch TV in the break room;Pour détecter les fréquences longue portée comme les communications enemies, mais surtout pour regarder la TV dans la salle de repos
 
 EFF_ATK;Damage asteroids by %1 HP per seconds;Inflige des dégats aux astéroides de %1 PV par secondes
 EFF_ENG;Increase your ship energy by %1;Augmente l'énergie de votre vaisseau par %1
+EFF_VID;Watch kitten videos;Regarde des vidéos de chats

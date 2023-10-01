@@ -17,6 +17,26 @@
 		"materialOverride": "",
 		"size": "S1",
 		"effects": {
+			"ENG": 25
+		},
+		"energyCost": 0
+	},
+	{
+		"name": "antenna",
+		"model": "satelliteDish",
+		"materialOverride": "",
+		"size": "S2",
+		"effects": {
+			"VID": 1
+		},
+		"energyCost": 5
+	},
+	{
+		"name": "laser",
+		"model": "size2Guns",
+		"materialOverride": "",
+		"size": "S2",
+		"effects": {
 			"ATK_RED": 10,
 			"ATK_GRN": 25,
 			"ATK_BLU": 5
