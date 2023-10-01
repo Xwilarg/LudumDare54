@@ -1,5 +1,32 @@
 [
 	{
+		"name": "overclock",
+		"model": "navConsole",
+		"size": "S2",
+		"effects": {
+			"SPD": 5
+		},
+		"energyCost": 10
+	},
+	{
+		"name": "battery",
+		"model": "batteryPack",
+		"size": "S1",
+		"effects": {
+			"ENG": 10
+		},
+		"energyCost": 0
+	},
+	{
+		"name": "solarPanel",
+		"model": "solarPanel",
+		"size": "S2",
+		"effects": {
+			"ENG": 25
+		},
+		"energyCost": 0
+	},
+	{
 		"name": "antenna",
 		"model": "satelliteDish",
 		"size": "S2",
