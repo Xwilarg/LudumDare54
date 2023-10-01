@@ -2,6 +2,17 @@
 	{
 		"name": "flak",
 		"model": "size2Guns",
+		"materialOverride": "",
+		"size": "S2",
+		"effects": {
+			"ATK": 1
+		},
+		"energyCost": 10
+	},
+	{
+		"name": "missile",
+		"model": "size2Guns",
+		"materialOverride": "",
 		"size": "S2",
 		"effects": {
 			"ATK": 1
