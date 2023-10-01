@@ -15,6 +15,12 @@ var catVideo = [
 	[ preload("res://Videos/chickenVideo.ogv") ]
 ]
 
+var aspect_ratio = [
+	[ 1.7666, 0.5625 ],
+	[ 1.75, 0.5620 ],
+	[ 0.5555 ]
+]
+
 var colors: Array[String] = [ "RED", "GRN", "BLU" ]
 
 func can_be_placed(card: Card) -> bool:
@@ -83,11 +89,13 @@ func delete_item(node: Node3D):
 func play_animal_video():
 	var vidCount = sum(get_effect("VID"))
 	if vidCount > 0:
-		var player: VideoStreamPlayer = get_node("/root/Root/UI/VideoStreamPlayer")
+		var player: VideoStreamPlayer = get_node("/root/Root/UI/AspectRatioContainer/VideoStreamPlayer")
 		vidCount -= 1
 		if vidCount >= len(catVideo): vidCount = len(catVideo) - 1
 		var arr = catVideo[vidCount]
-		player.stream = arr[GameManager.rng.randi_range(0, len(arr) - 1)]
+		var rand = GameManager.rng.randi_range(0, len(arr) - 1)
+		get_node("/root/Root/UI/AspectRatioContainer").ratio = aspect_ratio[vidCount][rand]
+		player.stream = arr[rand]
 		player.play()
 		animal_video_timer = 20
 

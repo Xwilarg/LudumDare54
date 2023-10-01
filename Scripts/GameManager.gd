@@ -28,6 +28,8 @@ func subscribe_button(b: CardUI) -> void:
 
 func load_item(b: CardUI, card: Card) -> void:
 	_selected_card = card
+	if hintObject != null:
+		hintObject.queue_free()
 	hintObject = card.previewModel.instantiate()
 	add_child(hintObject)
 	current_button = b
