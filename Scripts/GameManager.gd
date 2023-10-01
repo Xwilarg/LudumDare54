@@ -99,7 +99,10 @@ func _input(event):
 							grid.add_item_at_grid_position(item, _selected_card.shape, Vector2i(0, 0), grid_position)
 							# print("It's magic time")
 							isDone = true
-							current_button.set_card(_cards[rng.randi_range(0, len(_cards) - 1)])
+							var nextCard = current_button._curr_card
+							while nextCard.name == current_button._curr_card.name:
+								nextCard = _cards[rng.randi_range(0, len(_cards) - 1)]
+							current_button.set_card(nextCard)
 						break
 					else:
 						pass# print("Magic is gone booo")

@@ -2,7 +2,7 @@
 	{
 		"name": "overclock",
 		"model": "navConsole",
-		"size": "S3",
+		"size": "S2",
 		"effects": {
 			"SPD": 5
 		},
