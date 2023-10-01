@@ -28,6 +28,8 @@ func take_damage(value: int):
 func set_target(value: Vector3):
 	target = value
 
+func set_type(value: String):
+	type = value
 
 func _on_rigid_body_3d_body_entered(body):
 	explode()

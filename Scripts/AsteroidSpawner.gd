@@ -43,7 +43,7 @@ func new_asteroid():
 	
 	asteroid.position = asteroid_position
 	asteroid.parent = self
-	asteroid.type = asteroid_type
+	asteroid.set_type = asteroid_type
 	
 	asteroid.set_target(target)
 

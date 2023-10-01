@@ -4,7 +4,7 @@ class_name AsteroidManager
 
 const _prefab_spawner = preload("res://Scenes/AsteroidSpawner.tscn")
 var _default_spawns = []
-var asteroid_types = ["red", "green", "blue"]
+var asteroid_types = {"red": {"material": preload("res://Materials/red.tres")}, "green": {"material": preload("res://Materials/red.tres")}, "blue": {"material": preload("res://Materials/red.tres")}}
 
 const _additional_spawners_timer = 10
 @onready var spawners: Array = []
