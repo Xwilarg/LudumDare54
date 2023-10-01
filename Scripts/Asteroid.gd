@@ -7,6 +7,7 @@ var target: Vector3
 var move_speed: float = 100
 var rotation_speed: float = PI
 var parent
+var type: String
 
 func _ready():
 	$RigidBody3D.max_contacts_reported = 2;

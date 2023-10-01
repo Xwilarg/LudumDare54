@@ -4,13 +4,13 @@ class_name AsteroidManager
 
 const _prefab_spawner = preload("res://Scenes/AsteroidSpawner.tscn")
 var _default_spawns = []
+var asteroid_types = ["red", "green", "blue"]
 
 const _additional_spawners_timer = 10
 @onready var spawners: Array = []
 
 @export var spaceship: Spaceship
-
-@export var _editor_spawns:Array = []
+@export var _editor_spawns: Array = []
 
 func _ready():
 	_get_spawners();
@@ -38,6 +38,7 @@ func new_spawner(position = null):
 	
 	spawner.set_spawn_position(position)
 	spawner.set_target(spaceship.position)
+	spawner.asteroid_type = asteroid_types[GameManager.rng.randi_range(0, len(asteroid_types) - 1)]
 	
 	spawners.append(spawner)
 	
