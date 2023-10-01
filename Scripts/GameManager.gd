@@ -9,7 +9,7 @@ var _cards: Array[Card]
 var _selected_card: Card
 var rng = RandomNumberGenerator.new()
 
-var hintObject
+var hintObject: Node3D
 
 var time_start: int = 0
 var time_now: int = 0
@@ -28,6 +28,7 @@ func subscribe_button(b: ItemButton) -> void:
 func load_item(card: Card) -> void:
 	_selected_card = card
 	hintObject = card.previewModel.instantiate()
+	hintObject.scale = Vector3(.5, .5, .5)
 	add_child(hintObject)
 
 func _ready():
