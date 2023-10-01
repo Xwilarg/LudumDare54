@@ -48,8 +48,8 @@ func _get_spawners():
 	for ndpath in _editor_spawns:
 		var spawn = get_node(ndpath);
 		_default_spawns.push_back(spawn.global_position);
-	print(_editor_spawns);
-	print(_default_spawns);
+	# print(_editor_spawns);
+	# print(_default_spawns);
 
 func _on_spawn_timer_timeout():
 	$SpawnTimer.wait_time = _additional_spawners_timer

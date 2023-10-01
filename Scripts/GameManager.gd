@@ -57,7 +57,7 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_card != null:
 		
 		if !CardManager.can_be_placed(_selected_card):
-			print("Not enough energy to place " + _selected_card.name)
+			print("[GM] Not enough energy to place " + _selected_card.name)
 			return
 		
 		# We do a raycast to see where we click
@@ -73,7 +73,7 @@ func _input(event):
 		var result = space_state.intersect_ray(query)
 		
 		if len(result) > 0: # If we clicked on a slot...
-			print(result)
+			# print(result)
 			var isDone = false
 			for gm in _gridManager:
 				for grid in gm.grid_ref:
@@ -83,22 +83,22 @@ func _input(event):
 						var grid_position = grid.world_position_to_grid_position(result.collider.global_position)
 						var world_position = grid.grid_position_to_world_position(grid_position)
 						
-						print(result.collider.global_position)
-						print(grid_position)
-						print(world_position)
+						# print(result.collider.global_position)
+						# print(grid_position)
+						# print(world_position)
 
 						var insertable = grid.is_shape_placable(_selected_card.shape, Vector2i(0, 0), grid_position)
-						print(insertable)
+						# print(insertable)
 						if insertable:
 							var item = _selected_card.model.instantiate()
 							CardManager.register_item(ItemCard.new(_selected_card, item))
 							add_child(item)
 							grid.add_item_at_grid_position(item, _selected_card.shape, Vector2i(0, 0), grid_position)
-						print("It's magic time")
+						# print("It's magic time")
 						isDone = true
 						break
 					else:
-						print("Magic is gone booo")
+						pass# print("Magic is gone booo")
 				if isDone:
 					break
 
