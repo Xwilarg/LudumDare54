@@ -16,7 +16,7 @@ func _process(delta):
 
 func explode():
 	print("boom")
-	get_node("/root/Root/AsteroidManager")._asteroids.erase(self)
+	get_node("/root/Root/AsteroidManager").get_all_asteroids().erase(self)
 	self.queue_free()
 
 func take_damage(value: int):
