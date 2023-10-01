@@ -12,9 +12,5 @@ func _on_pressed():
 
 func set_card(c: Card):
 	_curr_card = c;
-<<<<<<< Updated upstream
-	$ARC/CardBG/MarginContainer/VBoxContainer/NamePanel/MarginContainer/RichTextLabel.text = c.name;
-	$ARC/CardBG/MarginContainer/VBoxContainer/DescPanel/MarginContainer/RichTextLabel.text = c.description
-=======
 	$CardBG/MarginContainer/VBoxContainer/HBoxContainer2/NamePanel/MarginContainer/RichTextLabel.text = c.name;
->>>>>>> Stashed changes
+	$ARC/CardBG/MarginContainer/VBoxContainer/DescPanel/MarginContainer/RichTextLabel.text = c.description
