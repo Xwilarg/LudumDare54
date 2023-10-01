@@ -53,5 +53,15 @@ func _get_spawners():
 		_default_spawns.push_back(spawn.global_position);
 
 func _on_spawn_timer_timeout():
-	$SpawnTimer.wait_time = _additional_spawners_timer
 	new_spawner()
+	
+	var nb_spawner = len(spawners)
+	
+	if nb_spawner < 3:
+		$SpawnTimer.wait_time = 15
+	elif nb_spawner < 9:
+		$SpawnTimer.wait_time = 10
+	elif nb_spawner < 18:
+		$SpawnTimer.waitTime = 8
+	else:
+		$SpawnTimer.paused = true
