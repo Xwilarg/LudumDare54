@@ -67,7 +67,7 @@ func _process(delta):
 			hintObject.global_position = result.position
 	
 	# update UI
-	var info_level = 5# CardManager.sum(CardManager.get_effect("SEN"))
+	var info_level = CardManager.sum(CardManager.get_effect("SEN"))
 	var text = ""
 	
 	if info_level > 0: # Ship HP

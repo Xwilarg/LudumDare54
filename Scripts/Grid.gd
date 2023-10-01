@@ -106,7 +106,9 @@ func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Ve
 						var coord_col =  input_rectangle[0][1] + col
 						if coord_row == item.x + irow and coord_col == item.y + icol:
 							print("[CG] Attemped to place an element that collides with " + placed_items[item][0].name)
-							return false
+							CardManager.delete_item(placed_items[item][0])
+							placed_items[item][0].queue_free()
+							placed_items.erase(item)
 
 	# if we pass all the checks, we are good to go !
 	# TODO: check if there is another object here
@@ -164,10 +166,10 @@ func add_item_at_grid_position(input_item: Node3D, input_item_shape: PackedStrin
 		var placed_item_anchor: Vector2i = placed_items[placed_item_grid_position][2]
 		var placed_rectangle: Array[Vector2i] = get_enclosing_rectangle(placed_item_shape, placed_item_anchor, placed_item_grid_position)
 		
-		if placed_item_has_element_in_rectangle(placed_item_shape, placed_rectangle, input_item_shape, input_rectangle):
-			placed_items.erase(placed_item_grid_position)
-			CardManager.delete_item(placed_items[placed_item_grid_position][0])
-			placed_items[placed_item_grid_position][0].queue_free()
+		#if placed_item_has_element_in_rectangle(placed_item_shape, placed_rectangle, input_item_shape, input_rectangle):
+		#	placed_items.erase(placed_item_grid_position)
+		#	CardManager.delete_item(placed_items[placed_item_grid_position][0])
+		#	placed_items[placed_item_grid_position][0].queue_free()
 			
 			
 	placed_items[position_index] = [input_item, input_item_shape, input_item_shape_anchor]

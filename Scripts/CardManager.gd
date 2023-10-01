@@ -86,7 +86,7 @@ func delete_item(node: Node3D):
 				get_node("/root/Root/spaceship").current_shield -= max(0, int(item.card.effects["SHD"]))
 			_items.erase(item)
 			if len(get_effect("VID")) == 0:
-				get_node("/root/Root/UI/VideoStreamPlayer").stream = null
+				get_node("/root/Root/UI/AspectRatioContainer/VideoStreamPlayer").stream = null
 
 func play_animal_video():
 	var vidCount = sum(get_effect("VID"))
