@@ -17,7 +17,7 @@ func get_effect(str: String) -> Array[int]:
 	var data: Array[int]
 	for item in _items:
 		if item.card.effects.has(str):
-			data.append(item.card.effects[str])
+			data.append(int(item.card.effects[str]))
 	return data
 
 func _process(delta):
