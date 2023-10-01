@@ -5,6 +5,9 @@ extends Node
 var _aaTimer: float = 1.0
 var _items: Array[ItemCard]
 
+var _energy: int = 100
+var _energyUsed: int = 0
+
 func get_effect(str: String) -> Array[int]:
 	var data: Array[int]
 	for item in _items:

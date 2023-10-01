@@ -5,6 +5,7 @@
 		"size": "S2",
 		"effects": {
 			"ATK": 1
-		}
+		},
+		"energyCost": 10
 	}
 ]
