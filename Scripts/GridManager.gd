@@ -22,4 +22,4 @@ func instanciate_slots(x: float, z: float, xLen: int, zLen: int, grid_local_posi
 		grid_local_position.z - (zLen + (zLen - 1) * _space) / 2.0 + z + (_space * z) 
 	) 
 	add_child(elem)
-	print(elem.global_position)
+	# print(elem.global_position)
