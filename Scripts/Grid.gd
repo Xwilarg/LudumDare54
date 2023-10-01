@@ -16,12 +16,10 @@ var inter_space: float
 func _ready():
 	set_grid_shape_from_raw_string()
 
-
 func set_grid_shape_from_raw_string() -> void:
 	shape = raw_shape.replace("\r", "").split("\n")
 	nrows = len(shape)
 	ncols = len(shape[0])
-
 
 func map(callable: Callable):
 	if not shape:
@@ -31,15 +29,12 @@ func map(callable: Callable):
 			if (shape[y][x] == 'X'):
 				callable.call(x, y, ncols, nrows, self.position)
 
-
 func map_items(callable: Callable):
 	for item_anchor in placed_items.values():
 		callable.call(item_anchor[0])
 
-
 func get_grid_center_global_position() -> Vector3:
 	return self.global_position 
-
 
 func world_position_to_grid_position(world_position: Vector3) -> Vector2i:
 	var origin = self.global_position - (Vector3(inter_space, 0, inter_space) * Vector3(ncols - 1, 0, nrows - 1) + Vector3(ncols , 0, nrows) * slot_size) / 2
@@ -60,7 +55,6 @@ func world_position_to_grid_position(world_position: Vector3) -> Vector2i:
 		return error_return_value
 	return Vector2i(row, col)
 
-
 func grid_position_to_world_position(index_position: Vector2i) -> Vector3:
 	# compute (0, 0) position
 	var pos = self.position
@@ -68,18 +62,14 @@ func grid_position_to_world_position(index_position: Vector2i) -> Vector3:
 	var origin = self.global_position - (Vector3(inter_space, 0, inter_space) * Vector3(ncols - 1, 0, nrows - 1) + Vector3(ncols , 0, nrows) * slot_size) / 2
 	return origin + Vector3(index_position[1], 0, index_position[0]) * (slot_size + Vector3(inter_space, 0, inter_space))
 
-
 func on_grid(world_position: Vector3) -> bool:
 	return world_position_to_grid_position(world_position)[0] > -1
-
-
 
 
 func get_enclosing_rectangle(input_shape, input_anchor, input_position) -> Array[Vector2i]:
 	var top_left = input_position - input_anchor
 	var bottom_right = top_left + Vector2i(len(input_shape) - 1, len(input_shape[0]) - 1)
 	return [top_left, bottom_right]
-
 
 func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Vector2i, position_index: Vector2i) -> bool:
 	# first, check if the rectangle is fitting 
@@ -104,7 +94,9 @@ func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Ve
 			var coord_col =  input_rectangle[0][1] + col
 			if input_shape[row][col] != self.shape[coord_row][coord_col]:
 				return false
+
 	# if we pass all the checks, we are good to go !
+	# TODO: check if there is another object here
 	return true
 
 
@@ -161,6 +153,7 @@ func add_item_at_grid_position(input_item: Node3D, input_item_shape: PackedStrin
 		
 		if placed_item_has_element_in_rectangle(placed_item_shape, placed_rectangle, input_item_shape, input_rectangle):
 			placed_items.erase(placed_item_grid_position)
+			
 			
 	placed_items[position_index] = [input_item, input_item_shape, input_item_shape_anchor]
 	# place item at its position:
