@@ -7,6 +7,8 @@ func _init(json: Dictionary):
 	energyCost = json.energyCost
 	effects = json.effects
 	if json.model == "size2Guns": model = preload("res://Models/size2Guns.glb")
+	elif json.model == "batteryPack": model = preload("res://Models/batteryPack.glb")
+	else: print("Unknown model " + json.model)
 
 	if json.size == "S1":
 		previewModel = preload("res://Models/upgradePlaceholderBlock.glb")
