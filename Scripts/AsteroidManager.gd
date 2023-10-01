@@ -1,16 +1,20 @@
 extends Node
 
+class_name AsteroidManager
+
 const _prefab_spawner = preload("res://Scenes/AsteroidSpawner.tscn")
-const _default_spawns = [Vector3(-10, 0, 10), Vector3(10, 0, 10), Vector3(-10, 0, 0)]  # todo: change to real spawn points
+var _default_spawns = [Vector3(-10, 0, 10), Vector3(10, 0, 10), Vector3(-10, 0, 0)]  # todo: change to real spawn points
 
 const _additional_spawners_timer = 10
 @onready var spawners: Array = []
 
 @export var spaceship: Spaceship
 
-var _aaTimer: float = 1.0
+@export var _editor_spawns:Array = []
 
 func _ready():
+	_get_spawners();
+
 	for pos in _default_spawns:
 		new_spawner(pos)
 
@@ -43,3 +47,10 @@ func new_spawner(position = null):
 	spawner.set_target(spaceship.position)
 	
 	spawners.append(spawner)
+
+func _get_spawners():
+	for ndpath in _editor_spawns:
+		var spawn = get_node(ndpath);
+		_default_spawns.push_back(spawn.global_position);
+	print(_editor_spawns);
+	print(_default_spawns);
