@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdnba2jk8yspx"]
+
+[ext_resource type="PackedScene" uid="uid://c43dkw32vf6jb" path="res://Models/asteroid.glb" id="1_jw1kr"]
+[ext_resource type="Material" uid="uid://bii4xq3s4ey5l" path="res://Materials/blue.tres" id="2_ht5l8"]
+[ext_resource type="Script" path="res://Scripts/meshpath.gd" id="2_i4ehc"]
+
+[node name="asteroid" instance=ExtResource("1_jw1kr")]
+script = ExtResource("2_i4ehc")
+meshpath = NodePath("Asteroid 1")
+
+[node name="Asteroid 1" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ht5l8")
