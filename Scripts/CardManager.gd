@@ -4,18 +4,20 @@ extends Node
 
 var _aaTimer: float = 1.0
 var _items: Array[ItemCard]
-var _effects: Dictionary
 
-func get_effect(str: String) -> int:
-	if _effects.has(str):
-		return _effects[str]
-	return 0
+func get_effect(str: String) -> Array[int]:
+	var data: Array[int]
+	for item in _items:
+		if item.card.effects.has(str):
+			data.append(item.card.effects[str])
+	return data
 
 func _process(delta):
 	_aaTimer -= delta
 	if _aaTimer <= 0.0:
 		var asteroids = asteroidManager.get_all_asteroids()
-		asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)].take_damage(get_effect("ATK"))
+		for eff in get_effect("ATK"):
+			asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)].take_damage(eff)
 		_aaTimer = 1.0
 
 func register_item(item: ItemCard):
