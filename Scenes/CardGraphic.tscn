@@ -130,3 +130,5 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_7c0ki")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_lk0h4")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvqoh")
+
+[connection signal="pressed" from="ARC/CardBG/Button" to="." method="_on_pressed"]

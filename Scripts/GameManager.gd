@@ -1,6 +1,6 @@
 extends Node3D
 
-var _buttons: Array[ItemButton]
+var _buttons: Array[CardUI]
 var _gridManager: Array[GridManager]
 @export var _deck: JSON
 
@@ -10,7 +10,7 @@ var _selected_card: Card
 var rng = RandomNumberGenerator.new()
 
 var hintObject: Node3D
-var current_button: ItemButton
+var current_button: CardUI
 
 var time_start: int = 0
 var time_now: int = 0
@@ -20,13 +20,13 @@ func _init_cards():
 	for card in _deck.data:
 		_cards.append(Card.new(card))
 
-func subscribe_button(b: ItemButton) -> void:
+func subscribe_button(b: CardUI) -> void:
 	if len(_cards) == 0:
 		_init_cards()
 	b.set_card(_cards[rng.randi_range(0, len(_cards) - 1)])
 	_buttons.append(b)
 
-func load_item(b: ItemButton, card: Card) -> void:
+func load_item(b: CardUI, card: Card) -> void:
 	_selected_card = card
 	hintObject = card.previewModel.instantiate()
 	hintObject.scale = Vector3(.5, .5, .5)
