@@ -1,5 +1,8 @@
 ;en;fr
 FLAK_NAME;Flak;Canon Anti-aérien
 FLAG_DESC;Your usual AA gun;Votre anti-air habituel
+BATTERY_NAME;Battery;Batterie
+BATTERY_DESC;TODO;TODO
 
 EFF_ATK;Damage asteroids by %1 HP per seconds;Inflige des dégats aux astéroides de %1 PV par secondes
+EFF_ENG;Increase your ship energy by %1;Augmente l'énergie de votre vaisseau par %1
