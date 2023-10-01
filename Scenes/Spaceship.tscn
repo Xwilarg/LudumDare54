@@ -25,14 +25,14 @@ XXXXX
 [node name="Grid2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.885, -0.432794, -2.52845)
 script = ExtResource("3_n7wdy")
-raw_shape = "XXXX
-XXXX"
+raw_shape = "XX
+XX"
 
 [node name="Grid3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17884, -0.432588, -2.44687)
 script = ExtResource("3_n7wdy")
-raw_shape = "XXXX
-XXXX"
+raw_shape = "XX
+XX"
 
 [node name="GridManager" parent="." node_paths=PackedStringArray("grid_ref") instance=ExtResource("4_e4d1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

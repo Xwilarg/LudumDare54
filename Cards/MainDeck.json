@@ -29,7 +29,7 @@
 	{
 		"name": "antenna",
 		"model": "satelliteDish",
-		"size": "S2",
+		"size": "S1",
 		"effects": {
 			"VID": 1
 		},
