@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dws57822xidny"
-path="res://.godot/imported/Zirk said it's good.glb-38b09933082185190ac11efa4949ca9c.scn"
+path="res://.godot/imported/probe.glb-5e02754b7107ac56663c4232acac4481.scn"
 
 [deps]
 
-source_file="res://Models/Zirk said it's good.glb"
-dest_files=["res://.godot/imported/Zirk said it's good.glb-38b09933082185190ac11efa4949ca9c.scn"]
+source_file="res://Models/probe.glb"
+dest_files=["res://.godot/imported/probe.glb-5e02754b7107ac56663c4232acac4481.scn"]
 
 [params]
 
