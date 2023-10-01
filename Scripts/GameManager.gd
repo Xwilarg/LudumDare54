@@ -74,7 +74,8 @@ func _process(delta):
 		var spaceship = get_node("/root/Root/spaceship")
 		#var hp_text = "[center]" + tr("SHIP_HULL") + ":\n" + str(spaceship.current_hp) + "/" + str(spaceship.max_hp) + "[/center]"
 		#get_node("/root/Root/UI/ShipHP").text = hp_text
-		text += tr("SHIP_HULL") + tr("COLON") + " " + str(spaceship.current_hp) + "/" + str(spaceship.max_hp) + "\n\n"
+		text += tr("SHIP_HULL") + tr("COLON") + " " + str(spaceship.current_hp) + "/" + str(spaceship.max_hp) + "\n"
+		text += tr("SHIELD") + tr("COLON") + " " + str(spaceship.current_shield) + "\n\n"
 	
 	if info_level > 1: # Energy
 		var asteroids = get_node("/root/Root/AsteroidManager").get_all_asteroids()

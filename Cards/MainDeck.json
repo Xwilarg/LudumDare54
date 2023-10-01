@@ -98,5 +98,14 @@
 			"ATK_BLU": 5
 		},
 		"energyCost": 15
+	},
+	{
+		"name": "shieldgen",
+		"model": "shieldGenerator",
+		"size": "S3",
+		"effects": {
+			"SHD": 20
+		},
+		"energyCost": 10
 	}
 ]

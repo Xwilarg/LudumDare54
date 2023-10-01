@@ -14,11 +14,13 @@ BATTERY_DESC;Use the power of lithium so you can have both thermo-nuclear weapon
 ANTENNA_NAME;Antenna;Antenne
 ANTENNA_DESC;To detect long range frequences such as enemy communications or the nearest planet TV channel;Pour détecter les fréquences longue portée comme les communications enemies ou les chaines TV de la planête la plus proche
 OVERCLOCK_NAME;Overclock Module;Moduble d'overclockage
-OVERCLOCK_DESC;Increase the voltage of all your device, making them more efficient with little to no risk;Augmente le voltage de tous vos appareils, les rendant plus efficace avec presque aucun risque
+OVERCLOCK_DESC;Simply increase the voltage provided, making all devices more efficient with little to no risk;Augmente simplement le voltage fourni, rendant tous vos appareils plus efficace avec presque aucun risque
 SOLARPANEL_NAME;Solar Panel;Panneau Solaire
 SOLARPANEL_DESC;Grants you even more power at the cost of having to clean off every 2 days the dust from the asteroids you keep destroying;Vous donne encore plus de puissance au cout de devoir les nettoyer tous les 2 jours de la poussière de tous les astéroides que vous détruisez
 SENSOR_NAME;Sensor;Capteur
 SENSOR_DESC;To know which direction the wind is going, wet your finger and see where it's breezy, the sensor however doesn't use this tip to know that;Pour savoir dans quel direction va le vent mouillez votre doigt et voyez où vous avez froid, le capteur n'utilise cependant pas cette astuce pour le savoir
+SHIELDGEN_NAME;Shield Generator;Générateur de Bouclier
+SHIELDGEN_DESC;Protect against asteroids, rain and bad dreams!;Protège contre les astéroides, la pluie et les mauvais rêves !
 
 EFF_ATK_RED;Damage red asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides rouges de %1 de leur PV par secondes
 EFF_ATK_GRN;Damage green asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides verts de %1 de leur PV par secondes
@@ -29,6 +31,7 @@ EFF_SPD;Increase your firerate by %1%;Augmentera votre vitesse de tir par %1%
 EFF_SEN;Display more information about your ship and its surroundings;Affiche plus d'information à propos du vaisseau et ses environs
 
 SHIP_HULL;Ship Hull;Coque du vaisseau
+SHIELD;Shield;Bouclier
 ASTEROIDS;Asteroids;Astéroides
 ENERGY;Energy;Energie
 ATTACK_POWER;Attack Power;Puissance de feu

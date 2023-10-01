@@ -14,6 +14,7 @@ func _init(json: Dictionary):
 	elif json.model == "navConsole": model = preload("res://Models/navConsole.glb")
 	elif json.model == "solarPanel": model = preload("res://Models/solarPanel.glb")
 	elif json.model == "sensor": model = preload("res://Models/sensor.glb")
+	elif json.model == "shieldGenerator": model = preload("res://Models/shieldGenerator.glb")
 	else: print("Unknown model " + json.model)
 
 	if json.size == "S1":

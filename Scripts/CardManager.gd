@@ -72,7 +72,8 @@ func register_item(item: ItemCard):
 	_items.append(item)
 	if item.card.effects.has("ENG"):
 		_energy_used -= int(item.card.effects["ENG"])
-		update_ui()
+	if item.card.effects.has("SHD"):
+		get_node("/root/Root/spaceship").current_shield += int(item.card.effects["SHD"])
 	play_animal_video()
 	print("[CM] " + item.card.name + " placed, energy left: " + str(_energy_max - _energy_used))
 
@@ -81,7 +82,8 @@ func delete_item(node: Node3D):
 		if item.item == node:
 			if item.card.effects.has("ENG"):
 				_energy_used += int(item.card.effects["ENG"])
-				update_ui()
+			if item.card.effects.has("SHD"):
+				get_node("/root/Root/spaceship").current_shield -= max(0, int(item.card.effects["SHD"]))
 			_items.erase(item)
 			if len(get_effect("VID")) == 0:
 				get_node("/root/Root/UI/VideoStreamPlayer").stream = null
@@ -98,6 +100,3 @@ func play_animal_video():
 		player.stream = arr[rand]
 		player.play()
 		animal_video_timer = 20
-
-func update_ui():
-	pass
