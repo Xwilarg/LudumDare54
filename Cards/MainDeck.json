@@ -9,17 +9,6 @@
 		"energyCost": 10
 	},
 	{
-		"name": "flak",
-		"model": "size2Guns",
-		"size": "S2",
-		"effects": {
-			"ATK_RED": 10,
-			"ATK_GRN": 25,
-			"ATK_BLU": 5
-		},
-		"energyCost": 15
-	},
-	{
 		"name": "battery",
 		"model": "batteryPack",
 		"size": "S1",
@@ -45,6 +34,17 @@
 			"VID": 1
 		},
 		"energyCost": 5
+	},
+	{
+		"name": "flak",
+		"model": "size2Guns",
+		"size": "S2",
+		"effects": {
+			"ATK_RED": 10,
+			"ATK_GRN": 25,
+			"ATK_BLU": 5
+		},
+		"energyCost": 15
 	},
 	{
 		"name": "laser",
