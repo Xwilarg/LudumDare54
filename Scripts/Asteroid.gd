@@ -17,10 +17,8 @@ func _process(delta):
 	$RigidBody3D/CollisionShape3D/Asteroid_model.rotate_x(rotation_speed * delta)
 
 func set_material(value):
-	get_node(
-		"RigidBody3D/CollisionShape3D/Asteroid_model/" + str($RigidBody3D/CollisionShape3D/Asteroid_model.meshpath)
-	).set_surface_override_material(0, value)
-
+	var node = get_node("RigidBody3D/CollisionShape3D/Asteroid_model/" + str($RigidBody3D/CollisionShape3D/Asteroid_model.meshpath))
+	node.set_surface_override_material(0, value)
 
 func explode():
 	parent._asteroids.erase(self)
