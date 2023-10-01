@@ -16,8 +16,6 @@ func _ready():
 	_get_spawners();
 	
 	$SpawnTimer.start()
-#	for pos in _default_spawns:
-#		new_spawner(pos)
 
 func _process(delta):
 	pass
