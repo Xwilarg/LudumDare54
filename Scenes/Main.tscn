@@ -50,6 +50,12 @@ offset_bottom = 62.0
 text = "Test"
 script = ExtResource("3_h2t67")
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="UI"]
+layout_mode = 0
+offset_top = 422.0
+offset_right = 279.0
+offset_bottom = 645.0
+
 [node name="AsteroidManager" type="Node" parent="." node_paths=PackedStringArray("spaceship")]
 script = ExtResource("6_r6njy")
 spaceship = NodePath("../spaceship")

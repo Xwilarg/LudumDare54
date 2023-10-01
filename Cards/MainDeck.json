@@ -1,27 +1,5 @@
 [
 	{
-		"name": "flak",
-		"model": "size2Guns",
-		"materialOverride": "",
-		"size": "S2",
-		"effects": {
-			"ATK_RED": 25,
-			"ATK_GRN": 10,
-			"ATK_BLU": 5
-		},
-		"energyCost": 10
-	},
-	{
-		"name": "battery",
-		"model": "batteryPack",
-		"materialOverride": "",
-		"size": "S1",
-		"effects": {
-			"ENG": 25
-		},
-		"energyCost": 0
-	},
-	{
 		"name": "antenna",
 		"model": "satelliteDish",
 		"materialOverride": "",
@@ -30,29 +8,5 @@
 			"VID": 1
 		},
 		"energyCost": 5
-	},
-	{
-		"name": "laser",
-		"model": "size2Guns",
-		"materialOverride": "",
-		"size": "S2",
-		"effects": {
-			"ATK_RED": 10,
-			"ATK_GRN": 25,
-			"ATK_BLU": 5
-		},
-		"energyCost": 0
-	},
-	{
-		"name": "missile",
-		"model": "size2Guns",
-		"materialOverride": "",
-		"size": "S2",
-		"effects": {
-			"ATK_RED": 5,
-			"ATK_GRN": 5,
-			"ATK_BLU": 40
-		},
-		"energyCost": 10
 	}
 ]

@@ -8,6 +8,8 @@ var _items: Array[ItemCard]
 var _energy_max: int = 100
 var _energy_used: int = 0
 
+var catVideo = preload("res://Videos/catVideo1.ogv")
+
 func can_be_placed(card: Card) -> bool:
 	if _energy_used + card.energyCost > _energy_max:
 		return false
@@ -43,6 +45,10 @@ func register_item(item: ItemCard):
 	if item.card.effects.has("ENG"):
 		_energy_used -= int(item.card.effects["ENG"])
 		update_ui()
+	if item.card.effects.has("VID"):
+		var player: VideoStreamPlayer = get_node("/root/Root/UI/VideoStreamPlayer")
+		player.stream = catVideo
+		player.play()
 	print("[CM] " + item.card.name + " placed, energy left: " + str(_energy_max - _energy_used))
 
 func delete_item(node: Node3D):
@@ -52,6 +58,8 @@ func delete_item(node: Node3D):
 				_energy_used += int(item.card.effects["ENG"])
 				update_ui()
 			_items.erase(item)
+			if len(get_effect("VID")) == 0:
+				get_node("/root/Root/UI/VideoStreamPlayer").stream = null
 
 func update_ui():
 	pass
