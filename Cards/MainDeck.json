@@ -5,8 +5,8 @@
 		"materialOverride": "",
 		"size": "S2",
 		"effects": {
-			"ATK_RED": 25,
-			"ATK_GRN": 10,
+			"ATK_RED": 10,
+			"ATK_GRN": 25,
 			"ATK_BLU": 5
 		},
 		"energyCost": 10
@@ -37,9 +37,9 @@
 		"materialOverride": "",
 		"size": "S2",
 		"effects": {
-			"ATK_RED": 10,
-			"ATK_GRN": 25,
-			"ATK_BLU": 5
+			"ATK_RED": 5,
+			"ATK_GRN": 5,
+			"ATK_BLU": 40
 		},
 		"energyCost": 0
 	},
@@ -49,9 +49,9 @@
 		"materialOverride": "",
 		"size": "S2",
 		"effects": {
-			"ATK_RED": 5,
-			"ATK_GRN": 5,
-			"ATK_BLU": 40
+			"ATK_RED": 25,
+			"ATK_GRN": 10,
+			"ATK_BLU": 5
 		},
 		"energyCost": 10
 	}
