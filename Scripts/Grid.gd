@@ -4,7 +4,7 @@ extends Node
 
 var shape: PackedStringArray
 
-var placed_items: Dictionary # Dict[Variable2i, [AItem, anchor]]
+var placed_items: Dictionary # Dict[Variable2i, [AItem, shape, anchor]]
 
 var nrows: int
 var ncols: int
@@ -67,9 +67,9 @@ func grid_position_to_world_position(index_position: Vector2i, slot_size: Vector
 	return self.global_position + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(index_position[1], 0, index_position[0])
 
 
-func get_enclosing_rectangle(shape, anchor, position):
-	var top_left = position - anchor
-	var bottom_right = top_left + Vector2i(len(shape) - 1, len(shape[0]) - 1)
+func get_enclosing_rectangle(input_shape, input_anchor, input_position):
+	var top_left = input_position - input_anchor
+	var bottom_right = top_left + Vector2i(len(input_shape) - 1, len(input_shape[0]) - 1)
 	return [top_left, bottom_right]
 
 
@@ -138,29 +138,23 @@ func placed_item_has_element_in_rectangle(
 
 
 # check that you can insert before calling this function
-func add_item_at_position(input_item: AItem, shape_anchor_position: Vector2i, position_index: Vector2i) -> void:
+func add_item_at_grid_position(input_item: Node3D, input_item_shape: PackedStringArray, shape_anchor_position: Vector2i, position_index: Vector2i) -> void:
 	# first, get the top left and bottom right indexes of the inserted shape
-	var input_rectangle = get_enclosing_rectangle(input_item.shape, shape_anchor_position, position_index)
+	var input_rectangle = get_enclosing_rectangle(input_item_shape, shape_anchor_position, position_index)
 	
 	# for each items that have at least one element of their shape inside the shape, we remove it
 	for placed_item_grid_position in placed_items.duplicate():
-		var placed_item_shape = placed_items[placed_item_grid_position][0].shape
-		var placed_rectangle = get_enclosing_rectangle(placed_item_shape, placed_items[placed_item_grid_position][1], placed_item_grid_position)
+		var placed_item_shape: PackedStringArray = placed_items[placed_item_grid_position][1]
+		var placed_item_anchor: Vector2i = placed_items[placed_item_grid_position][2]
+		var placed_rectangle: Array[Vector2i] = get_enclosing_rectangle(placed_item_shape, placed_item_anchor, placed_item_grid_position)
 		
-		if placed_item_has_element_in_rectangle(
-			placed_item_shape, placed_rectangle,
-			input_item.shape, input_rectangle
-		):
+		if placed_item_has_element_in_rectangle(placed_item_shape, placed_rectangle, input_item_shape, input_rectangle):
 			placed_items.erase(placed_item_grid_position)
 			
-	placed_items[position_index] = [input_item, shape_anchor_position]
+	placed_items[position_index] = [input_item, input_item_shape, shape_anchor_position]
 
 
-func try_place_item(item: AItem, shape_anchor_position: Vector2i, world_position: Vector3, slot_size: Vector3, inter_space: float) -> bool:
+func add_item_at_world_position(input_item: Node3D, input_item_shape: PackedStringArray, shape_anchor_position: Vector2i, world_position: Vector3, slot_size: Vector3, inter_space: float) -> void:
 	var grid_position: Vector2i = world_position_to_grid_position(world_position, slot_size, inter_space)
-	# check if item is placable:
-	if not is_shape_placable(item.shape, shape_anchor_position, grid_position):
-		return false
-	# else:
-	add_item_at_position(item, shape_anchor_position, grid_position)
-	return true
+	add_item_at_grid_position(input_item, input_item_shape, shape_anchor_position, grid_position)
+

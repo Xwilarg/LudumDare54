@@ -6,7 +6,7 @@ var _gridManager: Array[GridManager]
 
 var _cards: Array[Card]
 
-var _selected_item: Card
+var _selected_card: Card
 var rng = RandomNumberGenerator.new()
 
 var hintObject
@@ -30,9 +30,9 @@ func subscribe_button(b: ItemButton) -> void:
 	b.set_card(_cards[rng.randi_range(0, len(_cards) - 1)])
 	_buttons.append(b)
 
-func load_item(item: Card) -> void:
-	_selected_item = item
-	hintObject = item.previewModel.instantiate()
+func load_item(card: Card) -> void:
+	_selected_card = card
+	hintObject = card.previewModel.instantiate()
 	add_child(hintObject)
 
 func _ready():
@@ -58,7 +58,7 @@ func _process(delta):
 			hintObject.global_position = result.position
 
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_item != null:
+	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_card != null:
 		# We do a raycast to see where we click
 		var camera3d = get_node("/root/Root/Camera3D")
 		var space_state = get_tree().get_root().get_world_3d().direct_space_state
@@ -78,6 +78,14 @@ func _input(event):
 				for grid in gm.grid_ref:
 					if grid.on_grid(result.collider.global_position, Vector3.ONE, gm._space):
 						# ... we place it on the grid
+						var grid_position = grid.world_position_to_grid_position(result.collider.global_position, Vector3.ONE, gm._space)
+						print(grid_position)
+						var insertable = grid.is_shape_placable(_selected_card.shape, Vector2i(0, 0), grid_position)
+						print(insertable)
+						if insertable:
+							var item = _selected_card.model.instantiate()
+							add_child(item)
+							grid.add_item_at_grid_position(item, _selected_card.shape, Vector2i(0, 0), grid_position)
 						print("It's magic time")
 						isDone = true
 						break
@@ -86,8 +94,8 @@ func _input(event):
 				if isDone:
 					break
 
-		# We unselect the item
+		# We unselect the card
 		hintObject.queue_free()
 		hintObject = null
-		_selected_item = null
+		_selected_card = null
 
