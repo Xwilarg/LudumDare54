@@ -32,4 +32,5 @@ func set_type(value: String):
 	type = value
 
 func _on_rigid_body_3d_body_entered(body):
+	print("[AS] Asteroid collided with ship")
 	explode()
