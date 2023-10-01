@@ -4,7 +4,7 @@ class_name AsteroidManager
 
 const _prefab_spawner = preload("res://Scenes/AsteroidSpawner.tscn")
 var _default_spawns = []
-var asteroid_types = {"red": {"material": preload("res://Materials/red.tres")}, "green": {"material": preload("res://Materials/red.tres")}, "blue": {"material": preload("res://Materials/red.tres")}}
+var asteroid_types = {"RED": {"material": preload("res://Materials/red.tres")}, "GRN": {"material": preload("res://Materials/red.tres")}, "BLU": {"material": preload("res://Materials/red.tres")}}
 
 const _additional_spawners_timer = 10
 @onready var spawners: Array = []
@@ -40,6 +40,7 @@ func new_spawner(position = null):
 	spawner.set_target(spaceship.position)
 	
 	var random_key = asteroid_types.keys()[GameManager.rng.randi() % asteroid_types.size()]
+	spawner.type = random_key
 	spawner.asteroid_type = asteroid_types[random_key]
 	
 	spawners.append(spawner)
@@ -50,8 +51,6 @@ func _get_spawners():
 	for ndpath in _editor_spawns:
 		var spawn = get_node(ndpath);
 		_default_spawns.push_back(spawn.global_position);
-	# print(_editor_spawns);
-	# print(_default_spawns);
 
 func _on_spawn_timer_timeout():
 	$SpawnTimer.wait_time = _additional_spawners_timer
