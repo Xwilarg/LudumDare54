@@ -10,6 +10,7 @@
 script = ExtResource("1_25mkp")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+contact_monitor = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_53jop")
