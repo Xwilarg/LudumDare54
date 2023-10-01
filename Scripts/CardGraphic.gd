@@ -13,3 +13,4 @@ func _on_pressed():
 func set_card(c: Card):
 	_curr_card = c;
 	$ARC/CardBG/MarginContainer/VBoxContainer/NamePanel/MarginContainer/RichTextLabel.text = c.name;
+	$ARC/CardBG/MarginContainer/VBoxContainer/DescPanel/MarginContainer/RichTextLabel.text = c.description
