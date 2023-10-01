@@ -27,13 +27,16 @@ func _process(delta):
 			var asteroids = asteroidManager.get_all_asteroids()
 			
 			if len(asteroids) > 0:
+				print("[CM] Firing at asteroid for " + str(eff) + " damage")
 				asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)].take_damage(eff)
 			else:
 				break
 		_aaTimer = 1.0
 
 func register_item(item: ItemCard):
+	_energy_used += item.card.energyCost
 	_items.append(item)
+	print("[CM] " + item.card.name + " placed, energy left: " + str(_energy_max - _energy_used))
 
 func delete_item(node: Node3D):
 	for item in _items:
