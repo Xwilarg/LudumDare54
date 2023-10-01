@@ -1,6 +1,6 @@
 ;en;fr
 FLAK_NAME;Flak Gun;Canon Anti-aérien
-FLAG_DESC;The base defense of your ship, don't forget London treaty!;La défense de base de votre navire, n'oubliez pas le traité de Londres !
+FLAG_DESC;The base defense of your ship, don't forget the London treaty!;La défense de base de votre navire, n'oubliez pas le traité de Londres !
 LASER_NAME;Laser;Laser
 LASER_DESC;Energy-charged asteroids are especially crunchy when you put more energy in them;Les asteroides chargé en énergie sont super-croustillant quand on met encore plus d'energie à l'intérieur
 MISSILE_NAME;Missile Launcher;Lance-missile
@@ -12,9 +12,9 @@ ANTENNA_DESC;To detect long range frequences such as enemy communications or the
 OVERCLOCK_NAME;Overclock Module;Moduble d'overclockage
 OVERCLOCK_DESC;Increase the voltage of all your device, making them more efficient with little to no risk;Augmente le voltage de tous vos appareils, les rendant plus efficace avec presque aucun risque
 
-EFF_ATK_RED;Damage red asteroids by %1 HP per seconds;Inflige des dégats aux astéroides rouges de %1 PV par secondes
-EFF_ATK_GRN;Damage green asteroids by %1 HP per seconds;Inflige des dégats aux astéroides verts de %1 PV par secondes
-EFF_ATK_BLU;Damage blue asteroids by %1 HP per seconds;Inflige des dégats aux astéroides bleus de %1 PV par secondes
+EFF_ATK_RED;Damage red asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides rouges de %1 de leur PV par secondes
+EFF_ATK_GRN;Damage green asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides verts de %1 de leur PV par secondes
+EFF_ATK_BLU;Damage blue asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides bleus de %1 de leur PV par secondes
 EFF_ENG;Increase your ship energy by %1;Augmente l'énergie de votre vaisseau par %1
 EFF_VID;Watch animal videos;Regarde des vidéos d'animaux
-EFF_SPD;Increase firerate by %1%;Augmenta la vitesse de tir par %1%
+EFF_SPD;Increase your firerate by %1%;Augmentera votre vitesse de tir par %1%
