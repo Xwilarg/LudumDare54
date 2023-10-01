@@ -7,7 +7,7 @@ var _asteroids: Array[Asteroid]
 @onready var spawn_timer: float = 5
 @onready var spawn_random_timer: float = 2
 
-@export var spaceship: Node3D
+var target: Vector3
 
 func set_spawn_position(value: Vector3):
 	spawn_position = value
@@ -42,5 +42,7 @@ func new_asteroid():
 	var start_position_noise = Vector3(rand_position.call(), rand_position.call(), rand_position.call())
 	var start_position = spawn_position + start_position_noise
 	
-	asteroid.position = spaceship.position + start_position
-	asteroid.set_target(spaceship)
+	asteroid.set_target(target)
+
+func set_target(value: Vector3):
+	target = value
