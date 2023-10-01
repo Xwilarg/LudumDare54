@@ -57,13 +57,30 @@ func _process(delta):
 			hintObject.global_position = result.position
 	
 	# update UI
-	var spaceship = get_node("/root/Root/spaceship")
-	var hp_text = "[center]Ship Hull:\n" + str(spaceship.current_hp) + "/" + str(spaceship.max_hp) + "[/center]"
-	get_node("/root/Root/UI/ShipHP").text = hp_text
+	var info_level = CardManager.sum(CardManager.get_effect("SEN"))
+	var text = ""
 	
-	var asteroids = get_node("/root/Root/AsteroidManager").get_all_asteroids()
-	var asteroids_text = "Asteroids: " + str(len(asteroids))
-	get_node("/root/Root/UI/NbAsteroids").text = asteroids_text
+	if info_level > 0: # Ship HP
+		var spaceship = get_node("/root/Root/spaceship")
+		#var hp_text = "[center]" + tr("SHIP_HULL") + ":\n" + str(spaceship.current_hp) + "/" + str(spaceship.max_hp) + "[/center]"
+		#get_node("/root/Root/UI/ShipHP").text = hp_text
+		text += tr("SHIP_HULL") + tr("COLON") + " " + str(spaceship.current_hp) + "/" + str(spaceship.max_hp) + "\n\n"
+	
+	if info_level > 1: # Energy
+		var asteroids = get_node("/root/Root/AsteroidManager").get_all_asteroids()
+		text += tr("ENERGY") + tr("COLON") + " " + str(CardManager._energy_max - CardManager._energy_used) + "/" + str(CardManager._energy_max) + "\n\n"
+
+	if info_level > 2: # Attack power
+		text += tr("ATTACK_POWER") + tr("COLON") + "\n"
+		text += tr("GRN_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_GRN"))) + "\n"
+		text += tr("BLU_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_BLU"))) + "\n"
+		text += tr("RED_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_RED")))
+		text += "\n\n"
+
+	if info_level > 3: pass
+	#var asteroids = get_node("/root/Root/AsteroidManager").get_all_asteroids()
+	#var asteroids_text = "Asteroids: " + str(len(asteroids))
+	get_node("/root/Root/UI/NbAsteroids").text = text
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_card != null:

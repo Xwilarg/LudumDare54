@@ -36,6 +36,15 @@
 		"energyCost": 5
 	},
 	{
+		"name": "sensor",
+		"model": "sensor",
+		"size": "S1",
+		"effects": {
+			"SEN": 1
+		},
+		"energyCost": 5
+	},
+	{
 		"name": "flak1",
 		"model": "size1Gun",
 		"size": "S1",
@@ -58,7 +67,7 @@
 		"energyCost": 15
 	},
 	{
-		"name": "laser",
+		"name": "laser1",
 		"model": "size2Guns",
 		"size": "S2",
 		"effects": {
@@ -69,7 +78,7 @@
 		"energyCost": 15
 	},
 	{
-		"name": "missile",
+		"name": "missile1",
 		"model": "size2Guns",
 		"size": "S2",
 		"effects": {

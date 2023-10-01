@@ -106,11 +106,14 @@ bbcode_enabled = true
 fit_content = true
 
 [node name="NbAsteroids" type="RichTextLabel" parent="UI"]
-layout_mode = 0
-offset_right = 250.0
-offset_bottom = 61.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 163.0
+grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("3_m0x2s")
 bbcode_enabled = true
+text_direction = 2
 
 [node name="AsteroidManager" type="Node" parent="." node_paths=PackedStringArray("spaceship")]
 script = ExtResource("6_r6njy")

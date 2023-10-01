@@ -3,10 +3,10 @@ FLAK1_NAME;Flak Gun;Canon anti-aérien
 FLAK1_DESC;The base defense of your ship, don't forget the London treaty!;La défense de base de votre navire, n'oubliez pas le traité de Londres !
 FLAK2_NAME;Flak Gun Mk2;Canon anti-aérien Mk2
 FLAK2_DESC;More accurate, stronger but still as light, George V would be proud!;Plus précis, plus fort, mais tout aussi léger, George V serait fier!
-LASER_NAME;Laser;Laser
-LASER_DESC;Energy-charged asteroids are especially crunchy when you put more energy in them;Les asteroides chargé en énergie sont super-croustillant quand on met encore plus d'energie à l'intérieur
-MISSILE_NAME;Missile Launcher;Lance-missile
-MISSILE_DESC;Some asteroids are filled with gaz, don't forget to shout 'tamaya' when blowing them up;Certains astéroides sont rempli de gaz, n'oubliez pas de crier 'tamaya' quand ils explosent
+LASER1_NAME;Laser;Laser
+LASER1_DESC;Energy-charged asteroids are especially crunchy when you put more energy in them;Les asteroides chargé en énergie sont super-croustillant quand on met encore plus d'energie à l'intérieur
+MISSILE1_NAME;Missile Launcher;Lance-missile
+MISSILE1_DESC;Some asteroids are filled with gaz, don't forget to shout 'tamaya' when blowing them up;Certains astéroides sont rempli de gaz, n'oubliez pas de crier 'tamaya' quand ils explosent
 BATTERY_NAME;Battery;Batterie
 BATTERY_DESC;Use the power of lithium so you can have both thermo-nuclear weapons and a coffee machine;Utilise le pouvoir du lithium pour que vous puissiez avoir à la fois des armes thermo-nucléaire et une machine à café
 ANTENNA_NAME;Antenna;Antenne
@@ -15,6 +15,8 @@ OVERCLOCK_NAME;Overclock Module;Moduble d'overclockage
 OVERCLOCK_DESC;Increase the voltage of all your device, making them more efficient with little to no risk;Augmente le voltage de tous vos appareils, les rendant plus efficace avec presque aucun risque
 SOLARPANEL_NAME;Solar Panel;Panneau Solaire
 SOLARPANEL_DESC;Grants you even more power at the cost of having to clean off every 2 days the dust from the asteroids you keep destroying;Vous donne encore plus de puissance au cout de devoir les nettoyer tous les 2 jours de la poussière de tous les astéroides que vous détruisez
+SENSOR_NAME;Sensor;Capteur
+SENSOR_DESC;To know which direction the wind is going, wet your finger and see where it's breezy, the sensor however doesn't use this tip to know that;Pour savoir dans quel direction va le vent mouillez votre doigt et voyez où vous avez froid, le capteur n'utilise cependant pas cette astuce pour le savoir
 
 EFF_ATK_RED;Damage red asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides rouges de %1 de leur PV par secondes
 EFF_ATK_GRN;Damage green asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides verts de %1 de leur PV par secondes
@@ -22,3 +24,14 @@ EFF_ATK_BLU;Damage blue asteroids by %1 of their HP per seconds;Inflige des dég
 EFF_ENG;Increase your ship energy by %1;Augmente l'énergie de votre vaisseau par %1
 EFF_VID;Watch animal videos;Regarde des vidéos d'animaux
 EFF_SPD;Increase your firerate by %1%;Augmentera votre vitesse de tir par %1%
+EFF_SEN;Display more information about your ship and its surroundings;Affiche plus d'information à propos du vaisseau et ses environs
+
+SHIP_HULL;Ship Hull;Coque du vaisseau
+ASTEROIDS;Asteroids;Astéroides
+ENERGY;Energy;Energie
+ATTACK_POWER;Attack Power;Puissance de feu
+COLON;:; :
+
+GRN_DMG;Firearm Damage;Dégats d'arme à feu
+BLU_DMG;Energy Damage;Dégats d'énergie
+RED_DMG;Explosive Damage;Dégats d'explosion

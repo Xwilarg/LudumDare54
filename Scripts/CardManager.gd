@@ -91,7 +91,7 @@ func play_animal_video():
 	if vidCount > 0:
 		var player: VideoStreamPlayer = get_node("/root/Root/UI/AspectRatioContainer/VideoStreamPlayer")
 		vidCount -= 1
-		if vidCount >= len(catVideo): vidCount = len(catVideo) - 1
+		if vidCount >= len(catVideo): vidCount = GameManager.rng.randi_range(0, len(catVideo) - 1) # If level is bigger than chicken level we just take a random animal
 		var arr = catVideo[vidCount]
 		var rand = GameManager.rng.randi_range(0, len(arr) - 1)
 		get_node("/root/Root/UI/AspectRatioContainer").ratio = aspect_ratio[vidCount][rand]
