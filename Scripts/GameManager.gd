@@ -10,6 +10,7 @@ var _selected_card: Card
 var rng = RandomNumberGenerator.new()
 
 var hintObject: Node3D
+var current_button: ItemButton
 
 var time_start: int = 0
 var time_now: int = 0
@@ -25,11 +26,12 @@ func subscribe_button(b: ItemButton) -> void:
 	b.set_card(_cards[rng.randi_range(0, len(_cards) - 1)])
 	_buttons.append(b)
 
-func load_item(card: Card) -> void:
+func load_item(b: ItemButton, card: Card) -> void:
 	_selected_card = card
 	hintObject = card.previewModel.instantiate()
 	hintObject.scale = Vector3(.5, .5, .5)
 	add_child(hintObject)
+	current_button = b
 
 func _ready():
 	time_start = Time.get_unix_time_from_system()
@@ -73,7 +75,7 @@ func _input(event):
 		var result = space_state.intersect_ray(query)
 		
 		if len(result) > 0: # If we clicked on a slot...
-			print(result)
+			# print(result)
 			var isDone = false
 			for gm in _gridManager:
 				for grid in gm.grid_ref:
@@ -83,22 +85,23 @@ func _input(event):
 						var grid_position = grid.world_position_to_grid_position(result.collider.global_position)
 						var world_position = grid.grid_position_to_world_position(grid_position)
 						
-						print(result.collider.global_position)
-						print(grid_position)
-						print(world_position)
+						# print(result.collider.global_position)
+						# print(grid_position)
+						# print(world_position)
 
 						var insertable = grid.is_shape_placable(_selected_card.shape, Vector2i(0, 0), grid_position)
-						print(insertable)
+						# print(insertable)
 						if insertable:
 							var item = _selected_card.model.instantiate()
 							CardManager.register_item(ItemCard.new(_selected_card, item))
 							add_child(item)
 							grid.add_item_at_grid_position(item, _selected_card.shape, Vector2i(0, 0), grid_position)
-						print("It's magic time")
-						isDone = true
+							# print("It's magic time")
+							isDone = true
+							current_button.set_card(_cards[rng.randi_range(0, len(_cards) - 1)])
 						break
 					else:
-						print("Magic is gone booo")
+						pass# print("Magic is gone booo")
 				if isDone:
 					break
 

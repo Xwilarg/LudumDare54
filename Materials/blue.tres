@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bii4xq3s4ey5l"]
+
+[ext_resource type="Shader" path="res://Shaders/blue.gdshader" id="1_pbucx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pbucx")
