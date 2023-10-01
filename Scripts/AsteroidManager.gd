@@ -16,9 +16,10 @@ var _aaTimer: float = 1.0
 
 func _ready():
 	_get_spawners();
-
-	for pos in _default_spawns:
-		new_spawner(pos)
+	
+	$SpawnTimer.start()
+#	for pos in _default_spawns:
+#		new_spawner(pos)
 
 func _process(delta):
 	_aaTimer -= delta
@@ -28,7 +29,7 @@ func _process(delta):
 		
 		if len(asteroids) > 0:
 			var ast_index = GameManager.rng.randi_range(0, len(asteroids) - 1)
-			asteroids[ast_index].take_damage(10)
+			asteroids[ast_index].take_damage(34)
 			_aaTimer = 1.0
 
 func get_all_asteroids():
@@ -60,3 +61,7 @@ func _get_spawners():
 		_default_spawns.push_back(spawn.global_position);
 	print(_editor_spawns);
 	print(_default_spawns);
+
+func _on_spawn_timer_timeout():
+	$SpawnTimer.wait_time = _additional_spawners_timer
+	new_spawner()

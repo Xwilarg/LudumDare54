@@ -4,6 +4,7 @@ const _prefab_Asteroids = [preload("res://Scenes/AsteroidModel/Asteroid_game1.ts
 
 var spawn_position: Vector3
 var _asteroids: Array[Asteroid]
+const _spawn_position_noise: int = 10
 @onready var spawn_timer: float = 5
 @onready var spawn_random_timer: float = 2
 
@@ -34,9 +35,13 @@ func new_asteroid():
 	
 	_asteroids.append(asteroid)
 	
-	var rand_position = func(): return GameManager.rng.randf_range(-3, 3)
+	var rand_position = func(): return GameManager.rng.randf_range(-_spawn_position_noise, _spawn_position_noise)
 	var start_position_noise = Vector3(rand_position.call(), rand_position.call(), rand_position.call())
-	asteroid.position = spawn_position + start_position_noise
+	var asteroid_position = spawn_position + start_position_noise
+	asteroid_position = Vector3(asteroid_position.x, max(asteroid_position.y, 10), max(asteroid_position.z, 10))
+	
+	asteroid.position = asteroid_position
+	asteroid.parent = self
 	
 	asteroid.set_target(target)
 

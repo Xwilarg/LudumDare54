@@ -54,7 +54,7 @@ spaceship = NodePath("../spaceship")
 _editor_spawns = [NodePath("SpawnerPos1"), NodePath("SpawnerPos2"), NodePath("SpawnerPos3"), NodePath("SpawnerPos4")]
 
 [node name="SpawnTimer" type="Timer" parent="AsteroidManager"]
-wait_time = 5.0
+wait_time = 3.0
 
 [node name="SpawnerPos1" type="Node3D" parent="AsteroidManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1009, 13.012, 29.6772)

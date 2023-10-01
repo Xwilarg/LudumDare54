@@ -15,8 +15,10 @@ func _process(delta):
 	_aaTimer -= delta
 	if _aaTimer <= 0.0:
 		var asteroids = asteroidManager.get_all_asteroids()
-		asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)].take_damage(get_effect("ATK"))
-		_aaTimer = 1.0
+		
+		if len(asteroids) > 0:
+			asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)].take_damage(get_effect("ATK"))
+			_aaTimer = 1.0
 
 func register_item(item: ItemCard):
 	_items.append(item)
