@@ -161,6 +161,8 @@ func add_item_at_grid_position(input_item: Node3D, input_item_shape: PackedStrin
 		
 		if placed_item_has_element_in_rectangle(placed_item_shape, placed_rectangle, input_item_shape, input_rectangle):
 			placed_items.erase(placed_item_grid_position)
+			CardManager.delete_item(placed_items[placed_item_grid_position][0])
+			placed_items[placed_item_grid_position][0].queue_free()
 			
 	placed_items[position_index] = [input_item, input_item_shape, input_item_shape_anchor]
 	# place item at its position:
