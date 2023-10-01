@@ -55,6 +55,11 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_card != null:
+		
+		if !CardManager.can_be_placed(_selected_card):
+			print("Not enough energy to place " + _selected_card.name)
+			return
+		
 		# We do a raycast to see where we click
 		var camera3d = get_node("/root/Root/Camera3D")
 		var space_state = get_tree().get_root().get_world_3d().direct_space_state
@@ -72,10 +77,16 @@ func _input(event):
 			var isDone = false
 			for gm in _gridManager:
 				for grid in gm.grid_ref:
-					if grid.on_grid(result.collider.global_position, Vector3.ONE, gm._space):
+					if grid.on_grid(result.collider.global_position):
 						# ... we place it on the grid
-						var grid_position = grid.world_position_to_grid_position(result.collider.global_position, Vector3.ONE, gm._space)
+						
+						var grid_position = grid.world_position_to_grid_position(result.collider.global_position)
+						var world_position = grid.grid_position_to_world_position(grid_position)
+						
+						print(result.collider.global_position)
 						print(grid_position)
+						print(world_position)
+
 						var insertable = grid.is_shape_placable(_selected_card.shape, Vector2i(0, 0), grid_position)
 						print(insertable)
 						if insertable:
