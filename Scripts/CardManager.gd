@@ -5,8 +5,13 @@ extends Node
 var _aaTimer: float = 1.0
 var _items: Array[ItemCard]
 
-var _energy: int = 100
-var _energyUsed: int = 0
+var _energy_max: int = 100
+var _energy_used: int = 0
+
+func can_be_placed(card: Card) -> bool:
+	if _energy_used + card.energyCost > _energy_max:
+		return false
+	return true
 
 func get_effect(str: String) -> Array[int]:
 	var data: Array[int]

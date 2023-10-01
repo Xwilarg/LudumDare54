@@ -55,6 +55,11 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_card != null:
+		
+		if !CardManager.can_be_placed(_selected_card):
+			print("Not enough energy to place " + _selected_card.name)
+			return
+		
 		# We do a raycast to see where we click
 		var camera3d = get_node("/root/Root/Camera3D")
 		var space_state = get_tree().get_root().get_world_3d().direct_space_state
