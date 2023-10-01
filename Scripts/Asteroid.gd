@@ -36,5 +36,7 @@ func set_type(value: String):
 	type = value
 
 func _on_rigid_body_3d_body_entered(body):
-	print("[AS] Asteroid collided with ship")
+	var spaceship = body.get_parent()
+	spaceship.take_damage(1)
+	
 	explode()
