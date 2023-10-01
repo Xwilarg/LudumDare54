@@ -4,7 +4,7 @@ func _init(json: Dictionary):
 	name = tr(json.name.to_upper() + "_NAME")
 	description = tr(json.name.to_upper() + "_DESC")
 
-	energyCost = json.name.energyCost
+	energyCost = json.energyCost
 	effects = json.effects
 	if json.model == "size2Guns": model = preload("res://Models/size2Guns.glb")
 

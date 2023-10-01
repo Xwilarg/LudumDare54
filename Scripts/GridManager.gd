@@ -19,6 +19,6 @@ func instanciate_slots(x: float, z: float, xLen: int, zLen: int, grid_local_posi
 	elem.global_position = Vector3(
 		grid_local_position.x - (xLen + (xLen - 1) * _space) / 2.0 + x + (_space * x),
 		grid_local_position.y,
-		grid_local_position.z - (zLen + (zLen - 1) * _space) / 2.0 + z + (_space * z) 
-	) 
+		grid_local_position.z - (zLen + (zLen - 1) * _space) / 2.0 + z + (_space * z)
+	)
 	add_child(elem)
