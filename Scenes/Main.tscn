@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://co7830btl7ju4"]
+[gd_scene load_steps=11 format=3 uid="uid://d244l8py2j2jv"]
 
 [ext_resource type="PackedScene" uid="uid://ci5aldt6ohxr5" path="res://Scenes/Spaceship.tscn" id="1_em1mt"]
 [ext_resource type="FontFile" uid="uid://b12u15uyrlxo" path="res://Font/angas v3 bold.ttf" id="3_m0x2s"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://by3g01l0r150w" path="res://skybox.png" id="4_gqf0v"]
 [ext_resource type="PackedScene" uid="uid://dlr735arsj61v" path="res://Models/Main Ship.glb" id="6_jorn6"]
 [ext_resource type="Script" path="res://Scripts/AsteroidManager.gd" id="6_r6njy"]
-[ext_resource type="Script" path="res://Models/ShipBackground.gd" id="7_8nny8"]
+[ext_resource type="Script" path="res://Scripts/ShipBackground.gd" id="7_v48sk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mkgcy"]
 panorama = ExtResource("4_gqf0v")
@@ -139,6 +139,6 @@ environment = SubResource("Environment_jm20i")
 
 [node name="Main Ship" parent="Background" instance=ExtResource("6_jorn6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1605.27, -686.982, 192.651)
-script = ExtResource("7_8nny8")
+script = ExtResource("7_v48sk")
 
 [connection signal="timeout" from="AsteroidManager/SpawnTimer" to="AsteroidManager" method="_on_spawn_timer_timeout"]
