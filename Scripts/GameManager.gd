@@ -54,6 +54,15 @@ func _process(delta):
 		var result = space_state.intersect_ray(query)
 		if len(result) > 0:
 			hintObject.global_position = result.position
+	
+	# update UI
+	var spaceship = get_node("/root/Root/spaceship")
+	var hp_text = "[center]Ship Hull:\n" + str(spaceship.current_hp) + "/" + str(spaceship.max_hp) + "[/center]"
+	get_node("/root/Root/UI/ShipHP").text = hp_text
+	
+	var asteroids = get_node("/root/Root/AsteroidManager").get_all_asteroids()
+	var asteroids_text = "Asteroids: " + str(len(asteroids))
+	get_node("/root/Root/UI/NbAsteroids").text = asteroids_text
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_card != null:
