@@ -15,11 +15,6 @@ var time_start: int = 0
 var time_now: int = 0
 var elapsed_time: int
 
-var spaceship: Node3D
-
-func _register_spaceship(value: Node3D):
-	spaceship = value
-
 func _init_cards():
 	for card in _deck.data:
 		_cards.append(Card.new(card))
