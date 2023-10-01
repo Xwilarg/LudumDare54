@@ -80,6 +80,7 @@ func _input(event):
 						print(insertable)
 						if insertable:
 							var item = _selected_card.model.instantiate()
+							CardManager.register_item(ItemCard.new(_selected_card, item))
 							add_child(item)
 							grid.add_item_at_grid_position(item, _selected_card.shape, Vector2i(0, 0), grid_position)
 						print("It's magic time")
