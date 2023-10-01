@@ -76,7 +76,7 @@ func delete_item(node: Node3D):
 func play_animal_video():
 	if sum(get_effect("VID")) > 0:
 		var player: VideoStreamPlayer = get_node("/root/Root/UI/VideoStreamPlayer")
-		player.stream = catVideo
+		player.stream = catVideo[GameManager.rng.randi_range(0, len(catVideo) - 1)]
 		player.play()
 		animal_video_timer = 20
 
