@@ -1,6 +1,6 @@
 extends Node
 
-@onready var asteroidManager: AsteroidManager = get_node("/root/Root/AsteroidManager")
+@onready var asteroidManager  = get_node("/root/Root/AsteroidManager")
 
 var _aaTimer: float = 1.0
 var _items: Array[ItemCard]
