@@ -89,6 +89,9 @@ func _process(delta):
 
 	if info_level > 3:
 		text += tr("METEO") + tr("COLON") + "\n" + meteo + "\n\n"
+
+	if info_level > 4:
+		text += tr("FAVORITE_CHEESE") + tr("COLON") + " " + tr("FETA") + ", " + tr("GRUYERE") + ", " + tr("AMERICAN_CHEESE") + "\n\n"
 		
 	#var asteroids = get_node("/root/Root/AsteroidManager").get_all_asteroids()
 	#var asteroids_text = "Asteroids: " + str(len(asteroids))
