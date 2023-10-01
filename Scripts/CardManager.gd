@@ -13,6 +13,8 @@ var catVideo = [
 	preload("res://Videos/catVideo1.ogv")
 ]
 
+var colors: Array[String] = [ "RED", "GRN", "BLU" ]
+
 func can_be_placed(card: Card) -> bool:
 	if _energy_used + card.energyCost > _energy_max:
 		return false
@@ -37,16 +39,20 @@ func _process(delta):
 	_aaTimer -= delta
 	
 	if _aaTimer <= 0.0:
-		for eff in get_effect("ATK_RED"):
+		for i in _items:
 			var asteroids = asteroidManager.get_all_asteroids()
-			
-			if len(asteroids) > 0:
-				print("[CM] Firing at asteroid for " + str(eff) + " damage")
-				asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)].take_damage(eff)
-			else:
+			if len(asteroids) == 0:
 				break
+
+			var a = asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)]
+			var color = a.type
+			if i.card.effects.has("ATK_" + color):
+				var eff = i.card.effects["ATK_" + color]
+				a.take_damage(eff)
+				print("[CM] " + i.card.name + " firing at asteroid for " + str(eff) + " damage (color: " + color + ")")
 		
-		_aaTimer = 1.0
+		_aaTimer = 1.0 * 1.0 - sum(get_effect("SPD")) / 100.0
+		if _aaTimer <= 0.1: _aaTimer = 0.1
 
 	if animal_video_timer > 0.0:
 		animal_video_timer -= delta

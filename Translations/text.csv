@@ -9,9 +9,12 @@ BATTERY_NAME;Battery;Batterie
 BATTERY_DESC;Give you more power so you can both have thermo-nuclear weapons and a coffee machine;Vous donne plus de puissance pour que vous puissiez à la fois avoir des armes thermo-nucléaire et une machine à café
 ANTENNA_NAME;Antenna;Antenne
 ANTENNA_DESC;To detect long range frequences such as enemy communications or the nearest planet TV channel;Pour détecter les fréquences longue portée comme les communications enemies ou les chaines TV de la planête la plus proche
+OVERCLOCK_NAME;Overclock Module;Moduble d'overclockage
+OVERCLOCK_DESC;Increase the voltage of all your device, making them more efficient with little to no risk;Augmente le voltage de tous vos appareils, les rendant plus efficace avec presque aucun risque
 
 EFF_ATK_RED;Damage red asteroids by %1 HP per seconds;Inflige des dégats aux astéroides rouges de %1 PV par secondes
 EFF_ATK_GRN;Damage green asteroids by %1 HP per seconds;Inflige des dégats aux astéroides verts de %1 PV par secondes
 EFF_ATK_BLU;Damage blue asteroids by %1 HP per seconds;Inflige des dégats aux astéroides bleus de %1 PV par secondes
 EFF_ENG;Increase your ship energy by %1;Augmente l'énergie de votre vaisseau par %1
-EFF_VID;Watch kitten videos;Regarde des vidéos de chats
+EFF_VID;Watch animal videos;Regarde des vidéos d'animaux
+EFF_SPD;Increase firerate by %1%;Augmenta la vitesse de tir par %1%
