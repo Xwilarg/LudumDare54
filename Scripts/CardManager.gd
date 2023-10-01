@@ -15,15 +15,18 @@ func can_be_placed(card: Card) -> bool:
 
 func get_effect(str: String) -> Array[int]:
 	var data: Array[int]
+	
 	for item in _items:
 		if item.card.effects.has(str):
 			data.append(int(item.card.effects[str]))
+	
 	return data
 
 func _process(delta):
 	_aaTimer -= delta
+	
 	if _aaTimer <= 0.0:
-		for eff in get_effect("ATK"):
+		for eff in get_effect("ATK_RED"):
 			var asteroids = asteroidManager.get_all_asteroids()
 			
 			if len(asteroids) > 0:
@@ -31,6 +34,7 @@ func _process(delta):
 				asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)].take_damage(eff)
 			else:
 				break
+		
 		_aaTimer = 1.0
 
 func register_item(item: ItemCard):
