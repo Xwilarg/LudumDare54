@@ -38,7 +38,9 @@ func new_spawner(position = null):
 	
 	spawner.set_spawn_position(position)
 	spawner.set_target(spaceship.position)
-	spawner.asteroid_type = asteroid_types[GameManager.rng.randi_range(0, len(asteroid_types) - 1)]
+	
+	var random_key = asteroid_types.keys()[GameManager.rng.randi() % asteroid_types.size()]
+	spawner.asteroid_type = asteroid_types[random_key]
 	
 	spawners.append(spawner)
 	

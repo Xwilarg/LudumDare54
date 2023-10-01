@@ -7,7 +7,7 @@ var _asteroids: Array[Asteroid]
 const _spawn_position_noise: int = 10
 @onready var spawn_timer: float = 5
 @onready var spawn_random_timer: float = 2
-var asteroid_type: String
+var asteroid_type: Dictionary
 
 var target: Vector3
 
@@ -43,7 +43,7 @@ func new_asteroid():
 	
 	asteroid.position = asteroid_position
 	asteroid.parent = self
-	asteroid.set_type = asteroid_type
+	asteroid.set_type(asteroid_type)
 	
 	asteroid.set_target(target)
 
