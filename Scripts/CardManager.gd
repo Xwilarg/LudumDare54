@@ -10,9 +10,9 @@ var _energy_max: int = 100
 var _energy_used: int = 0
 
 var catVideo = [
-	preload("res://Videos/catVideo1.ogv"),
-	preload("res://Videos/dogVideo.ogv"),
-	preload("res://Videos/chickenVideo.ogv")
+	[ preload("res://Videos/catVideo1.ogv") ],
+	[ preload("res://Videos/dogVideo1.ogv"), preload("res://Videos/dogVideo2.ogv") ],
+	[ preload("res://Videos/chickenVideo.ogv") ]
 ]
 
 var colors: Array[String] = [ "RED", "GRN", "BLU" ]
@@ -86,7 +86,8 @@ func play_animal_video():
 		var player: VideoStreamPlayer = get_node("/root/Root/UI/VideoStreamPlayer")
 		vidCount -= 1
 		if vidCount >= len(catVideo): vidCount = len(catVideo)
-		player.stream = catVideo[vidCount]
+		var arr = catVideo[vidCount]
+		player.stream = arr[GameManager.rng.randi_range(0, len(arr) - 1)]
 		player.play()
 		animal_video_timer = 20
 
