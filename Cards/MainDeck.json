@@ -24,9 +24,16 @@
 		"model": "batteryPack",
 		"size": "S1",
 		"effects": {
-			"ATK_RED": 10,
-			"ATK_GRN": 25,
-			"ATK_BLU": 5
+			"ENG": 10
+		},
+		"energyCost": 0
+	},
+	{
+		"name": "solarPanel",
+		"model": "solarPanel",
+		"size": "S2",
+		"effects": {
+			"ENG": 25
 		},
 		"energyCost": 0
 	},

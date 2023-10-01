@@ -6,11 +6,13 @@ LASER_DESC;Energy-charged asteroids are especially crunchy when you put more ene
 MISSILE_NAME;Missile Launcher;Lance-missile
 MISSILE_DESC;Some asteroids are filled with gaz, don't forget to shout 'tamaya' when blowing them up;Certains astéroides sont rempli de gaz, n'oubliez pas de crier 'tamaya' quand ils explosent
 BATTERY_NAME;Battery;Batterie
-BATTERY_DESC;Give you more power so you can both have thermo-nuclear weapons and a coffee machine;Vous donne plus de puissance pour que vous puissiez à la fois avoir des armes thermo-nucléaire et une machine à café
+BATTERY_DESC;Use the power of lithium so you can have both thermo-nuclear weapons and a coffee machine;Utilise le pouvoir du lithium pour que vous puissiez avoir à la fois des armes thermo-nucléaire et une machine à café
 ANTENNA_NAME;Antenna;Antenne
 ANTENNA_DESC;To detect long range frequences such as enemy communications or the nearest planet TV channel;Pour détecter les fréquences longue portée comme les communications enemies ou les chaines TV de la planête la plus proche
 OVERCLOCK_NAME;Overclock Module;Moduble d'overclockage
 OVERCLOCK_DESC;Increase the voltage of all your device, making them more efficient with little to no risk;Augmente le voltage de tous vos appareils, les rendant plus efficace avec presque aucun risque
+SOLARPANEL_NAME;Solar Panel;Panneau Solaire
+SOLARPANEL_DESC;Grants you even more power at the cost of having to clean off every 2 days the dust from the asteroids you keep destroying;Vous donne encore plus de puissance au cout de devoir les nettoyer tous les 2 jours de la poussière de tous les astéroides que vous détruisez
 
 EFF_ATK_RED;Damage red asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides rouges de %1 de leur PV par secondes
 EFF_ATK_GRN;Damage green asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides verts de %1 de leur PV par secondes
