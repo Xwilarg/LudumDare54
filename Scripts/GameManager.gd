@@ -15,6 +15,7 @@ var current_button: CardUI
 var time_start: int = 0
 var time_now: int = 0
 var elapsed_time: int
+var meteo: String
 
 func _init_cards():
 	for card in _deck.data:
@@ -34,8 +35,17 @@ func load_item(b: CardUI, card: Card) -> void:
 	add_child(hintObject)
 	current_button = b
 
+func on_meteo_completed(result, response_code, headers, body):
+	var json = JSON.parse_string(body.get_string_from_utf8())
+	meteo = tr("TEMPERATURE") + tr("COLON") + "\n" + str(json["current_weather"]["temperature"]) + json["current_weather_units"]["temperature"] + "\n"
+	meteo += tr("WIND_SPEED") + tr("COLON") + " " + str(json["current_weather"]["windspeed"]) + json["current_weather_units"]["windspeed"]
+	print("[GM] Meteo loaded: " + meteo)
+
 func _ready():
 	time_start = Time.get_unix_time_from_system()
+	meteo = "Can't contact meteo API"
+	Ghttp.request_completed.connect(on_meteo_completed)
+	var resp = Ghttp.request("https://api.open-meteo.com/v1/forecast?latitude=48.85&longitude=2.35&current_weather=true")
 
 func _process(delta):
 	time_now = Time.get_unix_time_from_system()
@@ -77,7 +87,9 @@ func _process(delta):
 		text += tr("RED_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_RED")))
 		text += "\n\n"
 
-	if info_level > 3: pass
+	if info_level > 3:
+		text += tr("METEO") + tr("COLON") + "\n" + meteo + "\n\n"
+		
 	#var asteroids = get_node("/root/Root/AsteroidManager").get_all_asteroids()
 	#var asteroids_text = "Asteroids: " + str(len(asteroids))
 	get_node("/root/Root/UI/NbAsteroids").text = text

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scenes/GameManager.tscn"
 CardManager="*res://Scripts/CardManager.gd"
+Ghttp="*res://Scenes/GHTTP.tscn"
 
 [importer_defaults]
 
