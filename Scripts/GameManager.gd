@@ -37,7 +37,7 @@ func load_item(b: CardUI, card: Card) -> void:
 
 func on_meteo_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
-	meteo = tr("TEMPERATURE") + tr("COLON") + "\n" + str(json["current_weather"]["temperature"]) + json["current_weather_units"]["temperature"] + "\n"
+	meteo = tr("TEMPERATURE") + tr("COLON") + " " + str(json["current_weather"]["temperature"]) + json["current_weather_units"]["temperature"] + "\n"
 	meteo += tr("WIND_SPEED") + tr("COLON") + " " + str(json["current_weather"]["windspeed"]) + json["current_weather_units"]["windspeed"]
 	print("[GM] Meteo loaded: " + meteo)
 
@@ -67,7 +67,7 @@ func _process(delta):
 			hintObject.global_position = result.position
 	
 	# update UI
-	var info_level = CardManager.sum(CardManager.get_effect("SEN"))
+	var info_level = 5# CardManager.sum(CardManager.get_effect("SEN"))
 	var text = ""
 	
 	if info_level > 0: # Ship HP
@@ -81,17 +81,17 @@ func _process(delta):
 		text += tr("ENERGY") + tr("COLON") + " " + str(CardManager._energy_max - CardManager._energy_used) + "/" + str(CardManager._energy_max) + "\n\n"
 
 	if info_level > 2: # Attack power
-		text += tr("ATTACK_POWER") + tr("COLON") + "\n"
+		text += tr("ATTACK_POWER") + "\n"
 		text += tr("GRN_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_GRN"))) + "\n"
 		text += tr("BLU_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_BLU"))) + "\n"
 		text += tr("RED_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_RED")))
 		text += "\n\n"
 
 	if info_level > 3:
-		text += tr("METEO") + tr("COLON") + "\n" + meteo + "\n\n"
+		text += tr("METEO") + "\n" + meteo + "\n\n"
 
 	if info_level > 4:
-		text += tr("FAVORITE_CHEESE") + tr("COLON") + " " + tr("FETA") + ", " + tr("GRUYERE") + ", " + tr("AMERICAN_CHEESE") + "\n\n"
+		text += tr("FAVORITE_CHEESE") + "\n" + tr("FETA") + "\n" + tr("GRUYERE") + "\n" + tr("AMERICAN_CHEESE") + "\n\n"
 		
 	#var asteroids = get_node("/root/Root/AsteroidManager").get_all_asteroids()
 	#var asteroids_text = "Asteroids: " + str(len(asteroids))

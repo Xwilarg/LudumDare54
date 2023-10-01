@@ -107,9 +107,12 @@ fit_content = true
 
 [node name="NbAsteroids" type="RichTextLabel" parent="UI"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
+anchor_left = 0.732
 anchor_right = 1.0
-offset_bottom = 163.0
+anchor_bottom = 0.037
+offset_left = -0.264038
+offset_bottom = 556.024
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("3_m0x2s")
 bbcode_enabled = true
