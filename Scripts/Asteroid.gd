@@ -6,6 +6,7 @@ var hp: int = 100
 var target: Vector3
 var move_speed: float = 100
 var rotation_speed: float = PI
+var parent
 
 func _ready():
 	$RigidBody3D.max_contacts_reported = 2;
@@ -16,7 +17,7 @@ func _process(delta):
 
 func explode():
 	print("boom")
-	get_node("/root/Root/AsteroidManager").get_all_asteroids().erase(self)
+	parent._asteroids.erase(self)
 	self.queue_free()
 
 func take_damage(value: int):
