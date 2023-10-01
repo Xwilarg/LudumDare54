@@ -3,6 +3,7 @@ extends Node
 @onready var asteroidManager  = get_node("/root/Root/AsteroidManager")
 
 var _aaTimer: float = 1.0
+var animal_video_timer: float
 var _items: Array[ItemCard]
 
 var _energy_max: int = 100
@@ -11,8 +12,6 @@ var _energy_used: int = 0
 var catVideo = [
 	preload("res://Videos/catVideo1.ogv")
 ]
-
-var animal_video_timer: int
 
 func can_be_placed(card: Card) -> bool:
 	if _energy_used + card.energyCost > _energy_max:
