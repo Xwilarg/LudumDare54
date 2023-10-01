@@ -42,8 +42,6 @@ func _process(delta):
 	time_now = Time.get_unix_time_from_system()
 	elapsed_time = time_now - time_start
 	
-	print(spaceship)
-	
 	if hintObject != null:
 		var camera3d = get_node("/root/Root/Camera3D")
 		var space_state = get_tree().get_root().get_world_3d().direct_space_state
