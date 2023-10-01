@@ -95,6 +95,19 @@ func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Ve
 			if input_shape[row][col] != self.shape[coord_row][coord_col]:
 				return false
 
+	for item in placed_items.keys():
+		var item_nrows = len(placed_items[item][1])
+		var item_ncols = len(placed_items[item][1][0])
+		for irow in range(item_nrows):
+			for icol in range(item_ncols):
+				for row in range(input_nrows):
+					for col in range(input_ncols):
+						var coord_row = input_rectangle[0][0] + row
+						var coord_col =  input_rectangle[0][1] + col
+						if coord_row == item.x + irow and coord_col == item.y + icol:
+							print("[CG] Attemped to place an element that collides with " + placed_items[item][0].name)
+							return false
+
 	# if we pass all the checks, we are good to go !
 	# TODO: check if there is another object here
 	return true

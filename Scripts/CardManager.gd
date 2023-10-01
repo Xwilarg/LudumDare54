@@ -85,7 +85,7 @@ func play_animal_video():
 	if vidCount > 0:
 		var player: VideoStreamPlayer = get_node("/root/Root/UI/VideoStreamPlayer")
 		vidCount -= 1
-		if vidCount >= len(catVideo): vidCount = len(catVideo)
+		if vidCount >= len(catVideo): vidCount = len(catVideo) - 1
 		var arr = catVideo[vidCount]
 		player.stream = arr[GameManager.rng.randi_range(0, len(arr) - 1)]
 		player.play()

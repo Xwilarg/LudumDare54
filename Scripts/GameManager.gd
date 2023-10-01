@@ -29,7 +29,6 @@ func subscribe_button(b: CardUI) -> void:
 func load_item(b: CardUI, card: Card) -> void:
 	_selected_card = card
 	hintObject = card.previewModel.instantiate()
-	hintObject.scale = Vector3(.5, .5, .5)
 	add_child(hintObject)
 	current_button = b
 
