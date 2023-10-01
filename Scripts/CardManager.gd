@@ -10,7 +10,7 @@ var _energy_max: int = 100
 var _energy_used: int = 0
 
 var catVideo = [
-	[ preload("res://Videos/catVideo1.ogv") ],
+	[ preload("res://Videos/catVideo1.ogv"), preload("res://Videos/catVideo2.ogv") ],
 	[ preload("res://Videos/dogVideo1.ogv"), preload("res://Videos/dogVideo2.ogv") ],
 	[ preload("res://Videos/chickenVideo.ogv") ]
 ]
