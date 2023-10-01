@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4j08o1p1bcll"
-path="res://.godot/imported/missile.png-e295b7a0502c50df36da3e52c1255a48.ctex"
+uid="uid://24etyv3poiv8"
+path="res://.godot/imported/Antenna.png-cd83d6bf6372d577361d83315c611da2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/missile.png"
-dest_files=["res://.godot/imported/missile.png-e295b7a0502c50df36da3e52c1255a48.ctex"]
+source_file="res://Sprites/Antenna.png"
+dest_files=["res://.godot/imported/Antenna.png-cd83d6bf6372d577361d83315c611da2.ctex"]
 
 [params]
 
