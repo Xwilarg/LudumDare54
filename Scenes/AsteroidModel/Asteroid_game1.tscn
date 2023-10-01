@@ -11,4 +11,4 @@
 mesh = SubResource("BoxMesh_bnuf8")
 
 [node name="Asteroid_model" parent="RigidBody3D/CollisionShape3D" index="1" instance=ExtResource("2_u1oe4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.666183, 0)
