@@ -3,7 +3,7 @@ extends Node3D
 class_name Asteroid
 
 var hp: int = 100
-var target: Node3D
+var target: Vector3
 var move_speed: float = 100
 var rotation_speed: float = PI
 
@@ -11,7 +11,7 @@ func _ready():
 	$RigidBody3D.max_contacts_reported = 2;
 
 func _process(delta):
-	$RigidBody3D.linear_velocity = (target.global_position - global_position).normalized() * move_speed * delta
+	$RigidBody3D.linear_velocity = (target - global_position).normalized() * move_speed * delta
 	$RigidBody3D/CollisionShape3D/Asteroid_model.rotate_x(rotation_speed * delta)
 
 func explode():
@@ -24,7 +24,7 @@ func take_damage(value: int):
 	if hp <= 0:
 		explode()
 
-func set_target(value: Node3D):
+func set_target(value: Vector3):
 	target = value
 
 

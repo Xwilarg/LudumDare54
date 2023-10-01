@@ -24,10 +24,6 @@ func _ready():
 
 func _process(delta):
 	pass
-
-func _on_spawn_timer_timeout():
-	$SpawnTimer.wait_time = spawn_timer + GameManager.rng.randi_range(-spawn_random_timer, spawn_random_timer)
-	new_asteroid()
 	
 func new_asteroid():
 	var index_prefab = GameManager.rng.randi_range(0, 1)
@@ -46,3 +42,7 @@ func new_asteroid():
 
 func set_target(value: Vector3):
 	target = value
+
+func _on_spawn_timer_timeout():
+	$SpawnTimer.wait_time = spawn_timer + GameManager.rng.randi_range(-spawn_random_timer, spawn_random_timer)
+	new_asteroid()
