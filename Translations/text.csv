@@ -4,7 +4,9 @@ FLAK1_DESC;The base defense of your ship, don't forget the London treaty!;La dé
 FLAK2_NAME;Flak Gun Mk2;Canon anti-aérien Mk2
 FLAK2_DESC;More accurate, stronger but still as light, George V would be proud!;Plus précis, plus fort, mais tout aussi léger, George V serait fier!
 LASER1_NAME;Laser;Laser
-LASER1_DESC;Energy-charged asteroids are especially crunchy when you put more energy in them;Les asteroides chargé en énergie sont super-croustillant quand on met encore plus d'energie à l'intérieur
+LASER1_DESC;Energy-charged asteroids are especially crunchy when you put more energy in them, that's what the laser is for;Les asteroides chargé en énergie sont super-croustillant quand on met encore plus d'energie à l'intérieur, c'est à ça que sert le laser
+LASER3_NAME;Laser Mk3;Laser Mk3
+LASER3_DESC;This laser make asteroids super-crunchy, in fact it's specially designed to made explosions at 5kHz for the best auditive experience;Ce laser rend les astéroides extra-croustillant, en faîtes il est spécialement désigné pour provoquer des explosions à 5kHz pour la meilleur expérience auditive
 MISSILE1_NAME;Missile Launcher;Lance-missile
 MISSILE1_DESC;Some asteroids are filled with gaz, don't forget to shout 'tamaya' when blowing them up;Certains astéroides sont rempli de gaz, n'oubliez pas de crier 'tamaya' quand ils explosent
 BATTERY_NAME;Battery;Batterie

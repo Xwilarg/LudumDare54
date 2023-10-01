@@ -8,6 +8,7 @@ func _init(json: Dictionary):
 	effects = json.effects
 	if json.model == "size1Gun": model = preload("res://Models/size1Gun.glb")
 	if json.model == "size2Guns": model = preload("res://Models/size2Guns.glb")
+	if json.model == "laserSize3L": model = preload("res://Models/laserSize3L.glb")
 	elif json.model == "batteryPack": model = preload("res://Models/batteryPack.glb")
 	elif json.model == "satelliteDish": model = preload("res://Models/satelliteDish.glb")
 	elif json.model == "navConsole": model = preload("res://Models/navConsole.glb")
@@ -24,6 +25,9 @@ func _init(json: Dictionary):
 	elif json.size == "S3":
 		previewModel = preload("res://Models/upgradePlaceholderBlock3Straight.glb")
 		shape = ["X", "X", "X"]
+	elif json.size == "L3": # Doesn't work!!
+		previewModel = preload("res://Models/upgradePlaceholderBlock3L.glb")
+		shape = ["X", "X", "XX"]
 	else: print("Unknown size " + json.size)
 
 var name: String
