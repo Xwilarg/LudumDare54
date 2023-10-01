@@ -9,47 +9,51 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvqoh"]
 
 [node name="CardGraphic" type="Control"]
+custom_minimum_size = Vector2(160, 195)
 layout_direction = 1
 layout_mode = 3
-anchor_right = 0.117681
-anchor_bottom = 0.291605
-offset_right = -0.568008
-offset_bottom = 0.0399933
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -992.0
+offset_bottom = -459.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_laigs")
-metadata/_edit_use_anchors_ = true
 
-[node name="ARC" type="AspectRatioContainer" parent="."]
-layout_mode = 2
+[node name="CardBG" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(125, 175)
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -212.363
-offset_bottom = -264.479
-metadata/_edit_use_anchors_ = true
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="CardBG" type="PanelContainer" parent="ARC"]
-custom_minimum_size = Vector2(125, 175)
-layout_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="ARC/CardBG"]
+[node name="MarginContainer" type="MarginContainer" parent="CardBG"]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ARC/CardBG/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CardBG/MarginContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="NamePanel" type="Panel" parent="ARC/CardBG/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CardBG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="NamePanel" type="Panel" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(75, 25)
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ARC/CardBG/MarginContainer/VBoxContainer/NamePanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer2/NamePanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,20 +65,44 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ARC/CardBG/MarginContainer/VBoxContainer/NamePanel/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer2/NamePanel/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/normal_font_size = 17
 text = "Name"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ARC/CardBG/MarginContainer/VBoxContainer"]
+[node name="EnergyPanel" type="Panel" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
-[node name="IconPanel" type="Panel" parent="ARC/CardBG/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer2/EnergyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer2/EnergyPanel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 17
+text = "En:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardBG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IconPanel" type="Panel" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="ARC/CardBG/MarginContainer/VBoxContainer/HBoxContainer/IconPanel"]
+[node name="TextureRect" type="TextureRect" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer/IconPanel"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 1
 anchors_preset = 15
@@ -83,11 +111,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StatsPanel" type="Panel" parent="ARC/CardBG/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="StatsPanel" type="Panel" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ARC/CardBG/MarginContainer/VBoxContainer/HBoxContainer/StatsPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer/StatsPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,16 +128,17 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ARC/CardBG/MarginContainer/VBoxContainer/HBoxContainer/StatsPanel/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CardBG/MarginContainer/VBoxContainer/HBoxContainer/StatsPanel/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/normal_font_size = 17
 text = "Stats"
 
-[node name="DescPanel" type="Panel" parent="ARC/CardBG/MarginContainer/VBoxContainer"]
+[node name="DescPanel" type="Panel" parent="CardBG/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ARC/CardBG/MarginContainer/VBoxContainer/DescPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CardBG/MarginContainer/VBoxContainer/DescPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -120,15 +150,15 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ARC/CardBG/MarginContainer/VBoxContainer/DescPanel/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CardBG/MarginContainer/VBoxContainer/DescPanel/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/normal_font_size = 17
 text = "Description"
 
-[node name="Button" type="Button" parent="ARC/CardBG"]
+[node name="Button" type="Button" parent="CardBG"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_7c0ki")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_lk0h4")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvqoh")
 
-[connection signal="pressed" from="ARC/CardBG/Button" to="." method="_on_pressed"]
+[connection signal="pressed" from="CardBG/Button" to="." method="_on_pressed"]

@@ -37,46 +37,60 @@ grow_vertical = 2
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="UI"]
 layout_mode = 1
+<<<<<<< Updated upstream
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -100.0
 offset_right = 100.0
 grow_vertical = 0
-
-[node name="CardGraphic" parent="UI" instance=ExtResource("4_8cbap")]
-layout_mode = 2
-anchors_preset = 0
-anchor_left = 0.324
-anchor_top = 0.707
-anchor_right = 0.442
+=======
+anchors_preset = -1
+anchor_top = 0.848765
+anchor_right = 0.0928819
 anchor_bottom = 1.0
-offset_left = -0.247986
-offset_top = -0.136047
-offset_right = -0.184021
-offset_bottom = 0.0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+>>>>>>> Stashed changes
 
-[node name="CardGraphic2" parent="UI" instance=ExtResource("4_8cbap")]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 1
-anchor_left = 0.455076
-anchor_top = 0.700827
-anchor_right = 0.573076
-anchor_bottom = 0.993827
-offset_left = -0.247986
-offset_top = -0.136047
-offset_right = -0.184021
-offset_bottom = 0.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
 
-[node name="CardGraphic3" parent="UI" instance=ExtResource("4_8cbap")]
-layout_mode = 1
-anchor_left = 0.584417
-anchor_top = 0.70237
-anchor_right = 0.702417
-anchor_bottom = 0.99537
-offset_left = -0.247986
-offset_top = -0.136047
-offset_right = -0.184021
-offset_bottom = 0.0
+[node name="Control2" type="Control" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(350, 450)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Control2" type="Control" parent="UI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 1.4
+
+[node name="CardGraphic" parent="UI/VBoxContainer/HBoxContainer" instance=ExtResource("4_8cbap")]
+layout_mode = 2
+
+[node name="CardGraphic2" parent="UI/VBoxContainer/HBoxContainer" instance=ExtResource("4_8cbap")]
+layout_mode = 2
+
+[node name="CardGraphic3" parent="UI/VBoxContainer/HBoxContainer" instance=ExtResource("4_8cbap")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 1.4
 
 [node name="AsteroidManager" type="Node" parent="." node_paths=PackedStringArray("spaceship")]
 script = ExtResource("6_r6njy")
