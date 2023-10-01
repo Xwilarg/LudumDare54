@@ -67,7 +67,7 @@ func grid_position_to_world_position(index_position: Vector2i, slot_size: Vector
 	return self.global_position + (slot_size + Vector3(inter_space, 0, inter_space)) * Vector3(index_position[1], 0, index_position[0])
 
 
-func get_enclosing_rectangle(input_shape, input_anchor, input_position):
+func get_enclosing_rectangle(input_shape, input_anchor, input_position) -> Array[Vector2i]:
 	var top_left = input_position - input_anchor
 	var bottom_right = top_left + Vector2i(len(input_shape) - 1, len(input_shape[0]) - 1)
 	return [top_left, bottom_right]
