@@ -10,6 +10,16 @@
 		"energyCost": 10
 	},
 	{
+		"name": "battery",
+		"model": "batteryPack",
+		"materialOverride": "",
+		"size": "S1",
+		"effects": {
+			"ENG": 25
+		},
+		"energyCost": 0
+	},
+	{
 		"name": "missile",
 		"model": "size2Guns",
 		"materialOverride": "",

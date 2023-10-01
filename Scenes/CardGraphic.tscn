@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cb1ubnj2stph8"]
+
+[node name="CardGraphic" type="Control"]
+layout_direction = 1
+layout_mode = 3
+anchor_right = 0.117681
+anchor_bottom = 0.285432
+offset_right = -0.568008
+offset_bottom = 0.0399933
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -212.363
+offset_bottom = -264.479
+metadata/_edit_use_anchors_ = true
+
+[node name="CardBG" type="PanelContainer" parent="AspectRatioContainer"]
+custom_minimum_size = Vector2(125, 175)
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/CardBG"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/CardBG/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/CardBG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="IconPanel" type="Panel" parent="AspectRatioContainer/CardBG/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/CardBG/MarginContainer/VBoxContainer/HBoxContainer/IconPanel"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsPanel" type="Panel" parent="AspectRatioContainer/CardBG/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 100)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/CardBG/MarginContainer/VBoxContainer/HBoxContainer/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/CardBG/MarginContainer/VBoxContainer/HBoxContainer/StatsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "Stats"
+
+[node name="DescPanel" type="Panel" parent="AspectRatioContainer/CardBG/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/CardBG/MarginContainer/VBoxContainer/DescPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/CardBG/MarginContainer/VBoxContainer/DescPanel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "Description"

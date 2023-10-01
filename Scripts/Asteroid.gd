@@ -7,7 +7,7 @@ var target: Vector3
 var move_speed: float = 100
 var rotation_speed: float = PI
 var parent
-var type: String
+var type: Dictionary
 
 func _ready():
 	$RigidBody3D.max_contacts_reported = 2;
@@ -28,6 +28,8 @@ func take_damage(value: int):
 func set_target(value: Vector3):
 	target = value
 
+func set_type(value: Dictionary):
+	type = value
 
 func _on_rigid_body_3d_body_entered(body):
 	explode()

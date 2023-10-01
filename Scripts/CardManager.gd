@@ -36,9 +36,18 @@ func _process(delta):
 func register_item(item: ItemCard):
 	_energy_used += item.card.energyCost
 	_items.append(item)
+	if item.card.effects.has("ENG"):
+		_energy_used -= int(item.card.effects["ENG"])
+		update_ui()
 	print("[CM] " + item.card.name + " placed, energy left: " + str(_energy_max - _energy_used))
 
 func delete_item(node: Node3D):
 	for item in _items:
 		if item.item == node:
+			if item.card.effects.has("ENG"):
+				_energy_used += int(item.card.effects["ENG"])
+				update_ui()
 			_items.erase(item)
+
+func update_ui():
+	pass
