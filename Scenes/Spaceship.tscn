@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" path="res://Scripts/Spaceship.gd" id="1_ilw26"]
 [ext_resource type="PackedScene" uid="uid://kv32663idxo7" path="res://Models/spaceship.glb" id="1_pfcka"]
-[ext_resource type="Script" path="res://Scripts/AItem.gd" id="2_jmt48"]
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="3_n7wdy"]
 [ext_resource type="PackedScene" uid="uid://b4fjvv8fuc723" path="res://Scenes/GridManager.tscn" id="4_e4d1o"]
+
+[sub_resource type="GDScript" id="GDScript_enjl5"]
+script/source = "extends Node3D
+
+class_name AItem
+
+@export_multiline var raw_shape: String
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_at5ep"]
 size = Vector3(58.935, 5.565, 28.93)
@@ -15,7 +22,7 @@ script = ExtResource("1_ilw26")
 [node name="spaceshipModel" parent="." instance=ExtResource("1_pfcka")]
 
 [node name="AItem_test" type="Node3D" parent="."]
-script = ExtResource("2_jmt48")
+script = SubResource("GDScript_enjl5")
 
 [node name="Grid" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.45155, 0)
