@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci5aldt6ohxr5"]
+[gd_scene load_steps=7 format=3 uid="uid://ci5aldt6ohxr5"]
 
+[ext_resource type="Script" path="res://Scripts/Spaceship.gd" id="1_5xeq2"]
 [ext_resource type="PackedScene" uid="uid://kv32663idxo7" path="res://Models/spaceship.glb" id="1_pfcka"]
 [ext_resource type="Script" path="res://Scripts/AItem.gd" id="2_jmt48"]
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="3_n7wdy"]
@@ -9,6 +10,7 @@
 size = Vector3(58.935, 5.565, 28.93)
 
 [node name="spaceship" type="Node3D"]
+script = ExtResource("1_5xeq2")
 
 [node name="spaceshipModel" parent="." instance=ExtResource("1_pfcka")]
 

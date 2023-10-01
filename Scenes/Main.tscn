@@ -17,6 +17,7 @@ sky = SubResource("Sky_53rbq")
 
 [node name="spaceship" parent="." instance=ExtResource("1_em1mt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.657)
+script = null
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.907668, 0.41969, 0, -0.41969, -0.907668, 0, 46.1794, 0)

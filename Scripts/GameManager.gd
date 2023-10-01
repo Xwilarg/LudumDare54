@@ -11,6 +11,15 @@ var rng = RandomNumberGenerator.new()
 
 var hintObject
 
+var time_start: int = 0
+var time_now: int = 0
+var elapsed_time: int
+
+var spaceship: Node3D
+
+func _register_spaceship(value: Node3D):
+	spaceship = value
+
 func _init_cards():
 	for card in _deck.data:
 		_cards.append(Card.new(card))
@@ -25,8 +34,16 @@ func load_item(item: Card) -> void:
 	_selected_item = item
 	hintObject = item.previewModel.instantiate()
 	add_child(hintObject)
-	
+
+func _ready():
+	time_start = Time.get_unix_time_from_system()
+
 func _process(delta):
+	time_now = Time.get_unix_time_from_system()
+	elapsed_time = time_now - time_start
+	
+	print(spaceship)
+	
 	if hintObject != null:
 		var camera3d = get_node("/root/Root/Camera3D")
 		var space_state = get_tree().get_root().get_world_3d().direct_space_state
