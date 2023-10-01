@@ -3,6 +3,7 @@ FLAK_NAME;Flak Gun;Canon Anti-aérien
 FLAG_DESC;The base defense of your ship, don't forget London treaty!;La défense de base de votre navire, n'oubliez pas le traité de Londres !
 LASER_NAME;Laser;Laser
 LASER_DESC;Energy-charged asteroids are especially crunchy when you put more energy in them;Les asteroides chargé en énergie sont super-croustillant quand on met encore plus d'energie à l'intérieur
+MISSILE_NAME;Missile Launcher;Lance-missile
 MISSILE_DEST;Some asteroids are filled with gaz, don't forget to shout 'tamaya' when blowing them up;Certains astéroides sont rempli de gaz, n'oubliez pas de crier 'tamaya' quand ils explosent
 BATTERY_NAME;Battery;Batterie
 BATTERY_DESC;Give you more power so you can both have thermo-nuclear weapons and a coffee machine;Vous donne plus de puissance pour que vous puissiez à la fois avoir des armes thermo-nucléaire et une machine à café
