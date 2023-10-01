@@ -36,7 +36,7 @@ func new_asteroid():
 	
 	var rand_position = func(): return GameManager.rng.randf_range(-3, 3)
 	var start_position_noise = Vector3(rand_position.call(), rand_position.call(), rand_position.call())
-	var start_position = spawn_position + start_position_noise
+	asteroid.position = spawn_position + start_position_noise
 	
 	asteroid.set_target(target)
 

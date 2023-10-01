@@ -22,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.657)
 transform = Transform3D(1, 0, 0, 0, -0.907668, 0.41969, 0, -0.41969, -0.907668, 0, 46.1794, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.84202, 0.539447, 0, -0.539447, 0.84202, 2.08535, 20.1394, 20.5378)
+transform = Transform3D(-1, 6.69697e-08, -5.61943e-08, 0, 0.642788, 0.766044, 8.74228e-08, 0.766044, -0.642788, 0, 28, -16)
 current = true
 
 [node name="UI" type="Control" parent="."]
@@ -57,16 +57,16 @@ _editor_spawns = [NodePath("SpawnerPos1"), NodePath("SpawnerPos2"), NodePath("Sp
 wait_time = 5.0
 
 [node name="SpawnerPos1" type="Node3D" parent="AsteroidManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2536, 18.3824, 2.26858)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1009, 13.012, 29.6772)
 
 [node name="SpawnerPos2" type="Node3D" parent="AsteroidManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5507, 36.7648, -37.0728)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7507, 12.1244, 48.7844)
 
 [node name="SpawnerPos3" type="Node3D" parent="AsteroidManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.6033, 28.685, -22.2917)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0299, 13.3502, 42.5571)
 
 [node name="SpawnerPos4" type="Node3D" parent="AsteroidManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4684, 36.7648, 35.0099)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.4717, 18.8002, 28.5964)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jm20i")

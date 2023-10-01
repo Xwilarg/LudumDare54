@@ -12,9 +12,10 @@ size = Vector3(60, 7, 30)
 script = ExtResource("1_ilw26")
 
 [node name="spaceshipModel" parent="." instance=ExtResource("1_pfcka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.03657, 0)
 
 [node name="Grid" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.45155, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41498, 0)
 script = ExtResource("3_n7wdy")
 raw_shape = ".XXX.
 XXXXX
@@ -22,7 +23,7 @@ XXXXX
 .XXX."
 
 [node name="Grid2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0755, 7.81913, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0755, 3.78256, -6)
 script = ExtResource("3_n7wdy")
 raw_shape = "XX
 XX
@@ -30,10 +31,11 @@ XX
 XX"
 
 [node name="GridManager" parent="." node_paths=PackedStringArray("grid_ref") instance=ExtResource("4_e4d1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.03657, 0)
 grid_ref = [NodePath("../Grid"), NodePath("../Grid2")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.03657, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8986, -1.51957)
