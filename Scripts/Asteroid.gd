@@ -5,7 +5,7 @@ class_name Asteroid
 var hp: int = 100
 var target: Vector3
 var move_speed: float = 100
-var rotation_speed: float = PI
+@onready var rotation_speed: Vector3 = Vector3(GameManager.rng.randf_range(-PI, PI), GameManager.rng.randf_range(-PI, PI), GameManager.rng.randf_range(-PI, PI))
 var parent
 var type: String
 
@@ -14,7 +14,9 @@ func _ready():
 
 func _process(delta):
 	$RigidBody3D.linear_velocity = (target - global_position).normalized() * move_speed * delta
-	$RigidBody3D/Asteroid_model.rotate_x(rotation_speed * delta)
+	$RigidBody3D/Asteroid_model.rotate_x(rotation_speed.x * delta)
+	$RigidBody3D/Asteroid_model.rotate_y(rotation_speed.y * delta)
+	$RigidBody3D/Asteroid_model.rotate_z(rotation_speed.z * delta)
 
 func set_material(value):
 	var node = get_node("RigidBody3D/Asteroid_model/" + str($RigidBody3D/Asteroid_model.meshpath))
