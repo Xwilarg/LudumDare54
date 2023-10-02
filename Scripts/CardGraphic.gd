@@ -14,3 +14,4 @@ func set_card(c: Card):
 	_curr_card = c;
 	$CardBG/MarginContainer/VBoxContainer/HBoxContainer2/NamePanel/MarginContainer/RichTextLabel.text = c.name;
 	$CardBG/MarginContainer/VBoxContainer/DescPanel/MarginContainer/RichTextLabel.text = c.description
+	$CardBG/MarginContainer/VBoxContainer/HBoxContainer2/EnergyPanel/MarginContainer/RichTextLabel.text = str(c.energyCost) + "e"
