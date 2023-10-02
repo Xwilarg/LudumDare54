@@ -76,3 +76,6 @@ RED_DMG;Explosive Damage;Dégats d'explosion
 MISSING_ENERGY;Not enought energy;Pas assez d'énergie
 
 COST;EN Cost;Coût
+
+DELETE;Delete;Suppr.
+PLACE;Place;Placer

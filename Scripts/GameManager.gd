@@ -121,7 +121,6 @@ func _input(event):
 		var result = space_state.intersect_ray(query)
 		
 		if len(result) > 0: # If we clicked on a slot...
-			# print(result)
 			var s: Slot = result.collider.get_node("..")
 			if s.grid.can_place(s, _selected_card):
 				var item = _selected_card.model.instantiate()

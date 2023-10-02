@@ -22,6 +22,10 @@ CardManager="*res://Scripts/CardManager.gd"
 Ghttp="*res://Scenes/GHTTP.tscn"
 GridManager="*res://Scripts/GridManager.gd"
 
+[display]
+
+window/name="SPACE: Spaceship Pilot - Asteroid Collision Escape"
+
 [importer_defaults]
 
 csv_translation={
