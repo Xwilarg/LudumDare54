@@ -11,6 +11,7 @@ var type: String
 
 func _ready():
 	$RigidBody3D.max_contacts_reported = 2;
+	$"RigidBody3D/Label3D".text = "100 / 100"
 
 func _process(delta):
 	$RigidBody3D.linear_velocity = (target - global_position).normalized() * move_speed * delta
@@ -29,7 +30,10 @@ func explode():
 func take_damage(value: int):
 	hp -= value
 	if hp <= 0:
+		$"RigidBody3D/Label3D".text = "0 / 100"
 		explode()
+	else:
+		$"RigidBody3D/Label3D".text = str(hp) + " / 100"
 
 func set_target(value: Vector3):
 	target = value
