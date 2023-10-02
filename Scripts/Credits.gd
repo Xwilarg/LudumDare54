@@ -1,5 +1,8 @@
 extends Node
 
+const text_default_color = Color.WHITE
+const mouse_hover_color = Color.CYAN
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var credits = [
@@ -42,3 +45,9 @@ func make_paragraph(elements: Array):
 		paragraph += elements[i] + "\n"
 	
 	return paragraph
+
+func _on_back_mouse_entered():
+	$Control/BoxContainer/Back.add_theme_color_override("font_color", mouse_hover_color)
+
+func _on_back_mouse_exited():
+	$Control/BoxContainer/Back.add_theme_color_override("font_color", text_default_color)

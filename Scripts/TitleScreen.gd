@@ -1,6 +1,9 @@
 extends Node
 var locale = OS.get_locale()
 
+const text_default_color = Color.WHITE
+const mouse_hover_color = Color.CYAN
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if locale != "fr_FR":
@@ -43,3 +46,27 @@ func _menu_in_language(locale: String = "en"):
 		$MarginContainer/VBoxContainer/VBoxContainer/Start.text = tr("MENU_START")
 		$MarginContainer/VBoxContainer/VBoxContainer/Credits.text = tr("MENU_CREDITS")
 		$MarginContainer/VBoxContainer/VBoxContainer/Language.text = tr("MENU_LANGUAGE")
+
+
+func _on_start_mouse_entered():
+	$MarginContainer/VBoxContainer/VBoxContainer/Start.add_theme_color_override("font_color", mouse_hover_color)
+
+
+func _on_start_mouse_exited():
+	$MarginContainer/VBoxContainer/VBoxContainer/Start.add_theme_color_override("font_color", text_default_color)
+
+
+func _on_credits_mouse_entered():
+	$MarginContainer/VBoxContainer/VBoxContainer/Credits.add_theme_color_override("font_color", mouse_hover_color)
+
+
+func _on_credits_mouse_exited():
+	$MarginContainer/VBoxContainer/VBoxContainer/Credits.add_theme_color_override("font_color", text_default_color)
+
+
+func _on_language_mouse_entered():
+	$MarginContainer/VBoxContainer/VBoxContainer/Language.add_theme_color_override("font_color", mouse_hover_color)
+
+
+func _on_language_mouse_exited():
+	$MarginContainer/VBoxContainer/VBoxContainer/Language.add_theme_color_override("font_color", text_default_color)
