@@ -36,8 +36,10 @@ func load_item(b: CardUI, card: Card) -> void:
 
 func on_meteo_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
-	meteo = tr("TEMPERATURE") + tr("COLON") + " " + str(json["current_weather"]["temperature"]) + json["current_weather_units"]["temperature"] + "\n"
-	meteo += tr("WIND_SPEED") + tr("COLON") + " " + str(json["current_weather"]["windspeed"]) + json["current_weather_units"]["windspeed"]
+	var unitTemperature = str(json["current_weather"]["temperature"]) if json.has("current_weather") else "°C"
+	var unitWind = str(json["current_weather"]["windspeed"]) if json.has("current_weather") else "km/h"
+	meteo = tr("TEMPERATURE") + tr("COLON") + " " + str(json["current_weather"]["temperature"]) + unitTemperature + "\n"
+	meteo += tr("WIND_SPEED") + tr("COLON") + " " + str(json["current_weather"]["windspeed"]) + unitWind
 	print("[GM] Meteo loaded: " + meteo)
 
 func _ready():
