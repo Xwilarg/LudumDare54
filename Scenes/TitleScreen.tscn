@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://7ful4w02f04d"]
+
+[ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_kqofc"]
+[ext_resource type="FontFile" uid="uid://b12u15uyrlxo" path="res://Font/angas v3 bold.ttf" id="2_6mlj0"]
+[ext_resource type="FontFile" uid="uid://degphstpbf0uh" path="res://Font/angas v3 ultra.ttf" id="3_u1sxu"]
+
+[node name="TitleScreen" type="MarginContainer"]
+custom_minimum_size = Vector2(600, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.5
+offset_right = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_kqofc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6mlj0")
+theme_override_font_sizes/font_size = 300
+text = "TITLE"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Start" type="Label" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6mlj0")
+theme_override_font_sizes/font_size = 110
+text = "START GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u1sxu")
+theme_override_font_sizes/font_size = 95
+text = "CREDITS"
+horizontal_alignment = 1
