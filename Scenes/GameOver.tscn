@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b803y3g11f4up"]
+[gd_scene load_steps=4 format=3 uid="uid://b803y3g11f4up"]
+
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_gdeod"]
+[ext_resource type="FontFile" uid="uid://degphstpbf0uh" path="res://Font/angas v3 ultra.ttf" id="2_ueumv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_exepm"]
 font_size = 80
 
 [node name="GameOver" type="Node3D"]
+script = ExtResource("1_gdeod")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.48425)
@@ -38,5 +42,30 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ueumv")
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_exepm")
+
+[node name="BoxContainer" type="BoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -40.0
+offset_right = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Back" type="Label" parent="Control/BoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_ueumv")
+theme_override_font_sizes/font_size = 33
+text = "BACK"
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="Control/BoxContainer/Back" to="." method="_on_back_gui_input"]

@@ -3,6 +3,8 @@ MENU_START;START GAME;DÉMARRER
 MENU_CREDITS;CREDITS;CRÉDITS
 MENU_LANGUAGE;LANGUAGE - ENGLISH;LANGUE - FRANÇAIS
 
+GAMEOVER_BACK;BACK;RETOUR
+
 FLAK1_NAME;Flak Gun;Canon anti-aérien
 FLAK1_DESC;The base defense of your ship, don't forget the London treaty!;La défense de base de votre navire, n'oubliez pas le traité de Londres !
 FLAK2_NAME;Flak Gun Mk2;Canon anti-aérien Mk2
