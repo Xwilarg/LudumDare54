@@ -44,28 +44,31 @@ func sum(arr: Array[int]) -> int:
 	return val
 
 func _process(delta):
-	_aaTimer -= delta
+	var current_scene = get_tree().get_current_scene().get_name()
 	
-	if _aaTimer <= 0.0:
-		for i in _items:
-			var asteroids = asteroidManager.get_all_asteroids()
-			if len(asteroids) == 0:
-				break
-
-			var a = asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)]
-			var color = a.type
-			if i.card.effects.has("ATK_" + color):
-				var eff = i.card.effects["ATK_" + color]
-				a.take_damage(eff)
-				print("[CM] " + i.card.name + " firing at asteroid for " + str(eff) + " damage (color: " + color + ")")
+	if current_scene == "Root":
+		_aaTimer -= delta
 		
-		_aaTimer = 1.0 * 1.0 - sum(get_effect("SPD")) / 100.0
-		if _aaTimer <= 0.1: _aaTimer = 0.1
+		if _aaTimer <= 0.0:
+			for i in _items:
+				var asteroids = asteroidManager.get_all_asteroids()
+				if len(asteroids) == 0:
+					break
 
-	if animal_video_timer > 0.0:
-		animal_video_timer -= delta
-		if animal_video_timer <= 0.0:
-			play_animal_video()
+				var a = asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)]
+				var color = a.type
+				if i.card.effects.has("ATK_" + color):
+					var eff = i.card.effects["ATK_" + color]
+					a.take_damage(eff)
+					print("[CM] " + i.card.name + " firing at asteroid for " + str(eff) + " damage (color: " + color + ")")
+			
+			_aaTimer = 1.0 * 1.0 - sum(get_effect("SPD")) / 100.0
+			if _aaTimer <= 0.1: _aaTimer = 0.1
+
+		if animal_video_timer > 0.0:
+			animal_video_timer -= delta
+			if animal_video_timer <= 0.0:
+				play_animal_video()
 
 func register_item(item: ItemCard):
 	_energy_used += item.card.energyCost
