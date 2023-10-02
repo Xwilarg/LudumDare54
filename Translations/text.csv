@@ -5,6 +5,15 @@ MENU_LANGUAGE;LANGUAGE - ENGLISH;LANGUE - FRANÇAIS
 
 GAMEOVER_BACK;BACK;RETOUR
 
+CREDIT_2D;2D;3D
+CREDIT_3D;3D;3D
+CREDIT_AUDIO;Audio;Audio
+CREDIT_PROGRAMMING;Programming;Programation
+
+CREDIT_FONT;Font Angas by Jéson Garnica under Creative Commons Attribution Non-commercial No Derivatives;Font Angas by Jéson Garnica under Creative Commons Attribution Non-commercial No Derivatives
+CREDIT_METEO;Meteo information by open-meteo.com;Informations météos de open-meteo.com
+CREDIT_ANIMALS;No animals were hurt while making this game;Aucun animal n'as été blessé pendant la réalisation de ce jeu
+
 FLAK1_NAME;Flak Gun;Canon anti-aérien
 FLAK1_DESC;The base defense of your ship, don't forget the London treaty!;La défense de base de votre navire, n'oubliez pas le traité de Londres !
 FLAK2_NAME;Flak Gun Mk2;Canon anti-aérien Mk2
