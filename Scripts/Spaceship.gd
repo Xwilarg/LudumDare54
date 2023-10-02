@@ -2,7 +2,7 @@ extends Node3D
 
 class_name Spaceship
 
-const max_hp: int = 50
+const max_hp: int = 20
 @onready var current_hp: int = max_hp
 var current_shield: int = 0
 
