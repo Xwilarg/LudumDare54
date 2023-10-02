@@ -156,7 +156,6 @@ func _input(event):
 func verify_all_buttons():
 	var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
 	for b in _buttons:
-		print(b._curr_card.name + " : " +  str(b._curr_card.level) + " > " + str(upgradeLevel))
 		if b._curr_card.level > upgradeLevel:
 			update_button(b)
 
