@@ -1,7 +1,31 @@
 extends Node3D
 
+# GRIDS
+var _grids: Array[Grid]
+var grid_prefab = preload("res://Scenes/Slot.tscn")
+const _space = .1
+
+func instanciate_slots(g: Grid):
+	var lines = g.raw_shape.replace("\r", "").split("\n")
+	var zLen = len(lines)
+	for z in range(zLen):
+		var xLen = len(lines[z])
+		for x in range(xLen):
+			if (lines[z][x] == 'X'):
+				var elem = grid_prefab.instantiate()
+				elem.global_position = Vector3(
+					g.global_position.x - (xLen + (xLen - 1) * _space) / 2.0 + x + (_space * x),
+					g.global_position.y,
+					g.global_position.z - (zLen + (zLen - 1) * _space) / 2.0 + z + (_space * z)
+				)
+				g.add_child(elem)
+
+func register_grid(g: Grid):
+	_grids.append(g)
+	instanciate_slots(g)
+# END GRIDS
+
 var _buttons: Array[CardUI]
-var _gridManager: Array[GridManager]
 @export var _deck: JSON
 
 var _cards: Array[Card]
@@ -118,35 +142,7 @@ func _input(event):
 		if len(result) > 0: # If we clicked on a slot...
 			# print(result)
 			var isDone = false
-			for gm in _gridManager:
-				for grid in gm.grid_ref:
-					if grid.on_grid(result.collider.global_position):
-						# ... we place it on the grid
-						
-						var grid_position = grid.world_position_to_grid_position(result.collider.global_position)
-						var world_position = grid.grid_position_to_world_position(grid_position)
-						
-						# print(result.collider.global_position)
-						# print(grid_position)
-						# print(world_position)
-
-						var insertable = grid.is_shape_placable(_selected_card.shape, Vector2i(0, 0), grid_position)
-						# print(insertable)
-						if insertable:
-							var item = _selected_card.model.instantiate()
-							CardManager.register_item(ItemCard.new(_selected_card, item))
-							add_child(item)
-							grid.add_item_at_grid_position(item, _selected_card.shape, Vector2i(0, 0), grid_position)
-							var t = result.collider.global_position
-							item.global_position = Vector3(item.global_position.x, t.y + .5, item.global_position.z)
-							# print("It's magic time")
-							update_button(current_button)
-							isDone = true
-						break
-					else:
-						pass# print("Magic is gone booo")
-				if isDone:
-					break
+			
 
 		# We unselect the card
 		hintObject.queue_free()
