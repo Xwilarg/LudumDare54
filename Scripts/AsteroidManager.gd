@@ -5,7 +5,7 @@ class_name AsteroidManager
 const _prefab_spawner = preload("res://Scenes/AsteroidSpawner.tscn")
 var asteroid_types = {"RED": {"material": preload("res://Materials/red.tres")}, "GRN": {"material": preload("res://Materials/green.tres")}, "BLU": {"material": preload("res://Materials/blue.tres")}}
 
-const _additional_spawners_timer = 10
+const _additional_spawners_timer = 20
 @onready var spawners: Array = []
 
 @export var spaceship: Spaceship
@@ -51,10 +51,10 @@ func _on_spawn_timer_timeout():
 	var nb_spawner = len(spawners)
 	
 	if nb_spawner < 3:
-		$SpawnTimer.wait_time = 15
+		$SpawnTimer.wait_time = 30
 	elif nb_spawner < 9:
-		$SpawnTimer.wait_time = 10
+		$SpawnTimer.wait_time = 20
 	elif nb_spawner < 18:
-		$SpawnTimer.wait_time = 8
+		$SpawnTimer.wait_time = 10
 	else:
 		$SpawnTimer.paused = true
