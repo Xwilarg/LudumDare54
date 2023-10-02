@@ -6,8 +6,3 @@
 [node name="GameManager" type="Node3D"]
 script = ExtResource("1_4yge1")
 _deck = ExtResource("2_wb7kf")
-
-[node name="EnergyAlert" type="Timer" parent="."]
-wait_time = 2.0
-
-[connection signal="timeout" from="EnergyAlert" to="." method="_on_energy_alert_timeout"]
