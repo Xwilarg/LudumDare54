@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://7ful4w02f04d"]
+[gd_scene load_steps=5 format=3 uid="uid://rmnfcraclomy"]
 
 [ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_kqofc"]
 [ext_resource type="FontFile" uid="uid://b12u15uyrlxo" path="res://Font/angas v3 bold.ttf" id="2_6mlj0"]

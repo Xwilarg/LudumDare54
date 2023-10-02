@@ -103,6 +103,9 @@ func _input(event):
 			var energy_alert = get_node(("/root/Root/UI/MissingEnergy"))
 			energy_alert.text = "[center]" + tr("MISSING_ENERGY") + "[/center]"
 			$EnergyAlert.start()
+			hintObject.queue_free()
+			hintObject = null
+			_selected_card = null
 			return
 		
 		# We do a raycast to see where we click

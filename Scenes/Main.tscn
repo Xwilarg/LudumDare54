@@ -123,22 +123,10 @@ text_direction = 2
 [node name="AsteroidManager" type="Node" parent="." node_paths=PackedStringArray("spaceship")]
 script = ExtResource("6_r6njy")
 spaceship = NodePath("../spaceship")
-_editor_spawns = [NodePath("SpawnerPos1"), NodePath("SpawnerPos2"), NodePath("SpawnerPos3"), NodePath("SpawnerPos4")]
+spawnPos = Vector3(25.62, 13.012, 14.369)
 
 [node name="SpawnTimer" type="Timer" parent="AsteroidManager"]
 wait_time = 3.0
-
-[node name="SpawnerPos1" type="Node3D" parent="AsteroidManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6203, 13.012, 14.3694)
-
-[node name="SpawnerPos2" type="Node3D" parent="AsteroidManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7507, 12.1244, 20.198)
-
-[node name="SpawnerPos3" type="Node3D" parent="AsteroidManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.876, 13.3502, 19.972)
-
-[node name="SpawnerPos4" type="Node3D" parent="AsteroidManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2678, 10.5833, 16.0419)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jm20i")
