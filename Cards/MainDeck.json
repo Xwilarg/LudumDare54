@@ -85,7 +85,7 @@
 		"size": "S2",
 		"effects": {
 			"ATK_RED": 10,
-			"ATK_GRN": 25,
+			"ATK_GRN": 20,
 			"ATK_BLU": 10
 		},
 		"energyCost": 10,
@@ -97,9 +97,9 @@
 		"icon": "Flak",
 		"size": "L2",
 		"effects": {
-			"ATK_RED": 15,
-			"ATK_GRN": 50,
-			"ATK_BLU": 15
+			"ATK_RED": 10,
+			"ATK_GRN": 40,
+			"ATK_BLU": 10
 		},
 		"energyCost": 15,
 		"level": 3
@@ -123,8 +123,8 @@
 		"icon": "Laser_gun",
 		"size": "L2",
 		"effects": {
-			"ATK_RED": 5,
-			"ATK_GRN": 5,
+			"ATK_RED": 15,
+			"ATK_GRN": 15,
 			"ATK_BLU": 100
 		},
 		"energyCost": 20,
@@ -150,8 +150,8 @@
 		"size": "S2",
 		"effects": {
 			"ATK_RED": 50,
-			"ATK_GRN": 10,
-			"ATK_BLU": 10
+			"ATK_GRN": 15,
+			"ATK_BLU": 15
 		},
 		"energyCost": 20,
 		"level": 2
