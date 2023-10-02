@@ -92,6 +92,7 @@ func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Ve
 			# must all be "X" or "." at the same times
 			var coord_row = input_rectangle[0][0] + row
 			var coord_col =  input_rectangle[0][1] + col
+			print("[CG] Registered input " + input_shape[row][col] + " at ("  + str(coord_row) + ";" + str(coord_col) + ")")
 			if input_shape[row][col] != self.shape[coord_row][coord_col]:
 				return false
 
@@ -107,6 +108,7 @@ func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Ve
 						if coord_row == item.x + irow and coord_col == item.y + icol:
 							if placed_items.has(item):
 								print("[CG] Attemped to place an element that collides with " + placed_items[item][0].name)
+								print("[CG] Collision input/" + placed_items[item][0].name + ": " + str(coord_row) + " == " + str(item.x) + " + " + str(irow) + " and " + str(coord_col) + " == " + str(item.y) + " + " + str(icol))
 								CardManager.delete_item(placed_items[item][0])
 								placed_items[item][0].queue_free()
 								placed_items.erase(item)
