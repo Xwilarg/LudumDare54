@@ -16,6 +16,7 @@ var time_now: int = 0
 var elapsed_time: int
 var meteo: String
 
+var destroyed_asteroids = 0
 var timers: Dictionary
 
 func _init_cards():

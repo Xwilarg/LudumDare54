@@ -6,6 +6,7 @@ const mouse_hover_color = Color.CYAN
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Control/BoxContainer/Back.text = tr("GAMEOVER_BACK")
+	$Control/BoxContainer2/Score.text = tr("GAMEOVER_SCORE").replace("%1", str(GameManager.destroyed_asteroids))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
