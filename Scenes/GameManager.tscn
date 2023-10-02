@@ -6,3 +6,5 @@
 [node name="GameManager" type="Node3D"]
 script = ExtResource("1_4yge1")
 _deck = ExtResource("2_wb7kf")
+
+[node name="Timer" type="Timer" parent="."]

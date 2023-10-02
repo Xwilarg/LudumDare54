@@ -89,7 +89,7 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_stretch_ratio = 1.4
 
-[node name="ShipHP" type="RichTextLabel" parent="UI"]
+[node name="MissingEnergy" type="RichTextLabel" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.435
@@ -105,7 +105,7 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 fit_content = true
 
-[node name="NbAsteroids" type="RichTextLabel" parent="UI"]
+[node name="CaptorInfo" type="RichTextLabel" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.732

@@ -72,8 +72,6 @@ func _process(delta):
 	
 	if info_level > 0: # Ship HP
 		var spaceship = get_node("/root/Root/spaceship")
-		#var hp_text = "[center]" + tr("SHIP_HULL") + ":\n" + str(spaceship.current_hp) + "/" + str(spaceship.max_hp) + "[/center]"
-		#get_node("/root/Root/UI/ShipHP").text = hp_text
 		text += tr("SHIP_HULL") + tr("COLON") + " " + str(spaceship.current_hp) + "/" + str(spaceship.max_hp) + "\n"
 		text += tr("SHIELD") + tr("COLON") + " " + str(spaceship.current_shield) + "\n\n"
 	
@@ -94,14 +92,13 @@ func _process(delta):
 	if info_level > 4:
 		text += tr("FAVORITE_CHEESE") + "\n" + tr("FETA") + "\n" + tr("GRUYERE") + "\n" + tr("AMERICAN_CHEESE") + "\n\n"
 		
-	#var asteroids = get_node("/root/Root/AsteroidManager").get_all_asteroids()
-	#var asteroids_text = "Asteroids: " + str(len(asteroids))
-	get_node("/root/Root/UI/NbAsteroids").text = text
+	get_node("/root/Root/UI/CaptorInfo").text = text
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_card != null:
 		
 		if !CardManager.can_be_placed(_selected_card):
+			var label_not_enough_energy = get_node(("/root/Root/"))
 			print("[GM] Not enough energy to place " + _selected_card.name)
 			return
 		
