@@ -122,14 +122,15 @@ func _input(event):
 		
 		if len(result) > 0: # If we clicked on a slot...
 			# print(result)
-			if GridManager.try_place(result.collider.get_node(".."), _selected_card):
+			var s: Slot = result.collider.get_node("..")
+			if s.grid.can_place(s, _selected_card):
 				var item = _selected_card.model.instantiate()
 				CardManager.register_item(ItemCard.new(_selected_card, item))
 				add_child(item)
 				var t = result.collider.global_position
 				item.global_position = Vector3(t.x, t.y + .5, t.z)
 				update_button(current_button)
-				result.collider.get_node("..").obj = item
+				s.grid.place(s, _selected_card, item)
 
 		# We unselect the card
 		hintObject.queue_free()

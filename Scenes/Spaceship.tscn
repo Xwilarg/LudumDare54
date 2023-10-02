@@ -22,15 +22,17 @@ XXXXX
 .XXX."
 
 [node name="Grid2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.885, -0.25, -2.52845)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.55359, 0.409, -2.65167)
 script = ExtResource("3_n7wdy")
 raw_shape = "XX
+XX
 XX"
 
 [node name="Grid3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17884, -0.25, -2.44687)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55567, 0.409, -2.65167)
 script = ExtResource("3_n7wdy")
 raw_shape = "XX
+XX
 XX"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

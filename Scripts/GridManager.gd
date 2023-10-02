@@ -25,6 +25,3 @@ func instanciate_slots(g: Grid):
 func register_grid(g: Grid):
 	_grids.append(g)
 	instanciate_slots(g)
-
-func try_place(s: Slot, c: Card) -> bool:
-	return s.grid.try_place(s, c)
