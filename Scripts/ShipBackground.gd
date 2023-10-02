@@ -11,7 +11,7 @@ func _process(delta):
 	if prep_timer > 0:
 		prep_timer -= delta
 		if prep_timer <= 0:
-			dir = true#GameManager.rng.randi_range(0, 1) == 0
+			dir = GameManager.rng.randi_range(0, 1) == 0
 			global_position = Vector3(x if dir else -x, global_position.y, global_position.z)
 			global_rotation = Vector3(0, PI/2 if dir else -PI/2, 0)
 	else:

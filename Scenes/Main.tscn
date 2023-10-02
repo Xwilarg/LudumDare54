@@ -148,52 +148,51 @@ environment = SubResource("Environment_jm20i")
 [node name="Main Ship" parent="Background" instance=ExtResource("6_jorn6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1605.27, -686.982, 192.651)
 script = ExtResource("7_v48sk")
-speed = 750
 
 [node name="Cursed Space" parent="Background" instance=ExtResource("8_5tdxn")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -349.638, -71.2965, 176.525)
 script = ExtResource("7_v48sk")
-speed = 750
+speed = 100
 
 [node name="Cursed Space2" parent="Background" instance=ExtResource("8_5tdxn")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -349.638, -51.7767, 176.525)
 script = ExtResource("7_v48sk")
-speed = 750
+speed = 100
 
 [node name="Cursed Space3" parent="Background" instance=ExtResource("8_5tdxn")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -349.638, -51.7767, 145.166)
 script = ExtResource("7_v48sk")
-speed = 750
+speed = 100
 
 [node name="Cursed Space4" parent="Background" instance=ExtResource("8_5tdxn")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -349.638, -63.4084, 204.166)
 script = ExtResource("7_v48sk")
-speed = 750
+speed = 100
 
 [node name="Cursed Space5" parent="Background" instance=ExtResource("8_5tdxn")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -349.638, -63.4084, 162.611)
 script = ExtResource("7_v48sk")
-speed = 750
+speed = 100
 
 [node name="Cursed Space6" parent="Background" instance=ExtResource("8_5tdxn")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -349.638, -86.7764, 162.611)
 script = ExtResource("7_v48sk")
-speed = 750
+speed = 100
 
 [node name="Cursed Space7" parent="Background" instance=ExtResource("8_5tdxn")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -349.638, -86.7764, 197.847)
 script = ExtResource("7_v48sk")
-speed = 750
+speed = 100
 
 [node name="Cursed Space8" parent="Background" instance=ExtResource("8_5tdxn")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -349.638, -86.7764, 228.177)
 script = ExtResource("7_v48sk")
-speed = 750
+speed = 100
 
 [node name="Cursed Space9" parent="Background" instance=ExtResource("8_5tdxn")]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -349.638, -44.6609, 193.952)
 script = ExtResource("7_v48sk")
-speed = 750
+speed = 100
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gldpg")
