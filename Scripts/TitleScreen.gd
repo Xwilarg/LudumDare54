@@ -24,7 +24,7 @@ func _on_start_gui_input(event):
 
 func _on_credits_gui_input(event):
 	if (event is InputEventMouseButton && event.pressed && event.button_index == 1):
-		print("Clicked")
+		get_tree().change_scene_to_file("res://Scenes/Credits.tscn")
 
 
 func _on_language_gui_input(event):
