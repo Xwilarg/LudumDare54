@@ -59,6 +59,9 @@ func _ready():
 	Ghttp.request_completed.connect(on_meteo_completed)
 	var resp = Ghttp.request("https://api.open-meteo.com/v1/forecast?latitude=48.85&longitude=2.35&current_weather=true")
 
+func round_to_dec(num, digit): # https://ask.godotengine.org/29110/how-to-round-to-a-specific-decimal-place
+	return round(num * pow(10.0, digit)) / pow(10.0, digit)
+
 func _process(delta):
 	time_now = Time.get_unix_time_from_system()
 	elapsed_time = time_now - time_start
@@ -108,16 +111,25 @@ func _process(delta):
 				"BLU": u_b - (u_g / 2) - (u_r / 2)
 			}
 
-			text += tr("ATTACK_POWER") + "\n"
-			text += tr("GRN_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_GRN")) + 1 * (upg["UPG_GRN"] / 100)) + "\n"
-			text += tr("BLU_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_BLU")) + 1 * (upg["UPG_BLU"] / 100)) + "\n"
-			text += tr("RED_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_RED")) + 1 * (upg["UPG_RED"] / 100))
-			text += "\n\n"
+			var tt = CardManager.sum(CardManager.get_effect("ATK_GRN")) + 1 * (upg["GRN"] / 100)
+			tt += CardManager.sum(CardManager.get_effect("ATK_BLU")) + 1 * (upg["BLU"] / 100)
+			tt += CardManager.sum(CardManager.get_effect("ATK_RED")) + 1 * (upg["RED"] / 100)
+			
+			var speed = 1 + CardManager.sum(CardManager.get_effect("SPD")) / 100.0
 
-		if info_level > 3:
+			if info_level == 3:
+				text += tr("ATTACK_POWER") + tr("COLON") + " " + str(round_to_dec(tt / 3.0 * speed, 2))
+			else:
+				text += tr("ATTACK_POWER") + "\n"
+				text += tr("GRN_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_GRN")) + 1 * (upg["GRN"] / 100.0) * speed) + "\n"
+				text += tr("BLU_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_BLU")) + 1 * (upg["BLU"] / 100.0) * speed) + "\n"
+				text += tr("RED_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_RED")) + 1 * (upg["RED"] / 100.0) * speed)
+				text += "\n\n"
+
+		if info_level > 5:
 			text += tr("METEO") + "\n" + meteo + "\n\n"
 
-		if info_level > 4:
+		if info_level > 6:
 			text += tr("FAVORITE_CHEESE") + "\n" + tr("FETA") + "\n" + tr("GRUYERE") + "\n" + tr("AMERICAN_CHEESE") + "\n\n"
 		
 		get_node("/root/Root/UI/CaptorInfo").text = text
