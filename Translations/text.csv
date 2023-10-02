@@ -52,3 +52,5 @@ AMERICAN_CHEESE;American Cheese;Fromage américain
 GRN_DMG;Firearm Damage;Dégats d'arme à feu
 BLU_DMG;Energy Damage;Dégats d'énergie
 RED_DMG;Explosive Damage;Dégats d'explosion
+
+MISSING_ENERGY;Not enought energy;Pas assez d'énergie

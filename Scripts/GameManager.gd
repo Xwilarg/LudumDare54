@@ -99,7 +99,7 @@ func _input(event):
 		
 		if !CardManager.can_be_placed(_selected_card):
 			var energy_alert = get_node(("/root/Root/UI/MissingEnergy"))
-			energy_alert.text = "[center]Not enough energy to place [" + _selected_card.name + "][/center]"
+			energy_alert.text = "[center]" + tr("MISSING_ENERGY") + "[/center]"
 			$EnergyAlert.start()
 			return
 		
