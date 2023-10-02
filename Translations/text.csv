@@ -62,3 +62,5 @@ BLU_DMG;Energy Damage;Dégats d'énergie
 RED_DMG;Explosive Damage;Dégats d'explosion
 
 MISSING_ENERGY;Not enought energy;Pas assez d'énergie
+
+COST;EN Cost;Coût
