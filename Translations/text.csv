@@ -45,11 +45,11 @@ SHIELDGEN_DESC;Protect against asteroids, rain and bad dreams!;Protège contre l
 UPGRADE_NAME;Console;Console
 UPGRADE_DESC;More recent hardware allowing you to communicate with more recent devices with latest communication protocols, hooray for IPv6!;Du matériel plus récent permettant de communiquer avec des appareils plus nouveau avec les derniers protocols de communication, houra pour l'IPv6!
 TRANSISTOR_FLAK_NAME;Transistor (Flak);Transistor (AA)
-TRANSISTOR_FLAK_DESC;Reroot all the power in your anti-air, porcupine style!;Reroot toute la puissance dans l'anti-air, un vrai porc-épic!
+TRANSISTOR_FLAK_DESC;Reroot all the power in your anti-air, porcupine style!;Reroot toute la puissance dans l'anti-air, un vrai porc-épic !
 TRANSISTOR_LASER_NAME;Transistor (Laser);Transistor (Laser)
-TRANSISTOR_LASER_DESC;Reroot all the power in your lasers, shoop da whoop!;Reroot toute la puissance dans les lasers, shoop da whoop! 
+TRANSISTOR_LASER_DESC;Reroot all the power in your lasers, shoop da whoop!;Reroot toute la puissance dans les lasers, shoop da whoop !
 TRANSISTOR_MISSILE_NAME;Transistor (Missile);Transistor (Missile)
-TRANSISTOR_MISSILE_DESC;Reroot all the power in your missiles!;Reroot toute la puissance dans les missiles! 
+TRANSISTOR_MISSILE_DESC;Reroot all the power in your missiles, all the way to DEFCON 1!;Reroot toute la puissance dans les missiles, allons jusqu'à DEFCON 1 !
 
 EFF_ATK_RED;Damage red asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides rouges de %1 de leur PV par secondes
 EFF_ATK_GRN;Damage green asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides verts de %1 de leur PV par secondes
