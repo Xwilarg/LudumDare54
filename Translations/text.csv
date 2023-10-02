@@ -5,6 +5,7 @@ MENU_LANGUAGE;LANGUAGE - ENGLISH;LANGUE - FRANÇAIS
 
 GAMEOVER_BACK;BACK;RETOUR
 GAMEOVER_SCORE;TOTAL NUMBER OF ASTEROIDS DESTROYED: %1;NOMBRE D'ASTEROÏDES DÉTRUITS: %1
+GAMEOVER_SORRY;Sorry no restart button, please use the refresh button of your browser;Désolé par de bouton pour rejouer, utilisez le bouton de votre navigateur pour rafraîchir la page
 
 CREDIT_2D;2D;3D
 CREDIT_3D;3D;3D

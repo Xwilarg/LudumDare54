@@ -55,6 +55,14 @@ text = "SCORE"
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="Score2" type="Label" parent="Control/BoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ueumv")
+theme_override_font_sizes/font_size = 20
+text = "GAMEOVER_SORRY"
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="BoxContainer" type="BoxContainer" parent="Control"]
 custom_minimum_size = Vector2(0, 130)
 layout_mode = 1
