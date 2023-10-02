@@ -14,10 +14,10 @@ func _ready():
 
 func _process(delta):
 	$RigidBody3D.linear_velocity = (target - global_position).normalized() * move_speed * delta
-	$RigidBody3D/CollisionShape3D/Asteroid_model.rotate_x(rotation_speed * delta)
+	$RigidBody3D/Asteroid_model.rotate_x(rotation_speed * delta)
 
 func set_material(value):
-	var node = get_node("RigidBody3D/CollisionShape3D/Asteroid_model/" + str($RigidBody3D/CollisionShape3D/Asteroid_model.meshpath))
+	var node = get_node("RigidBody3D/Asteroid_model/" + str($RigidBody3D/Asteroid_model.meshpath))
 	node.set_surface_override_material(0, value)
 
 func explode():

@@ -6,16 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://b4fjvv8fuc723" path="res://Scenes/GridManager.tscn" id="4_e4d1o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_at5ep"]
-size = Vector3(29.1789, 1.85356, 10.4732)
+size = Vector3(29.1789, 3.89488, 15.6638)
 
 [node name="spaceship" type="Node3D"]
 script = ExtResource("1_ilw26")
 
 [node name="spaceshipModel" parent="." instance=ExtResource("1_pfcka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.03657, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78701, 0)
 
 [node name="Grid" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409535, -0.432588, -0.295036)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41, -0.590825, -0.295)
 script = ExtResource("3_n7wdy")
 raw_shape = ".XXX.
 XXXXX
@@ -23,24 +23,24 @@ XXXXX
 .XXX."
 
 [node name="Grid2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.885, -0.432794, -2.52845)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.885, -0.25, -2.52845)
 script = ExtResource("3_n7wdy")
 raw_shape = "XX
 XX"
 
 [node name="Grid3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17884, -0.432588, -2.44687)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17884, -0.25, -2.44687)
 script = ExtResource("3_n7wdy")
 raw_shape = "XX
 XX"
 
 [node name="GridManager" parent="." node_paths=PackedStringArray("grid_ref") instance=ExtResource("4_e4d1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24956, 0)
 grid_ref = [NodePath("../Grid"), NodePath("../Grid2"), NodePath("../Grid3")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.03657, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78701, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38672, -1.51957)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99398, -1.51957)
 shape = SubResource("BoxShape3D_at5ep")
