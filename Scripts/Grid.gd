@@ -7,8 +7,11 @@ class_name Grid
 # Elements already placed on the grid
 var elems: Dictionary
 
+@export var startingHelp: bool
+var help_slot: Node3D = null
+
 func _ready():
-	GridManager.register_grid(self)
+	GridManager.register_grid(self, startingHelp)
 
 func register_slot(pos: Vector2):
 	elems[pos] = null

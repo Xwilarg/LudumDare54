@@ -23,6 +23,13 @@ func _init_cards():
 	for card in _deck.data:
 		_cards.append(Card.new(card))
 
+	for g in GridManager._grids:
+		if g.help_slot != null:
+			for c in _cards:
+				if c.name == "Sensor":
+					place_at_pos(g.help_slot, c)
+					break
+
 func subscribe_button(b: CardUI) -> void:
 	if len(_cards) == 0:
 		_init_cards()
@@ -133,18 +140,22 @@ func _input(event):
 		if len(result) > 0: # If we clicked on a slot...
 			var s: Slot = result.collider.get_node("..")
 			if s.grid.can_place(s, _selected_card):
-				var item = _selected_card.model.instantiate()
-				CardManager.register_item(ItemCard.new(_selected_card, item))
-				add_child(item)
-				var t = result.collider.global_position
-				item.global_position = Vector3(t.x, t.y + .5, t.z)
+				place_at_pos(result.collider.get_node(".."), _selected_card)
 				update_button(current_button, true)
-				s.grid.place(s, _selected_card, item)
-
 		# We unselect the card
 		hintObject.queue_free()
 		hintObject = null
 		_selected_card = null
+
+
+func place_at_pos(slot: Node3D, card: Card):
+	var item = card.model.instantiate()
+	CardManager.register_item(ItemCard.new(card, item))
+	add_child(item)
+	var t = slot.global_position
+	item.global_position = Vector3(t.x, t.y + .5, t.z)
+	slot.grid.place(slot, card, item)
+	
 
 func verify_all_buttons():
 	var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
