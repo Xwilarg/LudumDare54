@@ -4,7 +4,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_53jop"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_4i1wr"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_du7er"]
 
 [node name="Asteroid" type="Node3D"]
 script = ExtResource("1_25mkp")
@@ -16,7 +16,7 @@ contact_monitor = true
 shape = SubResource("SphereShape3D_53jop")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
-mesh = SubResource("BoxMesh_4i1wr")
+mesh = SubResource("ArrayMesh_du7er")
 skeleton = NodePath("../../..")
 
 [connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]
