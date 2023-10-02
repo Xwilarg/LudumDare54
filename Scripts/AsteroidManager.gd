@@ -25,7 +25,7 @@ func get_all_asteroids():
 
 	for spawner in spawners:
 		for a in spawner._asteroids:
-			if a.global_position.distance_to(sRef) < 17:
+			if a.get_node("RigidBody3D").global_position.distance_to(sRef) < 17:
 				results.append(a)
 
 	return results
