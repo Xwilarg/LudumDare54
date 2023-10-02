@@ -4,3 +4,4 @@ class_name Slot
 
 var pos: Vector2i
 var grid: Grid
+var obj: Node3D

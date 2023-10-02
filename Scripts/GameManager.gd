@@ -129,7 +129,7 @@ func _input(event):
 				var t = result.collider.global_position
 				item.global_position = Vector3(t.x, t.y + .5, t.z)
 				update_button(current_button)
-			
+				result.collider.get_node("..").obj = item
 
 		# We unselect the card
 		hintObject.queue_free()
