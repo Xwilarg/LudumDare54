@@ -105,10 +105,11 @@ func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Ve
 						var coord_row = input_rectangle[0][0] + row
 						var coord_col =  input_rectangle[0][1] + col
 						if coord_row == item.x + irow and coord_col == item.y + icol:
-							print("[CG] Attemped to place an element that collides with " + placed_items[item][0].name)
-							CardManager.delete_item(placed_items[item][0])
-							placed_items[item][0].queue_free()
-							placed_items.erase(item)
+							if placed_items.has(item):
+								print("[CG] Attemped to place an element that collides with " + placed_items[item][0].name)
+								CardManager.delete_item(placed_items[item][0])
+								placed_items[item][0].queue_free()
+								placed_items.erase(item)
 
 	# if we pass all the checks, we are good to go !
 	# TODO: check if there is another object here

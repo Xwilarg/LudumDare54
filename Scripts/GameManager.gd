@@ -24,7 +24,7 @@ func _init_cards():
 func subscribe_button(b: CardUI) -> void:
 	if len(_cards) == 0:
 		_init_cards()
-	b.set_card(_cards[rng.randi_range(0, len(_cards) - 1)])
+	update_button(b)
 	_buttons.append(b)
 
 func load_item(b: CardUI, card: Card) -> void:
@@ -141,12 +141,8 @@ func _input(event):
 							grid.add_item_at_grid_position(item, _selected_card.shape, Vector2i(0, 0), grid_position)
 							item.global_position = Vector3(item.global_position.x, item.global_position.y + .5, item.global_position.z)
 							# print("It's magic time")
+							update_button(current_button)
 							isDone = true
-							var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
-							var nextCard = current_button._curr_card
-							while nextCard.name == current_button._curr_card.name or nextCard.level > upgradeLevel:
-								nextCard = _cards[rng.randi_range(0, len(_cards) - 1)]
-							current_button.set_card(nextCard)
 						break
 					else:
 						pass# print("Magic is gone booo")
@@ -158,3 +154,19 @@ func _input(event):
 		hintObject = null
 		_selected_card = null
 
+func verify_all_buttons():
+	var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
+	for b in _buttons:
+		print(b._curr_card.name + " : " +  str(b._curr_card.level) + " > " + str(upgradeLevel))
+		if b._curr_card.level > upgradeLevel:
+			update_button(b)
+
+func update_button(b: CardUI):
+	var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
+	var nextCard = b._curr_card
+	var name: String
+	if nextCard != null: name = b._curr_card.name
+	while nextCard == null or nextCard.name == name or nextCard.level > upgradeLevel:
+		nextCard = _cards[rng.randi_range(0, len(_cards) - 1)]
+	print("[GM] Loading card " + nextCard.name + " of level " + str(nextCard.level) + " (Current level: " + str(upgradeLevel) + ")")
+	b.set_card(nextCard)

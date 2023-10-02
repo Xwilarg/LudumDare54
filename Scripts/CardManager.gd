@@ -80,11 +80,14 @@ func register_item(item: ItemCard):
 func delete_item(node: Node3D):
 	for item in _items:
 		if item.item == node:
+			_energy_used -= item.card.energyCost
 			if item.card.effects.has("ENG"):
 				_energy_used += int(item.card.effects["ENG"])
 			if item.card.effects.has("SHD"):
 				get_node("/root/Root/spaceship").current_shield -= max(0, int(item.card.effects["SHD"]))
 			_items.erase(item)
+			if item.card.effects.has("UPG"):
+				GameManager.verify_all_buttons()
 			if len(get_effect("VID")) == 0:
 				get_node("/root/Root/UI/AspectRatioContainer/VideoStreamPlayer").stream = null
 
