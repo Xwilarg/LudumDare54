@@ -16,6 +16,8 @@ func set_card(c: Card):
 	$CardBG/MarginContainer/VBoxContainer/DescPanel/MarginContainer/RichTextLabel.text = c.description
 	$CardBG/MarginContainer/VBoxContainer/HBoxContainer2/EnergyPanel/MarginContainer/RichTextLabel.text = tr("COST") + tr("COLON") + " " + str(c.energyCost)
 
+	$CardBG/MarginContainer/VBoxContainer/HBoxContainer/IconPanel/TextureRect.texture = c.icon
+
 	var effects_text = ""
 	var effect_text = ""
 	
