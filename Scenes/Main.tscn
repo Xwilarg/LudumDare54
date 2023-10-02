@@ -150,6 +150,7 @@ script = ExtResource("7_v48sk")
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gldpg")
+volume_db = -20.0
 autoplay = true
 
 [connection signal="timeout" from="AsteroidManager/SpawnTimer" to="AsteroidManager" method="_on_spawn_timer_timeout"]
