@@ -9,9 +9,6 @@ font_size = 80
 [node name="GameOver" type="Node3D"]
 script = ExtResource("1_gdeod")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.48425)
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
