@@ -28,7 +28,7 @@ func _init(json: Dictionary):
 	elif json.size == "S2":
 		previewModel = preload("res://Models/upgradePlaceholderBlock2.glb")
 		shape = ["X", "X"]
-		offset = Vector2i.ZERO
+		offset = Vector2i(0, -1)
 	elif json.size == "S3":
 		previewModel = preload("res://Models/upgradePlaceholderBlock3Straight.glb")
 		shape = ["X", "X", "X"]

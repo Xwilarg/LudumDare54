@@ -129,7 +129,7 @@
 			"ATK_BLU": 10
 		},
 		"energyCost": 25,
-		"level": 1
+		"level": 2
 	},
 	{
 		"name": "shieldgen",
