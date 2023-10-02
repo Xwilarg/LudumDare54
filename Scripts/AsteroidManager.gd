@@ -12,6 +12,8 @@ const _additional_spawners_timer = 10
 
 @export var spawnPos: Vector3
 
+var sRef = Vector3(0, 0, 2.657)
+
 func _ready():
 	$SpawnTimer.start()
 
@@ -22,7 +24,9 @@ func get_all_asteroids():
 	var results = []
 
 	for spawner in spawners:
-		results += spawner._asteroids
+		for a in spawner._asteroids:
+			if a.global_position.distance_to(sRef):
+				results.append(a)
 
 	return results
 
