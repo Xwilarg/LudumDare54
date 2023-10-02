@@ -31,6 +31,7 @@ func take_damage(value: int):
 	hp -= value
 	if hp <= 0:
 		$"RigidBody3D/Label3D".text = "0 / 100"
+		GameManager.destroyed_asteroids += 1
 		explode()
 	else:
 		$"RigidBody3D/Label3D".text = str(hp) + " / 100"

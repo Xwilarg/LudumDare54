@@ -16,6 +16,8 @@ var time_now: int = 0
 var elapsed_time: int
 var meteo: String
 
+var destroyed_asteroids = 0
+
 func _init_cards():
 	for card in _deck.data:
 		_cards.append(Card.new(card))
