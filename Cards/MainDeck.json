@@ -2,6 +2,7 @@
 	{
 		"name": "upgrade",
 		"model": "navConsole",
+		"icon": "Nav_table",
 		"size": "S2",
 		"effects": {
 			"UPG": 1
@@ -12,6 +13,7 @@
 	{
 		"name": "overclock",
 		"model": "bigWires",
+		"icon": "Overclock",
 		"size": "S2",
 		"effects": {
 			"SPD": 5
@@ -22,6 +24,7 @@
 	{
 		"name": "battery",
 		"model": "batteryPack",
+		"icon": "Battery",
 		"size": "S1",
 		"effects": {
 			"ENG": 10
@@ -32,6 +35,7 @@
 	{
 		"name": "solarPanel",
 		"model": "solarPanel",
+		"icon": "Solar_panel",
 		"size": "S2",
 		"effects": {
 			"ENG": 25
@@ -42,6 +46,7 @@
 	{
 		"name": "antenna",
 		"model": "satelliteDish",
+		"icon": "Antenna",
 		"size": "S1",
 		"effects": {
 			"VID": 1
@@ -52,6 +57,7 @@
 	{
 		"name": "sensor",
 		"model": "sensor",
+		"icon": "Sensor",
 		"size": "S1",
 		"effects": {
 			"SEN": 1
@@ -62,6 +68,7 @@
 	{
 		"name": "flak1",
 		"model": "size1Gun",
+		"icon": "Flak",
 		"size": "S1",
 		"effects": {
 			"ATK_RED": 5,
@@ -74,6 +81,7 @@
 	{
 		"name": "flak2",
 		"model": "size2Guns",
+		"icon": "Flak",
 		"size": "S2",
 		"effects": {
 			"ATK_RED": 10,
@@ -86,6 +94,7 @@
 	{
 		"name": "flak3",
 		"model": "gunSize3L",
+		"icon": "Flak",
 		"size": "L2",
 		"effects": {
 			"ATK_RED": 15,
@@ -98,6 +107,7 @@
 	{
 		"name": "laser1",
 		"model": "laserSize1",
+		"icon": "Laser_gun",
 		"size": "S1",
 		"effects": {
 			"ATK_RED": 5,
@@ -110,6 +120,7 @@
 	{
 		"name": "laser3",
 		"model": "laserSize3L",
+		"icon": "Laser_gun",
 		"size": "L2",
 		"effects": {
 			"ATK_RED": 5,
@@ -122,6 +133,7 @@
 	{
 		"name": "missile1",
 		"model": "missileSize1",
+		"icon": "missile",
 		"size": "S1",
 		"effects": {
 			"ATK_RED": 25,
@@ -134,6 +146,7 @@
 	{
 		"name": "missile2",
 		"model": "missileSize2",
+		"icon": "missile",
 		"size": "S2",
 		"effects": {
 			"ATK_RED": 50,
@@ -146,6 +159,7 @@
 	{
 		"name": "shieldgen",
 		"model": "shieldGenerator",
+		"icon": "Shield Generator",
 		"size": "S3",
 		"effects": {
 			"SHD": 20
