@@ -13,7 +13,7 @@ func _ready():
 func register_slot(pos: Vector2):
 	elems[pos] = null
 
-func try_place(s: Slot, c: Card) -> bool:
+func can_place(s: Slot, c: Card) -> bool:
 	for yc in len(c.shape):
 		for xc in len(c.shape[yc]):
 			var y = yc + s.pos.y + c.offset.y
@@ -21,17 +21,21 @@ func try_place(s: Slot, c: Card) -> bool:
 			var v = Vector2(x, y)
 			var symbol = c.shape[yc][xc]
 			print("[GR] Checking at " + str(v) + " does the grid have it: " + str(elems.has(v)))
-			if symbol == 'X' and (!elems.has(v) or elems[v] != null):
-				if elems[v] != null:
-					CardManager.delete_item(elems[v].obj)
-					elems[v].obj.queue_free() # TODO: crash
-					elems[v].obj = null
-				else:
-					return false
-				
+			if symbol == 'X' and !elems.has(v):
+				return false
+			if symbol == 'X' and elems.has(v) and elems[v] != null:
+				var obj = elems[v]
+				CardManager.delete_item(obj)
+				for key in elems.keys():
+					if elems[key] == obj:
+						elems[key].queue_free()
+						elems[key] = null
+	return true
+
+func place(s: Slot, c: Card, obj: Node3D):
 	for yc in len(c.shape):
 		for xc in len(c.shape[yc]):
 			var y = yc + s.pos.y + c.offset.y
 			var x = xc + s.pos.x + c.offset.x
-			elems[Vector2(x, y)] = s
-	return true
+			if c.shape[yc][xc] == 'X':
+				elems[Vector2(x, y)] = obj
