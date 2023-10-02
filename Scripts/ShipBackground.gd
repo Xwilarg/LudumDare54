@@ -5,7 +5,7 @@ extends Node3D
 @onready var prep_timer: float = GameManager.rng.randi_range(5, 20)
 var dir: bool
 
-const speed = 750
+@export var speed: int
 
 func _process(delta):
 	if prep_timer > 0:
