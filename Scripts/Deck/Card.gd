@@ -24,15 +24,19 @@ func _init(json: Dictionary):
 	if json.size == "S1":
 		previewModel = preload("res://Models/upgradePlaceholderBlock.glb")
 		shape = ["X"]
+		offset = Vector2i.ZERO
 	elif json.size == "S2":
 		previewModel = preload("res://Models/upgradePlaceholderBlock2.glb")
 		shape = ["X", "X"]
+		offset = Vector2i.ZERO
 	elif json.size == "S3":
 		previewModel = preload("res://Models/upgradePlaceholderBlock3Straight.glb")
 		shape = ["X", "X", "X"]
-	elif json.size == "L3": # Doesn't work!!
+		offset = Vector2i(0, -1)
+	elif json.size == "L2": # Doesn't work!!
 		previewModel = preload("res://Models/upgradePlaceholderBlock3L.glb")
-		shape = ["X.", "X.", "XX"]
+		shape = ["XX", "X."]
+		offset = Vector2i(0, -1)
 	else: print("Unknown size " + json.size)
 
 var name: String
@@ -43,6 +47,7 @@ var effects: Dictionary
 var shape: PackedStringArray
 var energyCost: int
 var level: int
+var offset: Vector2i
 
 var modelRef = {
 	"size2Guns": "res://Models/size2Guns.glb"

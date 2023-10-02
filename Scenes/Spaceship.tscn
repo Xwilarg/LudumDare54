@@ -14,7 +14,7 @@ script = ExtResource("1_ilw26")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78701, 0)
 
 [node name="Grid" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.247633, 0.409179, -1.387)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.416308, 0.409, -1.387)
 script = ExtResource("3_n7wdy")
 raw_shape = ".XXX.
 XXXXX

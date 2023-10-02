@@ -32,6 +32,7 @@ EFF_VID;Watch animal videos;Regarde des vidéos d'animaux
 EFF_SPD;Increase your firerate by %1%;Augmentera votre vitesse de tir par %1%
 EFF_SEN;Display more information about your ship and its surroundings;Affiche plus d'information à propos du vaisseau et ses environs
 EFF_UPG;Unlock access to better cards;Débloque l'accès à de meilleur cartes
+EFF_SHD;Add a shield bar of %1HP;Ajoute une bar de bouclier de %1PV
 
 SHIP_HULL;Ship Hull;Coque du vaisseau
 SHIELD;Shield;Bouclier

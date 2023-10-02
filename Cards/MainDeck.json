@@ -98,7 +98,7 @@
 	{
 		"name": "laser3",
 		"model": "laserSize3L",
-		"size": "L3",
+		"size": "L2",
 		"effects": {
 			"ATK_RED": 5,
 			"ATK_GRN": 5,
