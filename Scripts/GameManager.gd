@@ -99,10 +99,19 @@ func _process(delta):
 			text += tr("ENERGY") + tr("COLON") + " " + str(CardManager._energy_max - CardManager._energy_used) + "/" + str(CardManager._energy_max) + "\n\n"
 
 		if info_level > 2: # Attack power
+			var u_r = CardManager.sum(CardManager.get_effect("UPG_RED"))
+			var u_g = CardManager.sum(CardManager.get_effect("UPG_GRN"))
+			var u_b = CardManager.sum(CardManager.get_effect("UPG_BLU"))
+			var upg = {
+				"RED": u_r - (u_g / 2) - (u_b / 2),
+				"GRN": u_g - (u_r / 2) - (u_b / 2),
+				"BLU": u_b - (u_g / 2) - (u_r / 2)
+			}
+
 			text += tr("ATTACK_POWER") + "\n"
-			text += tr("GRN_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_GRN"))) + "\n"
-			text += tr("BLU_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_BLU"))) + "\n"
-			text += tr("RED_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_RED")))
+			text += tr("GRN_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_GRN")) + 1 * (upg["UPG_GRN"] / 100)) + "\n"
+			text += tr("BLU_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_BLU")) + 1 * (upg["UPG_BLU"] / 100)) + "\n"
+			text += tr("RED_DMG") + tr("COLON") + " " + str(CardManager.sum(CardManager.get_effect("ATK_RED")) + 1 * (upg["UPG_RED"] / 100))
 			text += "\n\n"
 
 		if info_level > 3:
