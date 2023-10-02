@@ -1,30 +1,5 @@
 extends Node3D
 
-# GRIDS
-var _grids: Array[Grid]
-var grid_prefab = preload("res://Scenes/Slot.tscn")
-const _space = .1
-
-func instanciate_slots(g: Grid):
-	var lines = g.raw_shape.replace("\r", "").split("\n")
-	var zLen = len(lines)
-	for z in range(zLen):
-		var xLen = len(lines[z])
-		for x in range(xLen):
-			if (lines[z][x] == 'X'):
-				var elem = grid_prefab.instantiate()
-				elem.global_position = Vector3(
-					g.global_position.x - (xLen + (xLen - 1) * _space) / 2.0 + x + (_space * x),
-					g.global_position.y,
-					g.global_position.z - (zLen + (zLen - 1) * _space) / 2.0 + z + (_space * z)
-				)
-				g.add_child(elem)
-
-func register_grid(g: Grid):
-	_grids.append(g)
-	instanciate_slots(g)
-# END GRIDS
-
 var _buttons: Array[CardUI]
 @export var _deck: JSON
 
@@ -141,7 +116,13 @@ func _input(event):
 		
 		if len(result) > 0: # If we clicked on a slot...
 			# print(result)
-			var isDone = false
+			if GridManager.try_place(result.collider.get_node(".."), _selected_card):
+				var item = _selected_card.model.instantiate()
+				CardManager.register_item(ItemCard.new(_selected_card, item))
+				add_child(item)
+				var t = result.collider.global_position
+				item.global_position = Vector3(t.x, t.y + .5, t.z)
+				update_button(current_button)
 			
 
 		# We unselect the card
