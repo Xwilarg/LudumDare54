@@ -15,6 +15,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99516, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.666183, 0)
 
 [node name="Label3D" type="Label3D" parent="RigidBody3D" index="2"]
-transform = Transform3D(-1.58933e-08, 0, 1, 0, 1, 0, -1, 0, -1.58933e-08, 1.50798, 1.11221, -0.383737)
+transform = Transform3D(-1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, 0.149092, 1.11221, -1.38374)
 text = "Sample Text"
 font_size = 100
