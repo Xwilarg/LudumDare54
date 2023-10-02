@@ -6,7 +6,7 @@
 		"effects": {
 			"UPG": 1
 		},
-		"energyCost": 50,
+		"energyCost": 40,
 		"level": 1
 	},
 	{
@@ -16,7 +16,7 @@
 		"effects": {
 			"SPD": 5
 		},
-		"energyCost": 10,
+		"energyCost": 5,
 		"level": 2
 	},
 	{
@@ -68,7 +68,7 @@
 			"ATK_GRN": 10,
 			"ATK_BLU": 5
 		},
-		"energyCost": 10,
+		"energyCost": 5,
 		"level": 1
 	},
 	{
@@ -80,7 +80,7 @@
 			"ATK_GRN": 25,
 			"ATK_BLU": 10
 		},
-		"energyCost": 15,
+		"energyCost": 10,
 		"level": 2
 	},
 	{
@@ -92,7 +92,7 @@
 			"ATK_GRN": 50,
 			"ATK_BLU": 15
 		},
-		"energyCost": 20,
+		"energyCost": 15,
 		"level": 3
 	},
 	{
@@ -104,7 +104,7 @@
 			"ATK_GRN": 5,
 			"ATK_BLU": 40
 		},
-		"energyCost": 15,
+		"energyCost": 10,
 		"level": 1
 	},
 	{
@@ -116,7 +116,7 @@
 			"ATK_GRN": 5,
 			"ATK_BLU": 100
 		},
-		"energyCost": 25,
+		"energyCost": 20,
 		"level": 3
 	},
 	{
@@ -128,7 +128,7 @@
 			"ATK_GRN": 10,
 			"ATK_BLU": 5
 		},
-		"energyCost": 15,
+		"energyCost": 10,
 		"level": 1
 	},
 	{
@@ -140,7 +140,7 @@
 			"ATK_GRN": 10,
 			"ATK_BLU": 10
 		},
-		"energyCost": 25,
+		"energyCost": 20,
 		"level": 2
 	},
 	{
@@ -150,7 +150,7 @@
 		"effects": {
 			"SHD": 20
 		},
-		"energyCost": 10,
+		"energyCost": 5,
 		"level": 3
 	}
 ]

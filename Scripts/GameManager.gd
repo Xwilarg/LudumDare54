@@ -17,6 +17,7 @@ var elapsed_time: int
 var meteo: String
 
 var destroyed_asteroids = 0
+var timers: Dictionary
 
 func _init_cards():
 	for card in _deck.data:
@@ -25,7 +26,7 @@ func _init_cards():
 func subscribe_button(b: CardUI) -> void:
 	if len(_cards) == 0:
 		_init_cards()
-	update_button(b)
+	update_button(b, false)
 	_buttons.append(b)
 
 func load_item(b: CardUI, card: Card) -> void:
@@ -35,6 +36,7 @@ func load_item(b: CardUI, card: Card) -> void:
 	hintObject = card.previewModel.instantiate()
 	add_child(hintObject)
 	current_button = b
+	timers[b] = -1
 
 func on_meteo_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
@@ -53,6 +55,12 @@ func _ready():
 func _process(delta):
 	time_now = Time.get_unix_time_from_system()
 	elapsed_time = time_now - time_start
+	
+	for key in timers.keys():
+		if !key.visible:
+			timers[key] -= delta
+			if timers[key] <= 0:
+				key.visible = true
 	
 	if hintObject != null:
 		var camera3d = get_node("/root/Root/Camera3D")
@@ -123,7 +131,6 @@ func _input(event):
 		var result = space_state.intersect_ray(query)
 		
 		if len(result) > 0: # If we clicked on a slot...
-			# print(result)
 			var s: Slot = result.collider.get_node("..")
 			if s.grid.can_place(s, _selected_card):
 				var item = _selected_card.model.instantiate()
@@ -131,7 +138,7 @@ func _input(event):
 				add_child(item)
 				var t = result.collider.global_position
 				item.global_position = Vector3(t.x, t.y + .5, t.z)
-				update_button(current_button)
+				update_button(current_button, true)
 				s.grid.place(s, _selected_card, item)
 
 		# We unselect the card
@@ -143,9 +150,9 @@ func verify_all_buttons():
 	var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
 	for b in _buttons:
 		if b._curr_card.level > upgradeLevel:
-			update_button(b)
+			update_button(b, true)
 
-func update_button(b: CardUI):
+func update_button(b: CardUI, hide: bool):
 	var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
 	var nextCard = b._curr_card
 	var name: String
@@ -154,6 +161,9 @@ func update_button(b: CardUI):
 		nextCard = _cards[rng.randi_range(0, len(_cards) - 1)]
 	print("[GM] Loading card " + nextCard.name + " of level " + str(nextCard.level) + " (Current level: " + str(upgradeLevel) + ")")
 	b.set_card(nextCard)
+	if hide:
+		b.visible = false
+		timers[b] = 5
 
 
 func _on_energy_alert_timeout():

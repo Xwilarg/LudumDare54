@@ -24,4 +24,8 @@ func set_card(c: Card):
 		
 		effects_text += effect_text + "\n"
 	
-	$CardBG/MarginContainer/VBoxContainer/HBoxContainer/StatsPanel/MarginContainer/RichTextLabel.text = effects_text
+	$CardBG/MarginContainer/VBoxContainer/StatsPanel/MarginContainer/RichTextLabel.text = effects_text
+
+
+func _on_delete_pressed():
+	GameManager.update_button(self, true);
