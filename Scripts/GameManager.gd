@@ -26,7 +26,7 @@ func _init_cards():
 	for g in GridManager._grids:
 		if g.help_slot != null:
 			for c in _cards:
-				if c.name == "Sensor":
+				if c.key == "sensor":
 					place_at_pos(g.help_slot, c)
 					break
 
@@ -184,13 +184,21 @@ func verify_all_buttons():
 		if b._curr_card.level > upgradeLevel:
 			update_button(b, true)
 
+var is_first = true
 func update_button(b: CardUI, hide: bool):
 	var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
 	var nextCard = b._curr_card
 	var name: String
 	if nextCard != null: name = b._curr_card.name
-	while nextCard == null or nextCard.name == name or nextCard.level > upgradeLevel:
-		nextCard = _cards[rng.randi_range(0, len(_cards) - 1)]
+	if is_first:
+		for c in _cards:
+			if c.key == "flak1":
+				nextCard = c
+				is_first = false
+				break
+	else:
+		while nextCard == null or nextCard.name == name or nextCard.level > upgradeLevel:
+			nextCard = _cards[rng.randi_range(0, len(_cards) - 1)]
 	print("[GM] Loading card " + nextCard.name + " of level " + str(nextCard.level) + " (Current level: " + str(upgradeLevel) + ")")
 	b.set_card(nextCard)
 	if hide:

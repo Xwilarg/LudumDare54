@@ -1,6 +1,7 @@
 class_name Card
 
 func _init(json: Dictionary):
+	key = json.name
 	name = tr(json.name.to_upper() + "_NAME")
 	description = tr(json.name.to_upper() + "_DESC")
 
@@ -57,6 +58,7 @@ func _init(json: Dictionary):
 		offset = Vector2i(0, -1)
 	else: print("Unknown size " + json.size)
 
+var key: String
 var name: String
 var description: String
 var model: PackedScene
