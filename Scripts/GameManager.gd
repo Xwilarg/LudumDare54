@@ -56,12 +56,6 @@ func _process(delta):
 	time_now = Time.get_unix_time_from_system()
 	elapsed_time = time_now - time_start
 	
-	for key in timers.keys():
-		if !key.visible:
-			timers[key] -= delta
-			if timers[key] <= 0:
-				key.visible = true
-	
 	if hintObject != null:
 		var camera3d = get_node("/root/Root/Camera3D")
 		var space_state = get_tree().get_root().get_world_3d().direct_space_state
@@ -79,6 +73,12 @@ func _process(delta):
 	
 	# update UI
 	if get_node("/root/Root/UI/CaptorInfo"):
+		for key in timers.keys():
+			if !key.visible:
+				timers[key] -= delta
+				if timers[key] <= 0:
+					key.visible = true
+
 		var info_level = CardManager.sum(CardManager.get_effect("SEN"))
 		var text = ""
 		
