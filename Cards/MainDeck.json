@@ -68,7 +68,7 @@
 			"ATK_GRN": 10,
 			"ATK_BLU": 5
 		},
-		"energyCost": 15,
+		"energyCost": 10,
 		"level": 1
 	},
 	{
@@ -84,9 +84,21 @@
 		"level": 2
 	},
 	{
+		"name": "flak3",
+		"model": "gunSize3L",
+		"size": "L2",
+		"effects": {
+			"ATK_RED": 15,
+			"ATK_GRN": 50,
+			"ATK_BLU": 15
+		},
+		"energyCost": 20,
+		"level": 3
+	},
+	{
 		"name": "laser1",
-		"model": "size2Guns",
-		"size": "S2",
+		"model": "laserSize1",
+		"size": "S1",
 		"effects": {
 			"ATK_RED": 5,
 			"ATK_GRN": 5,
@@ -97,8 +109,8 @@
 	},
 	{
 		"name": "laser3",
-		"model": "size2Guns",
-		"size": "S2",
+		"model": "laserSize3L",
+		"size": "L2",
 		"effects": {
 			"ATK_RED": 5,
 			"ATK_GRN": 5,
@@ -109,14 +121,26 @@
 	},
 	{
 		"name": "missile1",
-		"model": "size2Guns",
-		"size": "S2",
+		"model": "missileSize1",
+		"size": "S1",
 		"effects": {
 			"ATK_RED": 25,
 			"ATK_GRN": 10,
 			"ATK_BLU": 5
 		},
 		"energyCost": 15,
+		"level": 1
+	},
+	{
+		"name": "missile2",
+		"model": "missileSize2",
+		"size": "S2",
+		"effects": {
+			"ATK_RED": 50,
+			"ATK_GRN": 10,
+			"ATK_BLU": 10
+		},
+		"energyCost": 25,
 		"level": 2
 	},
 	{

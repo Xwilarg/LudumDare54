@@ -1,7 +1,6 @@
 extends Node3D
 
 var _buttons: Array[CardUI]
-var _gridManager: Array[GridManager]
 @export var _deck: JSON
 
 var _cards: Array[Card]
@@ -118,35 +117,14 @@ func _input(event):
 		
 		if len(result) > 0: # If we clicked on a slot...
 			# print(result)
-			var isDone = false
-			for gm in _gridManager:
-				for grid in gm.grid_ref:
-					if grid.on_grid(result.collider.global_position):
-						# ... we place it on the grid
-						
-						var grid_position = grid.world_position_to_grid_position(result.collider.global_position)
-						var world_position = grid.grid_position_to_world_position(grid_position)
-						
-						# print(result.collider.global_position)
-						# print(grid_position)
-						# print(world_position)
-
-						var insertable = grid.is_shape_placable(_selected_card.shape, Vector2i(0, 0), grid_position)
-						# print(insertable)
-						if insertable:
-							var item = _selected_card.model.instantiate()
-							CardManager.register_item(ItemCard.new(_selected_card, item))
-							add_child(item)
-							grid.add_item_at_grid_position(item, _selected_card.shape, Vector2i(0, 0), grid_position)
-							item.global_position = Vector3(item.global_position.x, item.global_position.y + .5, item.global_position.z)
-							# print("It's magic time")
-							update_button(current_button)
-							isDone = true
-						break
-					else:
-						pass# print("Magic is gone booo")
-				if isDone:
-					break
+			if GridManager.try_place(result.collider.get_node(".."), _selected_card):
+				var item = _selected_card.model.instantiate()
+				CardManager.register_item(ItemCard.new(_selected_card, item))
+				add_child(item)
+				var t = result.collider.global_position
+				item.global_position = Vector3(t.x, t.y + .5, t.z)
+				update_button(current_button)
+			
 
 		# We unselect the card
 		hintObject.queue_free()
@@ -156,7 +134,6 @@ func _input(event):
 func verify_all_buttons():
 	var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
 	for b in _buttons:
-		print(b._curr_card.name + " : " +  str(b._curr_card.level) + " > " + str(upgradeLevel))
 		if b._curr_card.level > upgradeLevel:
 			update_button(b)
 

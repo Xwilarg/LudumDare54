@@ -1,24 +1,30 @@
-extends Node3D
+extends Node
 
-class_name GridManager
-
-const _prefab = preload("res://Scenes/Slot.tscn")
+var _grids: Array[Grid]
+var grid_prefab = preload("res://Scenes/Slot.tscn")
 const _space = .1
 
-@export var grid_ref: Array[Node]
+func instanciate_slots(g: Grid):
+	var lines = g.raw_shape.replace("\r", "").split("\n")
+	var zLen = len(lines)
+	for z in range(zLen):
+		var xLen = len(lines[z])
+		for x in range(xLen):
+			if (lines[z][x] == 'X'):
+				var elem = grid_prefab.instantiate()
+				elem.global_position = Vector3(
+					g.global_position.x + (xLen + (xLen - 1) * _space) / 4.0 - x - (_space * x),
+					g.global_position.y,
+					g.global_position.z + (zLen + (zLen - 1) * _space) / 4.0 - z - (_space * z)
+				)
+				elem.pos = Vector2i(x, z)
+				elem.grid = g
+				g.register_slot(Vector2i(x, z))
+				g.add_child(elem)
 
-func _ready():
-	for grid in grid_ref:
-		grid.map(Callable(self, "instanciate_slots"))
-		grid.slot_size = Vector3.ONE
-		grid.inter_space  = _space
-	get_node("/root/GameManager")._gridManager.append(self)
+func register_grid(g: Grid):
+	_grids.append(g)
+	instanciate_slots(g)
 
-func instanciate_slots(x: float, z: float, xLen: int, zLen: int, grid_local_position: Vector3):
-	var elem = _prefab.instantiate()
-	elem.global_position = Vector3(
-		grid_local_position.x - (xLen + (xLen - 1) * _space) / 2.0 + x + (_space * x),
-		grid_local_position.y,
-		grid_local_position.z - (zLen + (zLen - 1) * _space) / 2.0 + z + (_space * z)
-	)
-	add_child(elem)
+func try_place(s: Slot, c: Card) -> bool:
+	return s.grid.try_place(s, c)

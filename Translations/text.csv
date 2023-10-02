@@ -6,12 +6,16 @@ FLAK1_NAME;Flak Gun;Canon anti-aérien
 FLAK1_DESC;The base defense of your ship, don't forget the London treaty!;La défense de base de votre navire, n'oubliez pas le traité de Londres !
 FLAK2_NAME;Flak Gun Mk2;Canon anti-aérien Mk2
 FLAK2_DESC;More accurate, stronger but still as light, George V would be proud!;Plus précis, plus fort, mais tout aussi léger, George V serait fier!
+FLAK3_NAME;Flak Gun Mk3;Canon anti-aérien Mk3
+FLAK3_DESC;Our lawyers work hard to make the most deadly and unethical weapons, only use them on asteroids!;Nos avocats ont travaillés dur pour faire l'arme la plus violent et non-éthique, ne l'utilisez que sur des astéroides!
 LASER1_NAME;Laser;Laser
 LASER1_DESC;Energy-charged asteroids are especially crunchy when you put more energy in them, that's what the laser is for;Les asteroides chargé en énergie sont super-croustillant quand on met encore plus d'energie à l'intérieur, c'est à ça que sert le laser
 LASER3_NAME;Laser Mk3;Laser Mk3
 LASER3_DESC;This laser make asteroids super-crunchy, in fact it's specially designed to made explosions at 5kHz for the best auditive experience;Ce laser rend les astéroides extra-croustillant, en faîtes il est spécialement désigné pour provoquer des explosions à 5kHz pour la meilleur expérience auditive
 MISSILE1_NAME;Missile Launcher;Lance-missile
 MISSILE1_DESC;Some asteroids are filled with gaz, don't forget to shout 'tamaya' when blowing them up;Certains astéroides sont rempli de gaz, n'oubliez pas de crier 'tamaya' quand ils explosent
+MISSILE2_NAME;Missile Launcher Mk2;Lance-missile Mk2
+MISSILE2_DESC;Technology at its finest, more missile for a bigger explosion, 'kagiya'!;La technologie à son apogée, plus de missiles pour une plus grosse explosion, 'kagiya'!
 BATTERY_NAME;Battery;Batterie
 BATTERY_DESC;Use the power of lithium so you can have both thermo-nuclear weapons and a coffee machine;Utilise le pouvoir du lithium pour que vous puissiez avoir à la fois des armes thermo-nucléaire et une machine à café
 ANTENNA_NAME;Antenna;Antenne
@@ -35,6 +39,7 @@ EFF_VID;Watch animal videos;Regarde des vidéos d'animaux
 EFF_SPD;Increase your firerate by %1%;Augmentera votre vitesse de tir par %1%
 EFF_SEN;Display more information about your ship and its surroundings;Affiche plus d'information à propos du vaisseau et ses environs
 EFF_UPG;Unlock access to better cards;Débloque l'accès à de meilleur cartes
+EFF_SHD;Add a shield bar of %1HP;Ajoute une bar de bouclier de %1PV
 
 SHIP_HULL;Ship Hull;Coque du vaisseau
 SHIELD;Shield;Bouclier

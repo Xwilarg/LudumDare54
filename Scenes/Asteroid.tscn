@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv47ub7wey2jk"]
+[gd_scene load_steps=3 format=3 uid="uid://dv47ub7wey2jk"]
 
 [ext_resource type="Script" path="res://Scripts/Asteroid.gd" id="1_25mkp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_53jop"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_du7er"]
+radius = 1.30641
 
 [node name="Asteroid" type="Node3D"]
 script = ExtResource("1_25mkp")
@@ -14,9 +13,5 @@ contact_monitor = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_53jop")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
-mesh = SubResource("ArrayMesh_du7er")
-skeleton = NodePath("../../..")
 
 [connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]
