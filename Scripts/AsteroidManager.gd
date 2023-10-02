@@ -61,4 +61,4 @@ func _on_spawn_timer_timeout():
 	elif nb_spawner < 18:
 		$SpawnTimer.wait_time = 8
 	else:
-		$SpawnTimer.paused = true
+		$SpawnTimer.wait_time = 5

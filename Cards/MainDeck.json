@@ -162,7 +162,7 @@
 		"icon": "Shield Generator",
 		"size": "S3",
 		"effects": {
-			"SHD": 20
+			"SHD": 10
 		},
 		"energyCost": 5,
 		"level": 3
