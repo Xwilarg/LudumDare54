@@ -142,8 +142,9 @@ func _input(event):
 							item.global_position = Vector3(item.global_position.x, item.global_position.y + .5, item.global_position.z)
 							# print("It's magic time")
 							isDone = true
+							var upgradeLevel = CardManager.sum(CardManager.get_effect("UPG")) + 1
 							var nextCard = current_button._curr_card
-							while nextCard.name == current_button._curr_card.name:
+							while nextCard.name == current_button._curr_card.name or nextCard.level > upgradeLevel:
 								nextCard = _cards[rng.randi_range(0, len(_cards) - 1)]
 							current_button.set_card(nextCard)
 						break

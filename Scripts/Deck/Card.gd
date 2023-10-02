@@ -6,6 +6,7 @@ func _init(json: Dictionary):
 
 	energyCost = json.energyCost
 	effects = json.effects
+	level = json.level
 	if json.model == "size1Gun": model = preload("res://Models/size1Gun.glb")
 	if json.model == "size2Guns": model = preload("res://Models/size2Guns.glb")
 	if json.model == "laserSize3L": model = preload("res://Models/laserSize3L.glb")
@@ -15,6 +16,7 @@ func _init(json: Dictionary):
 	elif json.model == "solarPanel": model = preload("res://Models/solarPanel.glb")
 	elif json.model == "sensor": model = preload("res://Models/sensor.glb")
 	elif json.model == "shieldGenerator": model = preload("res://Models/shieldGenerator.glb")
+	elif json.model == "bigWires": model = preload("res://Models/bigWires.glb")
 	else: print("Unknown model " + json.model)
 
 	if json.size == "S1":
@@ -38,6 +40,7 @@ var previewModel: PackedScene
 var effects: Dictionary
 var shape: PackedStringArray
 var energyCost: int
+var level: int
 
 var modelRef = {
 	"size2Guns": "res://Models/size2Guns.glb"

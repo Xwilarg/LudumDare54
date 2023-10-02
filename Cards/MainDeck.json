@@ -1,12 +1,23 @@
 [
 	{
-		"name": "overclock",
+		"name": "upgrade",
 		"model": "navConsole",
+		"size": "S2",
+		"effects": {
+			"UPG": 1
+		},
+		"energyCost": 50,
+		"level": 2
+	},
+	{
+		"name": "overclock",
+		"model": "bigWires",
 		"size": "S2",
 		"effects": {
 			"SPD": 5
 		},
-		"energyCost": 10
+		"energyCost": 10,
+		"level": 2
 	},
 	{
 		"name": "battery",
@@ -15,7 +26,8 @@
 		"effects": {
 			"ENG": 10
 		},
-		"energyCost": 0
+		"energyCost": 0,
+		"level": 1
 	},
 	{
 		"name": "solarPanel",
@@ -24,7 +36,8 @@
 		"effects": {
 			"ENG": 25
 		},
-		"energyCost": 0
+		"energyCost": 0,
+		"level": 2
 	},
 	{
 		"name": "antenna",
@@ -33,7 +46,8 @@
 		"effects": {
 			"VID": 1
 		},
-		"energyCost": 5
+		"energyCost": 5,
+		"level": 2
 	},
 	{
 		"name": "sensor",
@@ -42,7 +56,8 @@
 		"effects": {
 			"SEN": 1
 		},
-		"energyCost": 5
+		"energyCost": 5,
+		"level": 1
 	},
 	{
 		"name": "flak1",
@@ -53,7 +68,8 @@
 			"ATK_GRN": 10,
 			"ATK_BLU": 5
 		},
-		"energyCost": 15
+		"energyCost": 15,
+		"level": 1
 	},
 	{
 		"name": "flak2",
@@ -64,7 +80,8 @@
 			"ATK_GRN": 25,
 			"ATK_BLU": 10
 		},
-		"energyCost": 15
+		"energyCost": 15,
+		"level": 2
 	},
 	{
 		"name": "laser1",
@@ -75,7 +92,8 @@
 			"ATK_GRN": 5,
 			"ATK_BLU": 40
 		},
-		"energyCost": 15
+		"energyCost": 15,
+		"level": 1
 	},
 	{
 		"name": "laser3",
@@ -86,7 +104,8 @@
 			"ATK_GRN": 5,
 			"ATK_BLU": 100
 		},
-		"energyCost": 25
+		"energyCost": 25,
+		"level": 3
 	},
 	{
 		"name": "missile1",
@@ -97,7 +116,8 @@
 			"ATK_GRN": 10,
 			"ATK_BLU": 5
 		},
-		"energyCost": 15
+		"energyCost": 15,
+		"level": 2
 	},
 	{
 		"name": "shieldgen",
@@ -106,6 +126,7 @@
 		"effects": {
 			"SHD": 20
 		},
-		"energyCost": 10
+		"energyCost": 10,
+		"level": 3
 	}
 ]

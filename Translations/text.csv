@@ -21,6 +21,8 @@ SENSOR_NAME;Sensor;Capteur
 SENSOR_DESC;To know which direction the wind is going, wet your finger and see where it's breezy, the sensor however doesn't use this tip to know that;Pour savoir dans quel direction va le vent mouillez votre doigt et voyez où vous avez froid, le capteur n'utilise cependant pas cette astuce pour le savoir
 SHIELDGEN_NAME;Shield Generator;Générateur de Bouclier
 SHIELDGEN_DESC;Protect against asteroids, rain and bad dreams!;Protège contre les astéroides, la pluie et les mauvais rêves !
+UPGRADE_NAME;Console;Console
+UPGRADE_DESC;More recent hardware allowing you to communicate with more recent devices with latest communication protocols, hooray for IPv6!;Du matériel plus récent permettant de communiquer avec des appareils plus nouveau avec les derniers protocols de communication, houra pour l'IPv6!
 
 EFF_ATK_RED;Damage red asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides rouges de %1 de leur PV par secondes
 EFF_ATK_GRN;Damage green asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides verts de %1 de leur PV par secondes
@@ -29,6 +31,7 @@ EFF_ENG;Increase your ship energy by %1;Augmente l'énergie de votre vaisseau pa
 EFF_VID;Watch animal videos;Regarde des vidéos d'animaux
 EFF_SPD;Increase your firerate by %1%;Augmentera votre vitesse de tir par %1%
 EFF_SEN;Display more information about your ship and its surroundings;Affiche plus d'information à propos du vaisseau et ses environs
+EFF_UPG;Unlock access to better cards;Débloque l'accès à de meilleur cartes
 
 SHIP_HULL;Ship Hull;Coque du vaisseau
 SHIELD;Shield;Bouclier
