@@ -27,7 +27,7 @@
 		"icon": "Battery",
 		"size": "S1",
 		"effects": {
-			"ENG": 10
+			"ENG": 20
 		},
 		"energyCost": 0,
 		"level": 1
@@ -38,7 +38,7 @@
 		"icon": "Solar_panel",
 		"size": "S2",
 		"effects": {
-			"ENG": 25
+			"ENG": 40
 		},
 		"energyCost": 0,
 		"level": 2
@@ -165,6 +165,39 @@
 			"SHD": 20
 		},
 		"energyCost": 5,
+		"level": 3
+	},
+	{
+		"name": "transistor_flak",
+		"model": "transistor",
+		"icon": "Transistor",
+		"size": "S1",
+		"effects": {
+			"UPG_GRN": 10
+		},
+		"energyCost": 10,
+		"level": 3
+	},
+	{
+		"name": "transistor_laser",
+		"model": "transistorBlue",
+		"icon": "Transistor",
+		"size": "S1",
+		"effects": {
+			"UPG_BLU": 10
+		},
+		"energyCost": 10,
+		"level": 3
+	},
+	{
+		"name": "transistor_missile",
+		"model": "transistorRed",
+		"icon": "Transistor",
+		"size": "S1",
+		"effects": {
+			"UPG_RED": 10
+		},
+		"energyCost": 10,
 		"level": 3
 	}
 ]

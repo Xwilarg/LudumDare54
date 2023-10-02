@@ -60,9 +60,19 @@ func _process(delta):
 
 				var a = asteroids[GameManager.rng.randi_range(0, len(asteroids) - 1)]
 				var color = a.type
+
+				var u_r = sum(get_effect("UPG_RED"))
+				var u_g = sum(get_effect("UPG_GRN"))
+				var u_b = sum(get_effect("UPG_BLU"))
+				var upg = {
+					"RED": u_r - (u_g / 2) - (u_b / 2),
+					"GRN": u_g - (u_r / 2) - (u_b / 2),
+					"BLU": u_b - (u_g / 2) - (u_r / 2)
+				}
+
 				if i.card.effects.has("ATK_" + color):
 					var eff = i.card.effects["ATK_" + color]
-					a.take_damage(eff)
+					a.take_damage(eff * 1 + (upg[color] / 100))
 					print("[CM] " + i.card.name + " firing at asteroid for " + str(eff) + " damage (color: " + color + ")")
 			
 			_aaTimer = 1.0 * 1.0 - sum(get_effect("SPD")) / 100.0

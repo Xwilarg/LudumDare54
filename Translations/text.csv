@@ -43,6 +43,12 @@ SHIELDGEN_NAME;Shield Generator;Générateur de Bouclier
 SHIELDGEN_DESC;Protect against asteroids, rain and bad dreams!;Protège contre les astéroides, la pluie et les mauvais rêves !
 UPGRADE_NAME;Console;Console
 UPGRADE_DESC;More recent hardware allowing you to communicate with more recent devices with latest communication protocols, hooray for IPv6!;Du matériel plus récent permettant de communiquer avec des appareils plus nouveau avec les derniers protocols de communication, houra pour l'IPv6!
+TRANSISTOR_FLAK_NAME;Transistor (Flak);Transistor (AA)
+TRANSISTOR_FLAK_DESC;Reroot all the power in your anti-air, porcupine style!;Reroot toute la puissance dans l'anti-air, un vrai porc-épic!
+TRANSISTOR_LASER_NAME;Transistor (Laser);Transistor (Laser)
+TRANSISTOR_LASER_DESC;Reroot all the power in your lasers, shoop da whoop!;Reroot toute la puissance dans les lasers, shoop da whoop! 
+TRANSISTOR_MISSILE_NAME;Transistor (Missile);Transistor (Missile)
+TRANSISTOR_MISSILE_DESC;Reroot all the power in your missiles!;Reroot toute la puissance dans les missiles! 
 
 EFF_ATK_RED;Damage red asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides rouges de %1 de leur PV par secondes
 EFF_ATK_GRN;Damage green asteroids by %1 of their HP per seconds;Inflige des dégats aux astéroides verts de %1 de leur PV par secondes
@@ -53,6 +59,9 @@ EFF_SPD;Increase your firerate by %1%;Augmentera votre vitesse de tir par %1%
 EFF_SEN;Display more information about your ship and its surroundings;Affiche plus d'information à propos du vaisseau et ses environs
 EFF_UPG;Unlock access to better cards;Débloque l'accès à de meilleur cartes
 EFF_SHD;Add a shield bar of %1HP;Ajoute une bar de bouclier de %1PV
+EFF_UPG_RED;Increase missile attack by %1% but decrease the others ones by half of that value;Augmente l'attaque des missiles par %1% mais décroit celle des autres par la moitié de cette valeur
+EFF_UPG_GRN;Increase flak gun attack by %1% but decrease the others ones by half of that value;Augmente l'attaque des canons AA par %1% mais décroit celle des autres par la moitié de cette valeur
+EFF_UPG_BLU;Increase laser attack by %1% but decrease the others ones by half of that value;Augmente l'attaque des lasers par %1% mais décroit celle des autres par la moitié de cette valeur
 
 SHIP_HULL;Ship Hull;Coque du vaisseau
 SHIELD;Shield;Bouclier

@@ -18,6 +18,7 @@ func _init(json: Dictionary):
 	elif json.icon == "Sensor": icon = preload("res://Sprites/Sensor.png")
 	elif json.icon == "Shield Generator": icon = preload("res://Sprites/Shield Generator.png")
 	elif json.icon == "Solar_panel": icon = preload("res://Sprites/Solar_panel.png")
+	elif json.icon == "Transistor": icon = preload("res://Sprites/Transistor.png")
 
 	if json.model == "size1Gun": model = preload("res://Models/size1Gun.glb")
 	elif json.model == "size2Guns": model = preload("res://Models/size2Guns.glb")
@@ -33,6 +34,9 @@ func _init(json: Dictionary):
 	elif json.model == "gunSize3L": model = preload("res://Models/gunSize3L.glb")
 	elif json.model == "missileSize1": model = preload("res://Models/missileSize1.glb")
 	elif json.model == "missileSize2": model = preload("res://Models/missileSize2.glb")
+	elif json.model == "transistor": model = preload("res://Models/transistor.glb")
+	elif json.model == "transistorBlue": model = preload("res://Models/transistorBlue.glb")
+	elif json.model == "transistorRed": model = preload("res://Models/transistorRed.glb")
 	else: print("Unknown model " + json.model)
 
 	if json.size == "S1":
