@@ -1,6 +1,6 @@
 extends Node
 
-@onready var asteroidManager  = get_node("/root/Root/AsteroidManager")
+var asteroidManager = null
 
 var _aaTimer: float = 1.0
 var animal_video_timer: float
@@ -22,6 +22,9 @@ var aspect_ratio = [
 ]
 
 var colors: Array[String] = [ "RED", "GRN", "BLU" ]
+
+func reset():
+	asteroidManager = get_node("/root/Root/AsteroidManager")
 
 func can_be_placed(card: Card) -> bool:
 	if _energy_used + card.energyCost > _energy_max:
@@ -45,7 +48,7 @@ func sum(arr: Array[int]) -> int:
 
 func _process(delta):
 	var current_scene = get_tree().get_current_scene().get_name()
-	
+
 	if current_scene == "Root" && asteroidManager:
 		_aaTimer -= delta
 		
@@ -69,6 +72,9 @@ func _process(delta):
 			animal_video_timer -= delta
 			if animal_video_timer <= 0.0:
 				play_animal_video()
+	elif !asteroidManager:
+		reset()
+		
 
 func register_item(item: ItemCard):
 	_energy_used += item.card.energyCost

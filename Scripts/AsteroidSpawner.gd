@@ -8,8 +8,8 @@ const _prefab_Asteroids = [
 var spawn_position: Vector3
 var _asteroids: Array[Asteroid]
 const _spawn_position_noise: int = 10
-@onready var spawn_timer: float = 5
-@onready var spawn_random_timer: float = 2
+@onready var spawn_timer: float = 15
+@onready var spawn_random_timer: float = 5
 var asteroid_type: Dictionary
 var type: String
 
@@ -25,7 +25,7 @@ func increase_spawn_rate():
 	spawn_random_timer *= change_rate
 
 func _ready():
-	$SpawnTimer.wait_time = spawn_timer
+	$SpawnTimer.wait_time = 2
 	$SpawnTimer.start()
 
 func _process(delta):
