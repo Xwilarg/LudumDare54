@@ -71,5 +71,11 @@ text = "LANGUAGE - ENGLISH"
 horizontal_alignment = 1
 
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/VBoxContainer/Start" to="." method="_on_start_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/VBoxContainer/Start" to="." method="_on_start_mouse_exited"]
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_exited"]
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/VBoxContainer/Language" to="." method="_on_language_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/VBoxContainer/Language" to="." method="_on_language_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/VBoxContainer/Language" to="." method="_on_language_mouse_exited"]
