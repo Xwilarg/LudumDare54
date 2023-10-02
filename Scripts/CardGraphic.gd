@@ -28,4 +28,4 @@ func set_card(c: Card):
 
 
 func _on_delete_pressed():
-	GameManager.update_button(self);
+	GameManager.update_button(self, true);
