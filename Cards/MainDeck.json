@@ -68,7 +68,7 @@
 			"ATK_GRN": 10,
 			"ATK_BLU": 5
 		},
-		"energyCost": 15,
+		"energyCost": 10,
 		"level": 1
 	},
 	{
@@ -117,6 +117,18 @@
 			"ATK_BLU": 5
 		},
 		"energyCost": 15,
+		"level": 1
+	},
+	{
+		"name": "missile2",
+		"model": "missileSize2",
+		"size": "S2",
+		"effects": {
+			"ATK_RED": 50,
+			"ATK_GRN": 10,
+			"ATK_BLU": 10
+		},
+		"energyCost": 25,
 		"level": 1
 	},
 	{
