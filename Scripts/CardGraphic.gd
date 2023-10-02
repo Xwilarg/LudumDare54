@@ -14,11 +14,14 @@ func set_card(c: Card):
 	_curr_card = c;
 	$CardBG/MarginContainer/VBoxContainer/HBoxContainer2/NamePanel/MarginContainer/RichTextLabel.text = c.name;
 	$CardBG/MarginContainer/VBoxContainer/DescPanel/MarginContainer/RichTextLabel.text = c.description
-	$CardBG/MarginContainer/VBoxContainer/HBoxContainer2/EnergyPanel/MarginContainer/RichTextLabel.text = str(c.energyCost) + "e"
+	$CardBG/MarginContainer/VBoxContainer/HBoxContainer2/EnergyPanel/MarginContainer/RichTextLabel.text = "cost: " + str(c.energyCost)
 
+	var effects_text = ""
 	var effect_text = ""
 	
 	for eff in c.effects:
-		effect_text += eff + ": " + str(c.effects[eff]) + "\n"
+		effect_text = tr("EFF_" + eff).replace("%1", str(c.effects[eff]))
+		
+		effects_text += effect_text + "\n"
 	
-	$CardBG/MarginContainer/VBoxContainer/HBoxContainer/StatsPanel/MarginContainer/RichTextLabel.text = effect_text
+	$CardBG/MarginContainer/VBoxContainer/HBoxContainer/StatsPanel/MarginContainer/RichTextLabel.text = effects_text
