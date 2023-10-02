@@ -98,8 +98,9 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1 and _selected_card != null:
 		
 		if !CardManager.can_be_placed(_selected_card):
-			var label_not_enough_energy = get_node(("/root/Root/"))
-			print("[GM] Not enough energy to place " + _selected_card.name)
+			var energy_alert = get_node(("/root/Root/UI/MissingEnergy"))
+			energy_alert.text = "[center]Not enough energy to place [" + _selected_card.name + "][/center]"
+			$EnergyAlert.start()
 			return
 		
 		# We do a raycast to see where we click
@@ -167,3 +168,11 @@ func update_button(b: CardUI):
 		nextCard = _cards[rng.randi_range(0, len(_cards) - 1)]
 	print("[GM] Loading card " + nextCard.name + " of level " + str(nextCard.level) + " (Current level: " + str(upgradeLevel) + ")")
 	b.set_card(nextCard)
+
+
+func _on_energy_alert_timeout():
+	var energy_alert = get_node(("/root/Root/UI/MissingEnergy"))
+	energy_alert.text = ""
+	$EnergyAlert.wait_time = 3
+	$EnergyAlert.stop()
+	
