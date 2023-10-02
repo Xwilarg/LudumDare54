@@ -93,18 +93,19 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="MissingEnergy" type="RichTextLabel" parent="UI"]
+custom_minimum_size = Vector2(750, 50)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.128
-anchor_top = 0.568
-anchor_right = 0.878
-anchor_bottom = 0.67
-offset_left = -0.456009
-offset_top = -0.0640259
-offset_right = -0.456055
-offset_bottom = -0.159973
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("3_m0x2s")
-theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 fit_content = true
 
