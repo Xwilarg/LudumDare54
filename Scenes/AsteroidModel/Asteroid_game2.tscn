@@ -5,5 +5,13 @@
 
 [node name="Asteroid" instance=ExtResource("1_cyt7o")]
 
+[node name="RigidBody3D" parent="." index="0"]
+collision_mask = 0
+
 [node name="Asteroid_model" parent="RigidBody3D" index="1" instance=ExtResource("2_yxtfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135259, 0)
+
+[node name="Label3D" type="Label3D" parent="RigidBody3D" index="2"]
+transform = Transform3D(-1, 0, -4.56956e-08, 0, 1, 0, 4.56956e-08, 0, -1, 0, 0.282965, -1)
+text = "Sample Text"
+font_size = 100

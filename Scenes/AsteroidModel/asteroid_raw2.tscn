@@ -9,5 +9,5 @@ script = ExtResource("2_hvjk5")
 meshpath = NodePath("Asteroid 2")
 
 [node name="Asteroid 2" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.39635, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.605389, 0)
 surface_material_override/0 = ExtResource("2_cwl0d")
