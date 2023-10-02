@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="3_n7wdy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_at5ep"]
-size = Vector3(29.1789, 3.89488, 15.6638)
+size = Vector3(9.10454, 3.89488, 14.1372)
 
 [node name="spaceship" type="Node3D"]
 script = ExtResource("1_ilw26")
@@ -42,4 +42,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78701, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99398, -1.51957)
+shape = SubResource("BoxShape3D_at5ep")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.99398, -5.95908)
+shape = SubResource("BoxShape3D_at5ep")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.99398, -5.95908)
 shape = SubResource("BoxShape3D_at5ep")
