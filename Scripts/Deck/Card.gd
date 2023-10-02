@@ -18,7 +18,9 @@ func _init(json: Dictionary):
 	elif json.model == "shieldGenerator": model = preload("res://Models/shieldGenerator.glb")
 	elif json.model == "bigWires": model = preload("res://Models/bigWires.glb")
 	elif json.model == "laserSize1": model = preload("res://Models/laserSize1.glb")
+	elif json.model == "gunSize3L": model = preload("res://Models/gunSize3L.glb")
 	elif json.model == "missileSize1": model = preload("res://Models/missileSize1.glb")
+	elif json.model == "missileSize2": model = preload("res://Models/missileSize2.glb")
 	else: print("Unknown model " + json.model)
 
 	if json.size == "S1":
