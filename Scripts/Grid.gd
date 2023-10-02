@@ -92,8 +92,10 @@ func is_shape_placable(input_shape: PackedStringArray, shape_anchor_position: Ve
 			# must all be "X" or "." at the same times
 			var coord_row = input_rectangle[0][0] + row
 			var coord_col =  input_rectangle[0][1] + col
+			if input_shape[row][col] == '.': continue
 			print("[CG] Registered input " + input_shape[row][col] + " at ("  + str(coord_row) + ";" + str(coord_col) + ")")
 			if input_shape[row][col] != self.shape[coord_row][coord_col]:
+				print("[CG] Item placement failed: " + input_shape[row][col] + " != " + self.shape[coord_row][coord_col])
 				return false
 
 	for item in placed_items.keys():

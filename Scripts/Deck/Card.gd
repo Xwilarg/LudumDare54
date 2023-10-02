@@ -32,7 +32,7 @@ func _init(json: Dictionary):
 		shape = ["X", "X", "X"]
 	elif json.size == "L3": # Doesn't work!!
 		previewModel = preload("res://Models/upgradePlaceholderBlock3L.glb")
-		shape = ["X", "X", "XX"]
+		shape = ["X.", "X.", "XX"]
 	else: print("Unknown size " + json.size)
 
 var name: String
