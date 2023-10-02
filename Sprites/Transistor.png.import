@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bap0m3s736irf"
-path="res://.godot/imported/transistor.png-01795c1a21b3a32f9f1598a0ffdece5c.ctex"
+path="res://.godot/imported/Transistor.png-aaba4f04cba15fd351e732dd8de17833.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/transistor.png"
-dest_files=["res://.godot/imported/transistor.png-01795c1a21b3a32f9f1598a0ffdece5c.ctex"]
+source_file="res://Sprites/Transistor.png"
+dest_files=["res://.godot/imported/Transistor.png-aaba4f04cba15fd351e732dd8de17833.ctex"]
 
 [params]
 
