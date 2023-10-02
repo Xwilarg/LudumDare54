@@ -138,7 +138,7 @@ func _input(event):
 							add_child(item)
 							grid.add_item_at_grid_position(item, _selected_card.shape, Vector2i(0, 0), grid_position)
 							var t = result.collider.global_position
-							item.global_position = Vector3(t.x, t.y + .5, t.z)
+							item.global_position = Vector3(item.global_position.x, t.y + .5, item.global_position.z)
 							# print("It's magic time")
 							update_button(current_button)
 							isDone = true
