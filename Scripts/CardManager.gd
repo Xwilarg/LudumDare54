@@ -46,7 +46,7 @@ func sum(arr: Array[int]) -> int:
 func _process(delta):
 	var current_scene = get_tree().get_current_scene().get_name()
 	
-	if current_scene == "Root":
+	if current_scene == "Root" && asteroidManager:
 		_aaTimer -= delta
 		
 		if _aaTimer <= 0.0:
