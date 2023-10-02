@@ -24,7 +24,7 @@ func try_place(s: Slot, c: Card) -> bool:
 			if symbol == 'X' and (!elems.has(v) or elems[v] != null):
 				if elems[v] != null:
 					CardManager.delete_item(elems[v].obj)
-					elems[v].obj.queue_free()
+					elems[v].obj.queue_free() # TODO: crash
 					elems[v].obj = null
 				else:
 					return false
