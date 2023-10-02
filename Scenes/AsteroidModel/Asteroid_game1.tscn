@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://dv47ub7wey2jk" path="res://Scenes/Asteroid.tscn" id="1_yclce"]
 [ext_resource type="PackedScene" path="res://Scenes/AsteroidModel/asteroid_raw.tscn" id="2_u1oe4"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_bnuf8"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_rob6j"]
 
 [node name="Asteroid" instance=ExtResource("1_yclce")]
 
 [node name="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" index="0"]
-mesh = SubResource("BoxMesh_bnuf8")
+mesh = SubResource("ArrayMesh_rob6j")
 
 [node name="Asteroid_model" parent="RigidBody3D/CollisionShape3D" index="1" instance=ExtResource("2_u1oe4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.666183, 0)
