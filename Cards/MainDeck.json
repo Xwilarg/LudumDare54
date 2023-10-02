@@ -147,11 +147,11 @@
 		"name": "missile2",
 		"model": "missileSize2",
 		"icon": "missile",
-		"size": "S2",
+		"size": "S1",
 		"effects": {
-			"ATK_RED": 50,
-			"ATK_GRN": 15,
-			"ATK_BLU": 15
+			"ATK_RED": 40,
+			"ATK_GRN": 10,
+			"ATK_BLU": 10
 		},
 		"energyCost": 20,
 		"level": 2
